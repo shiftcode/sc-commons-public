@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es2019",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"]
+}

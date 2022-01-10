@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.spec.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "lib": ["es2018"],
+    "paths": {}
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "test/**/*.ts"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es2017",
+    "module": "es2015",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "./dist/",
+    "outDir": "./dist/",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    // make sure to reset types per default,
+    // otherwise we have @types/node which is equivalent to lib: [es2018] which is not what we want as default
+    "types": []
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "packages/**/test/**/*.ts"
+  ]
+}
