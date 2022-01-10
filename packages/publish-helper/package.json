@@ -32,7 +32,7 @@
     "@types/yargs": "^17.0.8"
   },
   "peerDependencies": {
-    "@shiftcode/branch-utilities": "0.0.1 || ^1.0.0 || ^1.0.0-pr1",
+    "@shiftcode/branch-utilities": "^1.0.0",
     "lerna": "^4.0.0",
     "tslib": "^2.3.0"
   },
