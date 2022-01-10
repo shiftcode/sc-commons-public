@@ -68,10 +68,11 @@ jobs:
       # publish
       - name: Publish
         run: |
-          npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
+          npm config set //npm.pkg.github.com/:_authToken=$REGISTRY_TOKEN
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
           yarn publish-libs
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN_PUBLIC_REPO }}
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN_PUBLIC_REPO }} # necessary for publish-libs script
