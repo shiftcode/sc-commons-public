@@ -71,7 +71,7 @@ const reUnicodeWord = RegExp(
 /**
  * Splits a Unicode `string` into an array of its words.
  * copied from https://github.com/lodash/lodash/blob/4.17.11/lodash.js#L1371
- *
+ * LICENSE: https://github.com/lodash/lodash/blob/master/LICENSE
  * @param The string to inspect.
  * @returns Returns the words of `string`.
  */

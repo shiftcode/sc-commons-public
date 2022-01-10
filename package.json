@@ -2,6 +2,7 @@
   "name": "sc-commons-public",
   "private": true,
   "repository": "https://github.com/shiftcode/sc-commons-public",
+  "license": "MIT",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "workspaces": [
     "packages/*"

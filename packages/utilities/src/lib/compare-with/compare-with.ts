@@ -18,6 +18,7 @@ type Customizer = (value1: any, value2: any) => boolean | undefined
 
 /**
  * base source copied from https://github.com/angus-c/just/blob/master/packages/collection-compare/index.js
+ * LICENSE: https://github.com/angus-c/just/blob/master/LICENSE
  * primitives: value1 === value2
  * functions: value1.toString == value2.toString
  * arrays: if length, sequence and values of properties are identical

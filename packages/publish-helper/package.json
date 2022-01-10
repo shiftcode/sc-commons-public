@@ -3,7 +3,7 @@
   "version": "1.0.0-pr1.2",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "bin": {
     "prepare-dist": "./dist/prepare-dist.js",

@@ -23,11 +23,13 @@ command: `prepare-dist`
 
 Copies package.json and other files to the dist directory to allow publishing the dist instead of the package root. 
 
-When using another dir name than `dist` specify the name inside the package.json
+When using another dir name than `dist` specify the name inside the package.json\
 ```json
+{
   "publishConfig": {
     "directory": "out"
   }
+}
 ```
 
 options:
