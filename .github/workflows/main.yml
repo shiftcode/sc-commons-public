@@ -74,4 +74,4 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN_PUBLIC_REPO }} # necessary for publish-libs script
+          GH_TOKEN: ${{ secrets.GH_TOKEN_3 }} # necessary for publish-libs script
