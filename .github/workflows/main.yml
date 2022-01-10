@@ -46,6 +46,8 @@ jobs:
         with:
           # 0 indicates all history, because publish requires tag information
           fetch-depth: 0
+          # we need priviledged access to publish to protected branch
+          token: ${{ secrets.GH_TOKEN_3 }}
       # setup node and yarn cache
       - name: Setup Node and Yarn Cache
         uses: actions/setup-node@v2
