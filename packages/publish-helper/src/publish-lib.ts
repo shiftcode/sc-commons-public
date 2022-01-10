@@ -121,6 +121,7 @@ function publishPreRelease(
   )
   execLerna('publish', [`from-package`, `--dist-tag ${preId}`], opts.verbose, null)
   exec('git tag -d $(git describe --abbrev=0)')
+  exec('git remote -v')
   exec('git push')
 }
 
