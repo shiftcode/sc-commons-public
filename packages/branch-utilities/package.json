@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/branch-utilities",
-  "version": "1.0.0-pr1.5",
+  "version": "1.0.0-pr1.6",
   "description": "Utilities for local and ci to get branch name and stage",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
