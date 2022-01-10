@@ -1,4 +1,4 @@
-# branch-utils
+# branch-utilities
 
 > 🎯 Target runtime: es2019 ([Node >= 12](https://node.green/#ES2019))
 

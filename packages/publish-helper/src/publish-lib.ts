@@ -7,7 +7,7 @@ import {
   gitSwitchBranch,
   hasGithubContext,
   isGithubWorkflow,
-} from '@shiftcode/branch-utils'
+} from '@shiftcode/branch-utilities'
 import * as process from 'process'
 
 import yargs from 'yargs'

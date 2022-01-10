@@ -1,5 +1,4 @@
-# utils
-> former @shiftcoders/just-missing
+# utilities
 
 > 🎯 Target runtime: es2017 ([Browser](https://caniuse.com/?search=es2017) & [Node](https://node.green/#ES2017))
 

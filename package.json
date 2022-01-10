@@ -11,7 +11,7 @@
     "lint:ci": "lerna run lint:ci",
     "prepare": "node ./prepare-husky.js",
     "prettier": "lerna run prettier",
-    "publish-libs": "node ./packages/build-helper/dist/publish-lib",
+    "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"
   },
   "dependencies": {

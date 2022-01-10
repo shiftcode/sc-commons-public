@@ -40,7 +40,6 @@ jobs:
     # only execute if not skipped by commit message
     if: needs.checkExecution.outputs.shouldExecute == 'true'
     steps:
-      - run: echo output ${{ needs.checkExecution.outputs.shouldExecute }}
       # checkout branch
       - name: Checkout
         uses: actions/checkout@v2
