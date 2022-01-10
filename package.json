@@ -1,0 +1,38 @@
+{
+  "name": "sc-commons-public",
+  "private": true,
+  "repository": "https://github.com/shiftcode/sc-commons-public",
+  "license": "MIT",
+  "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:ci": "lerna run build --include-dependencies",
+    "lint:ci": "lerna run lint:ci",
+    "prepare": "node ./prepare-husky.js",
+    "prettier": "lerna run prettier",
+    "publish-libs": "node packages/publish-helper/dist/publish-lib",
+    "test:ci": "lerna run test:ci"
+  },
+  "dependencies": {
+    "lerna": "^4.0.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/prompt-cli": "^16.0.0",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^14.17.34",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.7",
+    "prettier": "^2.5.1",
+    "sort-package-json": "^1.53.1",
+    "ts-jest": "^27.1.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~4.5.4"
+  }
+}
