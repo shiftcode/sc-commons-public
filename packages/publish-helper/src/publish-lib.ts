@@ -79,11 +79,7 @@ function publishMaster(opts: Options) {
   log('PUBLISH MASTER')
   execLerna(
     'version',
-    [
-      '--conventional-commits',
-      '--conventional-graduate',
-      '--changelog-preset conventional-changelog-conventionalcommits',
-    ],
+    ['--conventional-commits', '--conventional-graduate', '--changelog-preset conventional-changelog-angular'],
     opts.verbose,
   )
   execLerna('publish', ['from-package'], opts.verbose, null)

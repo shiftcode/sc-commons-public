@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/publish-helper",
-  "version": "1.0.0",
+  "version": "1.0.1-pr5.0",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "test:watch": "jest --passWithNoTests --watch"
   },
   "dependencies": {
-    "conventional-changelog-conventionalcommits": "^4.2.1",
+    "conventional-changelog-angular": "^5.0.13",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
