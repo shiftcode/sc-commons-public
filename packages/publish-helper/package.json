@@ -24,7 +24,7 @@
     "test:watch": "jest --passWithNoTests --watch"
   },
   "dependencies": {
-    "conventional-changelog-conventionalcommits": "^4.2.1",
+    "conventional-changelog-angular": "^5.0.13",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
