@@ -10,7 +10,7 @@
   "scripts": {
     "build:ci": "lerna run build --include-dependencies",
     "lint:ci": "lerna run lint:ci",
-    "prepare": "node ./prepare-husky.js",
+    "prepare": "./prepare-husky",
     "prettier": "lerna run prettier",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"
