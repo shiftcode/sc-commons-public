@@ -2,12 +2,16 @@
 
 Public helper packages with commonly used utilities / helpers.
 
-* [@shiftcode/branch-utilities](packages/branch-utilities) \
-   functions to read information about the current branch either locally or inside Github actions.
-* [@shiftcode/publish-helper](packages/publish-helper)\
-   scripts to prepare and publish libs inside mono-repos with lerna
-* [@shiftcode/utilities](packages/utilities)\
-   various utility functions, constants and helper types - usable in Node and Browsers
+
+>[![@shiftcode/branch-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fbranch-utilities%2Fpackage.json&label=%40shiftcode%2Fbranch-utilities)](packages/branch-utilities) \
+>functions to read information about the current branch either locally or inside Github actions.
+
+ 
+>[![@shiftcode/publish-helper](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fpublish-helper%2Fpackage.json&label=%40shiftcode%2Fpublish-helper)](packages/publish-helper)\
+>scripts to prepare and publish libs inside mono-repos with lerna
+
+>[![@shiftcode/utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Futilities%2Fpackage.json&label=%40shiftcode%2Futilities)](packages/utilities)\
+>various utility functions, constants and helper types - usable in Node and Browsers
 
 ## Usage
 Add a `.npmrc` file to the root of your project:
