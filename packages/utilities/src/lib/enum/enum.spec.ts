@@ -44,8 +44,9 @@ describe('enum helper', () => {
     })
     it('works for string enums', () => {
       expect(getEnumValues(Str)).toEqual(['A', 'B'])
-      assertType<string[]>(getEnumValues(Str))
+      assertType<Str[]>(getEnumValues(Str))
       expect(getEnumValues(Str2)).toEqual(['200_OK', '400_ERROR'])
+      assertType<Str2[]>(getEnumValues(Str2))
     })
     it('works for mixed enums', () => {
       expect(getEnumValues(Mix)).toEqual([7, 42, 'C', 'FOO'])

@@ -14,10 +14,12 @@ export type StringEnum<E> = Record<keyof E, string>
 export type NumberEnum<E> = Record<keyof E, number> & { [k: number]: string }
 export type MixedEnum<E> = Record<keyof E, string | number> & { [k: number]: string }
 
+export type EnumValuesOf<E> = E extends Record<any, infer U> ? U : never
+
 /**
  * returns all actual values of an enum with string values
  */
-export function getEnumValues<E extends StringEnum<E>>(en: E): string[]
+export function getEnumValues<E extends StringEnum<E>>(en: E): EnumValuesOf<E>[]
 /**
  * returns all actual values of an enum with number values
  */
