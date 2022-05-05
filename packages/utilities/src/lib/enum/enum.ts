@@ -62,3 +62,7 @@ export function getEnumKeyFromValue<E extends MixedEnum<E>>(en: E, value: any): 
 export function getEnumKeyFromNum<E extends NumberEnum<E>>(en: E, value: number): keyof E {
   return en[value]
 }
+
+export function isValueFromEnum<E extends StringEnum<any>>(e: E, value: unknown): value is EnumValuesOf<E> {
+  return Object.values(e).includes(<string>value)
+}
