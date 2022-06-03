@@ -1,26 +1,31 @@
-import { getEnumKeyFromNum, getEnumKeyFromValue, getEnumKeys, getEnumValues } from './enum'
+import { getEnumKeyFromNum, getEnumKeyFromValue, getEnumKeys, getEnumValues, isValueFromEnum } from './enum'
 
+// string enum with key=val
 enum Str {
   A = 'A',
   B = 'B',
 }
 
+// string enum with key!=val
 enum Str2 {
   OK = '200_OK',
   ERROR = '400_ERROR',
 }
 
+// number enum with explicit values
 enum Num {
   A = 25,
   B = 26,
   C = 27,
 }
 
+// number with implicit values
 enum Num2 {
   OK,
   NOK,
 }
 
+// mixed enum
 enum Mix {
   A = 7,
   B = 42,
@@ -44,8 +49,9 @@ describe('enum helper', () => {
     })
     it('works for string enums', () => {
       expect(getEnumValues(Str)).toEqual(['A', 'B'])
-      assertType<string[]>(getEnumValues(Str))
+      assertType<Str[]>(getEnumValues(Str))
       expect(getEnumValues(Str2)).toEqual(['200_OK', '400_ERROR'])
+      assertType<Str2[]>(getEnumValues(Str2))
     })
     it('works for mixed enums', () => {
       expect(getEnumValues(Mix)).toEqual([7, 42, 'C', 'FOO'])
@@ -94,6 +100,20 @@ describe('enum helper', () => {
     it('works for number enums', () => {
       expect(getEnumKeyFromNum(Num, Num.A)).toEqual(<keyof Num>'A')
       expect(getEnumKeyFromNum(Num2, Num2.OK)).toEqual(<keyof Num>'OK')
+    })
+  })
+  describe('isValueFromEnum', () => {
+    it('works for StringEnums', () => {
+      expect(isValueFromEnum(Str, 'C')).toEqual(false)
+      expect(isValueFromEnum(Str, 'A')).toEqual(true)
+
+      const a: unknown = 'A'
+      if (isValueFromEnum(Str, a)) {
+        assertType<Str>(a)
+      }
+
+      expect(isValueFromEnum(Str2, 'OK')).toEqual(false)
+      expect(isValueFromEnum(Str2, '200_OK')).toEqual(true)
     })
   })
 })
