@@ -1,3 +1,5 @@
+export * from './lib/color-utils/hex-to-rgb.function'
+export * from './lib/color-utils/colorize-for-console.function'
 export * from './lib/compare-with/compare-with'
 export * from './lib/cookie/parse-cookies.function'
 export * from './lib/enum/enum'
