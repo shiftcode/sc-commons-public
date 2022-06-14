@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@1.1.0...@shiftcode/utilities@1.2.0) (2022-06-14)
+
+
+### Features
+
+* **color-utils:** add hexToRgb and colorizeForConsole function ([3fbc35f](https://github.com/shiftcode/sc-commons-public/commit/3fbc35fb22403900f7cb38a395a4e733860aaef1))
+
+
+
+
+
 # [1.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@1.0.0...@shiftcode/utilities@1.1.0) (2022-06-03)
 
 
