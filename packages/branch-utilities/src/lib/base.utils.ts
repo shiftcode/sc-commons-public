@@ -11,12 +11,29 @@ export const REGEX_MAIN = /^main$/
 /** regex to match our branch conventions with the following capture groups: fullMatch / branch id / branch name */
 export const REGEX_BRANCH_NAME = /^[a-z]*\/?#(\d+)-(.*)/
 
-export interface BranchInfo {
-  branchName: string
+export interface StageInfo {
   isProd: boolean
   isPr: boolean
   stage: string
+}
+
+export interface BranchInfo extends StageInfo {
+  branchName: string
   name: string
+}
+
+/**
+ * create the {@link StageInfo} object from given stage
+ * @param stage the name either matching xx\d+ , pr\d+ or master|main
+ */
+export function createStageInfo(stage: string): StageInfo {
+  const isPr = isPullRequest(stage)
+  const isXx = isDevStage('xx')
+  const isProd = isProduction(stage)
+  if (!isPr && !isXx && !isProd) {
+    throw new Error('The provided stage neither is xx nor pr nor master/main.')
+  }
+  return { stage, isProd, isPr }
 }
 
 /**
@@ -133,6 +150,9 @@ export function isPullRequest(stageName: string): boolean {
   return stageName.startsWith('pr')
 }
 
+function isDevStage(stageName: string): boolean {
+  return stageName.startsWith('xx')
+}
 export function isScOverrideActive(env: unknown): env is CustomScOverrideEnv {
   return typeof env === 'object' && env !== null && (env as CustomScOverrideEnv).SC_OVERRIDE === 'true'
 }
