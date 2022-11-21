@@ -1,4 +1,4 @@
-import { mapValuesDeep } from './map-values-deep'
+import { mapValuesDeep } from './map-values-deep.js'
 
 describe('map values deep', () => {
   // base copied from https://github.com/angus-c/just/blob/master/test/object-map-values/index.js

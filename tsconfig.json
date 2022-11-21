@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es2017",
-    "module": "es2015",
+    "moduleResolution": "node16",
+    "target": "es2021",
+    "module": "es2022",
     "strict": true,
     "sourceMap": true,
     "declaration": true,

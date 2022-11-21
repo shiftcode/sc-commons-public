@@ -4,13 +4,14 @@
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build:ci": "lerna run build --include-dependencies",
     "lint:ci": "lerna run lint:ci",
-    "prepare": "./prepare-husky",
+    "prepare": "./prepare-husky.cjs",
     "prettier": "lerna run prettier",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"
@@ -33,6 +34,6 @@
     "ts-jest": "^27.1.2",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~4.5.4"
+    "typescript": "~4.8.4"
   }
 }

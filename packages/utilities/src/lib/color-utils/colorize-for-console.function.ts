@@ -1,4 +1,4 @@
-import { hexToRgb } from './hex-to-rgb.function'
+import { hexToRgb } from './hex-to-rgb.function.js'
 
 export type RGB = [red: number, green: number, blue: number]
 

@@ -1,4 +1,4 @@
-import { hexToRgb } from './hex-to-rgb.function'
+import { hexToRgb } from './hex-to-rgb.function.js'
 
 describe('hexToRgb', () => {
   test('works with # and without #', () => {
