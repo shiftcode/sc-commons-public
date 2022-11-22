@@ -12,7 +12,7 @@ import * as process from 'process'
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { exec } from './helpers'
+import { exec } from './helpers.js'
 
 interface Options {
   canary: boolean
