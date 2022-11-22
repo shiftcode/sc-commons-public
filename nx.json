@@ -4,12 +4,11 @@
       "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": [
+          "build:ci",
           "build",
-          "lint",
           "lint:ci",
           "lint:src",
           "lint:test",
-          "test",
           "test:ci"
         ]
       }
@@ -17,6 +16,7 @@
   },
   "targetDefaults": {
     "build": {
+      "dependsOn": ["^build"],
       "outputs": [
         "{projectRoot}/dist"
       ]
