@@ -1,4 +1,4 @@
-import { exec, execReturn } from './helpers'
+import { exec, execReturn } from './helpers.js'
 
 /**
  * Will update remote settings to fetch repo and then switch to given branch.

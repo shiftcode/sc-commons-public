@@ -6,12 +6,19 @@
   "license": "MIT",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "main": "./dist/_cjs/index.js",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
-    "build": "tsc && tsc --outDir ./dist/_cjs/ --module commonjs",
+    "build": "tsc",
     "lint": "yarn lint:src --fix && yarn lint:test --fix",
     "lint:ci": "yarn lint:src && yarn lint:test",
     "lint:src": "tslint --format codeFrame --project ./tsconfig.json",

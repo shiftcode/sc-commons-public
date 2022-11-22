@@ -1,5 +1,5 @@
 import exp from 'constants'
-import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types'
+import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types/index.js'
 
 /**
  *  checks if running inside a gitHub workflow
