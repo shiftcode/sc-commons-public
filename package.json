@@ -9,7 +9,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build:ci": "lerna run build --include-dependencies",
+    "build:ci": "lerna run build",
     "lint:ci": "lerna run lint:ci",
     "prepare": "./prepare-husky.js",
     "prettier": "lerna run prettier",
@@ -17,7 +17,7 @@
     "test:ci": "lerna run test:ci"
   },
   "dependencies": {
-    "lerna": "^4.0.0",
+    "lerna": "^6.0.3",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
