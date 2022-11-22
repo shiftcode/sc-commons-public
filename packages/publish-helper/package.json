@@ -29,7 +29,7 @@
     "yargs": "^17.3.1"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^2.0.0-pr",
+    "@shiftcode/branch-utilities": "*",
     "@types/yargs": "^17.0.8"
   },
   "peerDependencies": {
