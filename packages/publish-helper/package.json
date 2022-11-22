@@ -29,11 +29,11 @@
     "yargs": "^17.3.1"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^1.1.0",
+    "@shiftcode/branch-utilities": "^2.0.0-pr",
     "@types/yargs": "^17.0.8"
   },
   "peerDependencies": {
-    "@shiftcode/branch-utilities": "^1.0.0",
+    "@shiftcode/branch-utilities": "^2.0.0-pr",
     "lerna": "^4.0.0",
     "tslib": "^2.3.0"
   },
