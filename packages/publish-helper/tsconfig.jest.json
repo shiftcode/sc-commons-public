@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.spec.json",
+  "extends": "../../tsconfig.jest.json",
   "compilerOptions": {
     "baseUrl": "./"
   },
