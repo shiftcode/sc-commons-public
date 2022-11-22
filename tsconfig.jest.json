@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": false,
     "declarationDir": null,
+    "noEmit": true,
     "outDir": "./out-tsc/spec",
     "types": [
       "jest",
@@ -11,8 +12,5 @@
     "strictPropertyInitialization": false,
     "resolveJsonModule": true
   },
-  "exclude": [],
-  "ts-jest": {
-    "allowSyntheticDefaultImports": true
-  }
+  "exclude": []
 }
