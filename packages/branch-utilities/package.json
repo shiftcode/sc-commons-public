@@ -13,9 +13,6 @@
       "default": "./dist/index.js"
     }
   },
-  "main": "./dist/_cjs/index.js",
-  "module": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
