@@ -9,10 +9,7 @@
     "declarationDir": "./dist/",
     "outDir": "./dist/",
     "importHelpers": true,
-    "esModuleInterop": true,
-    // make sure to reset types per default,
-    // otherwise we have @types/node which is equivalent to lib: [es2018] which is not what we want as default
-    "types": []
+    "esModuleInterop": true
   },
   "exclude": [
     "**/*.spec.ts",

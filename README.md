@@ -45,6 +45,15 @@ We use lerna to manage the packages.
 - For testing reasons we compile against the source code to run tests without prior compiling of the source, this requires `tsconfig.paths` definitions and also `moduleNameMapper` in `jest.config.js`
 
 
-## es2021
-`es2021` is supported 100% in node^18 (see [node.green](https://node.green/#ES2021)) and also in browsers, which is 
-relevant for `@shiftcode/utilities` package (see [can-i-use](https://caniuse.com/?feats=mdn-javascript_builtins_string_replaceall,mdn-javascript_builtins_promise_any,mdn-javascript_builtins_weakref,mdn-javascript_operators_logical_or_assignment,mdn-javascript_operators_logical_and_assignment,mdn-javascript_operators_logical_nullish_assignment,mdn-javascript_grammar_numeric_separators,mdn-javascript_builtins_finalizationregistry))). AWS Lambda also supports node ^18.
+## ES Version
+We support two runtimes: `node` and `latest browser versions`.
+
+### Node^18
+Node^18 (which is also supported by AWS Lambda) supports [97%](https://node.green/#ES2022) of `es2022` features and [100%](https://node.green/#ES2023) of `es2023` features.
+The only `es2022` feature that is currently not supported and needs a polyfill when using it is
+[RegExp Match Indices (shows up in flags)](https://node.green/#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag-) (see [2ality blog](https://2ality.com/2019/12/regexp-match-indices.html) for insights). 
+Polyfill can be found here: https://www.npmjs.com/package/regexp-match-indices.
+
+### Browser
+For modern browsers the latest fully supported version is `es2021` (see [can-i-use](https://caniuse.com/?feats=mdn-javascript_builtins_string_replaceall,mdn-javascript_builtins_promise_any,mdn-javascript_builtins_weakref,mdn-javascript_operators_logical_or_assignment,mdn-javascript_operators_logical_and_assignment,mdn-javascript_operators_logical_nullish_assignment,mdn-javascript_grammar_numeric_separators,mdn-javascript_builtins_finalizationregistry)))
+which therefore is the target for `@shiftcode/utilities` package.
