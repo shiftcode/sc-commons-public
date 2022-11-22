@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import { dirname, normalize as normalizePath } from 'path'
-import process from 'process'
+import fs from 'node:fs'
+import { dirname, normalize as normalizePath } from 'node:path'
+import process from 'node:process'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
