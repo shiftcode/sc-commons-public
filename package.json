@@ -11,7 +11,7 @@
   "scripts": {
     "build:ci": "lerna run build",
     "lint:ci": "lerna run lint:ci",
-    "prepare": "./prepare-husky.js",
+    "prepare": "husky install",
     "prettier": "lerna run prettier",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"

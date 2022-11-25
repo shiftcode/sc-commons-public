@@ -56,7 +56,7 @@ jobs:
           cache: 'yarn'
       # yarn install
       - name: Install
-        run: yarn --frozen-lockfile
+        run: HUSKY=0 yarn --frozen-lockfile
       # lint
       - name: Lint
         run: yarn lint:ci
