@@ -52,6 +52,10 @@ rules:
   prefer-conditional-expression: false
   no-implicit-dependencies:
     - true
+    - - "node:child_process"
+      - "node:fs"
+      - "node:path"
+      - "node:process"
   variable-name:
     - true
     - ban-keywords

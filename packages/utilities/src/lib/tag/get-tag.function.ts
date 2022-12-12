@@ -1,4 +1,4 @@
-import { Tag } from './tag.enum'
+import { Tag } from './tag.enum.js'
 
 /**
  * @return Returns the value (we call it tag) returned by function call `value.toString`,

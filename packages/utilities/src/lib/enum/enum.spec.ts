@@ -1,4 +1,4 @@
-import { getEnumKeyFromNum, getEnumKeyFromValue, getEnumKeys, getEnumValues, isValueFromEnum } from './enum'
+import { getEnumKeyFromNum, getEnumKeyFromValue, getEnumKeys, getEnumValues, isValueFromEnum } from './enum.js'
 
 // string enum with key=val
 enum Str {

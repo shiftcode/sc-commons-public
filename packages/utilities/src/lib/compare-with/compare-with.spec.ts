@@ -1,4 +1,4 @@
-import { compareWith } from './compare-with'
+import { compareWith } from './compare-with.js'
 
 function isGreeting(value: any) {
   return /^h(?:i|ello)$/.test(value)

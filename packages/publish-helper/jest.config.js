@@ -1,9 +1,14 @@
-module.exports = {
+import {pathsToModuleNameMapper} from 'ts-jest'
+import tsConfig from './tsconfig.jest.json' assert {type: 'json'}
+
+export default {
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      tsconfig: './tsconfig.spec.json',
-    },
+  extensionsToTreatAsEsm: ['.ts'],
+  transform: {
+    '^.+\\.ts$': ['ts-jest', {tsconfig: 'tsconfig.jest.json', useESM: true}]
   },
-  preset: 'ts-jest/presets/js-with-ts',
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+    ...pathsToModuleNameMapper(tsConfig.compilerOptions.paths ?? {})
+  }
 }

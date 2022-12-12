@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import { dirname, normalize as normalizePath } from 'path'
-import process from 'process'
+import fs from 'node:fs'
+import { dirname, normalize as normalizePath } from 'node:path'
+import process from 'node:process'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import { ensureDir, fixPackageJsonPaths, PCKG_JSON } from './helpers.js'
 
-const PCKG_JSON = 'package.json'
-const PCKG_KEYS_TO_FIX = /^(main|module|typings|browser|es\d+)$/
-const PCKG_BIN_KEY = 'bin'
 const FILES_TO_CP = /(README|CHANGES|CHANGELOG|HISTORY|LICENSE|LICENCE|NOTICE')/i
 
 interface Options {
@@ -24,62 +22,22 @@ function log(...args: any[]) {
   console.log(`prepare-dist::`, ...(args || []).map((v) => (typeof v === 'string' ? v : JSON.stringify(v))))
 }
 
-/**
- * ensure returned value looks like dir/
- * @example:
- * ./dir => dir/
- * ./dir/ ==> dir/
- * dir/ => dir/
- * dir => dir/
- */
-function ensureDir(val: string): string {
-  return val
-    .replace(/^.\//, '') // ensure no ./ at the beginning
-    .replace(/([^/])$/, '$1/') // ensure slash at the end
-}
-
 export function prepareDist(opts: Options) {
   // read package json
   const packageFile = fs.readFileSync(`./${PCKG_JSON}`)
-  const pckg = JSON.parse(<any>packageFile)
+  const pck = JSON.parse(<any>packageFile)
 
-  const publishDir =
-    pckg && pckg.publishConfig && pckg.publishConfig.directory ? ensureDir(pckg.publishConfig.directory) : 'dist/'
+  const publishDir = ensureDir(pck?.publishConfig?.directory ?? 'dist/')
 
-  const fixPath = (p: any) => p.replace(publishDir, '')
+  const publishPck = fixPackageJsonPaths(pck, publishDir, log)
+  log(`Package: ${pck.name} | PublishDirectory: ${publishDir}`)
 
-  log(`Package: ${pckg.name} | PublishDirectory: ${publishDir}`)
-  // refactor package.json
-  const publishPckg: any = Object.entries(pckg).reduce((u, [key, val]) => {
-    if (PCKG_KEYS_TO_FIX.test(key)) {
-      log(`rewrite ${key} path. from`, val)
-      val =
-        typeof val === 'string'
-          ? fixPath(val)
-          : (() => {
-              throw new Error(`${PCKG_JSON}#${key} is not a string`)
-            })()
-      log('to:', val)
-    }
-    if (key === PCKG_BIN_KEY) {
-      log('rewrite bin paths. from', val)
-      val =
-        typeof val === 'object' && val !== null
-          ? Object.entries(val).reduce((_u, [_k, _v]) => ({ ..._u, [_k]: fixPath(_v) }), {})
-          : (() => {
-              throw new Error(`${PCKG_JSON}#${PCKG_BIN_KEY} is not an object`)
-            })()
-      log('to:', val)
-    }
-    return { ...u, [key]: val }
-  }, {})
-
-  delete publishPckg.scripts
-  delete publishPckg.devDependencies
-  delete publishPckg.publishConfig
+  delete publishPck.scripts
+  delete publishPck.devDependencies
+  delete publishPck.publishConfig
 
   // copy package.json and necessary files into ./dist
-  fs.writeFileSync(`./${publishDir}${PCKG_JSON}`, JSON.stringify(publishPckg, undefined, 2))
+  fs.writeFileSync(`./${publishDir}${PCKG_JSON}`, JSON.stringify(publishPck, undefined, 2))
 
   const filesInDir = fs.readdirSync('./')
   for (const f of filesInDir) {

@@ -1,6 +1,6 @@
-import { gitBranchName } from './git.utils'
-import { getGithubBranchName, isGithubPullRequest, isGithubWorkflow } from './github.utils'
-import { CustomScOverrideEnv } from './types/sc-override-env-var.type'
+import { gitBranchName } from './git.utils.js'
+import { getGithubBranchName, isGithubPullRequest, isGithubWorkflow } from './github.utils.js'
+import { CustomScOverrideEnv } from './types/sc-override-env-var.type.js'
 
 /** regex to match the master branch */
 export const REGEX_MASTER = /^master$/

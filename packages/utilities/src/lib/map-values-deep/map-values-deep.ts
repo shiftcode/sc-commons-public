@@ -1,5 +1,5 @@
-import { getTag } from '../tag/get-tag.function'
-import { Tag } from '../tag/tag.enum'
+import { getTag } from '../tag/get-tag.function.js'
+import { Tag } from '../tag/tag.enum.js'
 
 /**
  * Creates a new object with the predicate applied to each value in a deep manner

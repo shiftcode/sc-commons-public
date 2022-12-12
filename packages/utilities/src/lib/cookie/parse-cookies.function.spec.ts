@@ -1,4 +1,4 @@
-import { parseCookies } from './parse-cookies.function'
+import { parseCookies } from './parse-cookies.function.js'
 
 describe('parse-cookies', () => {
   it('does not fail on empty', () => {

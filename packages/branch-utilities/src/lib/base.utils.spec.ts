@@ -1,6 +1,6 @@
-import { BranchInfo, getBranchInfo, parseBranchName } from './base.utils'
-import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types'
-import { CustomScOverrideEnv } from './types/sc-override-env-var.type'
+import { BranchInfo, getBranchInfo, parseBranchName } from './base.utils.js'
+import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types/index.js'
+import { CustomScOverrideEnv } from './types/sc-override-env-var.type.js'
 
 describe('base utils', () => {
   describe('getBranchInfo', () => {

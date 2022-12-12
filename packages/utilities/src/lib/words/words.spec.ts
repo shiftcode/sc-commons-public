@@ -1,4 +1,4 @@
-import { words } from './words'
+import { words } from './words.js'
 
 // tslint:disable:one-variable-per-declaration
 const emojiVar = '\ufe0f',

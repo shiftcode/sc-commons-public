@@ -1,4 +1,4 @@
-import { jsonMapSetStringifyReplacer } from './json-stringify-replacer.function'
+import { jsonMapSetStringifyReplacer } from './json-stringify-replacer.function.js'
 
 describe('jsonMapSetStringifyReplacer', () => {
   describe('replaces sets', () => {

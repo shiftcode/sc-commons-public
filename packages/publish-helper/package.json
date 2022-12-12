@@ -1,10 +1,11 @@
 {
   "name": "@shiftcode/publish-helper",
-  "version": "1.0.2",
+  "version": "2.0.0-pr14.5",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "type": "module",
   "bin": {
     "prepare-dist": "./dist/prepare-dist.js",
     "publish-lib": "./dist/publish-lib.js"
@@ -15,25 +16,25 @@
     "lint": "yarn lint:src --fix && yarn lint:test --fix",
     "lint:ci": "yarn lint:src && yarn lint:test",
     "lint:src": "tslint --format codeFrame --project ./tsconfig.json",
-    "lint:test": "tslint --format codeFrame --project ./tsconfig.spec.json",
+    "lint:test": "tslint --format codeFrame --project ./tsconfig.jest.json",
     "prettier": "prettier --write --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ./dist/prepare-dist.js",
-    "test": "jest --passWithNoTests",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js --passWithNoTests",
     "test:ci": "yarn test",
-    "test:watch": "jest --passWithNoTests --watch"
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "conventional-changelog-angular": "^5.0.13",
-    "yargs": "^17.3.1"
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^1.1.0",
-    "@types/yargs": "^17.0.8"
+    "@shiftcode/branch-utilities": "^2.0.0-pr14.5",
+    "@types/yargs": "^17.0.13"
   },
   "peerDependencies": {
-    "@shiftcode/branch-utilities": "^1.0.0",
-    "lerna": "^4.0.0",
+    "@shiftcode/branch-utilities": "^2.0.0 || ^2.0.0-pr14",
+    "lerna": "^6.0.3",
     "tslib": "^2.3.0"
   },
   "publishConfig": {
