@@ -1,6 +1,6 @@
 # publish-helper
 
-> 🎯 Target runtime: es2019 ([Node >= 12](https://node.green/#ES2019))
+> 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
 
 Contains js scripts for publishing libraries
 
@@ -10,7 +10,7 @@ command: `publish-lib`
 updates the package.json version and the changelog file (changelog only on main/master)\
 and makes a commit with the updated versions.
 
-make sure to provide the following env vars in the github workflow:
+make sure to provide the following env vars in the GitHub workflow:
 - `GITHUB_CONTEXT: ${{ toJson(github) }}`
 - `GH_TOKEN: ${{ secrets.GH_TOKEN_3 }}`
 

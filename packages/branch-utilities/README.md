@@ -1,8 +1,8 @@
 # branch-utilities
 
-> 🎯 Target runtime: es2019 ([Node >= 12](https://node.green/#ES2019))
+> 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
 
-Utilities for branch info depending on env (Github Workflow or Local)
+Utilities for branch info depending on env (GitHub Workflow or Local)
 
 ## Stage Name Concept
 
