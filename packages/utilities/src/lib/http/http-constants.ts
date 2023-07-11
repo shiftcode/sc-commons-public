@@ -96,6 +96,7 @@ export enum HttpMethod {
 
 export enum CommonHttpHeader {
   CONTENT_TYPE = 'Content-Type',
+  CONTENT_DISPOSITION = 'Content-Disposition',
   VARY = 'Vary',
   CONTENT_LENGTH = 'Content-Length',
   AUTHORIZATION = 'Authorization',
