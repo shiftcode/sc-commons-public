@@ -1,4 +1,3 @@
-import { describe, expect, test } from '@jest/globals'
 import { makeDeferred } from './make-deferred.function.js'
 
 describe('makeDeferred', () => {

@@ -1,4 +1,3 @@
-import { describe, test, expect } from '@jest/globals'
 import { pickProps } from './pick-props.function.js'
 
 describe('pickProps', () => {
