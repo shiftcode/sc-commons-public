@@ -48,7 +48,7 @@ the following custom rules are provided within this module:
 > deny-parent-index-file-import
 
 - imports from parent index files are not allowed; i.e. ``import { stuff } from '..'``
-- <span style="color: orange">note: this rule is already included by [eslint-config](../eslint-configuration)</span>
+- <span style="color: orange">note: this rule is already included by [eslint-configuration](../eslint-configuration)</span>
 
 > import-denylist
 
