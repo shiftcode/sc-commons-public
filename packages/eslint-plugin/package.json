@@ -1,0 +1,39 @@
+{
+  "name": "@shiftcode/eslint-plugin",
+  "version": "2.2.0-pr165.1",
+  "description": "eslint-plugin for shiftcode-specific eslint rules",
+  "repository": "https://github.com/shiftcode/sc-commons",
+  "license": "UNLICENSED",
+  "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "sideEffects": false,
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "tsc",
+    "lint": "yarn lint:src:fix",
+    "lint:ci": "yarn lint:src",
+    "lint:src": "eslint ./src",
+    "lint:src:fix": "eslint ./src --cache --fix",
+    "lint:staged": "yarn lint",
+    "prettier": "prettier --write --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
+    "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
+    "prepublish": "prepare-dist",
+    "test": "jest",
+    "test:ci": "yarn test"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^6.8.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/rule-tester": "^6.8.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.40.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

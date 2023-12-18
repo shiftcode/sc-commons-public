@@ -1,0 +1,8 @@
+# Reformat all .ts / .js
+"**/*.(t|j)s":
+  - yarn prettier:staged
+  - yarn lint:staged
+
+# sort package.json keys
+./package.json:
+  - sort-package-json
