@@ -1,4 +1,4 @@
-# eslint-plugin
+# eslint-rules
 
 > 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
 

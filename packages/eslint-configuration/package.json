@@ -32,7 +32,7 @@
     "test:ci": "yarn test"
   },
   "dependencies": {
-    "@shiftcode/eslint-plugin": "^2.2.0-pr165.1",
+    "@shiftcode/eslint-rules": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.40.0",

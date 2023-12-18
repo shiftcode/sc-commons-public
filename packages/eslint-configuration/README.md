@@ -9,7 +9,7 @@ This module provides an eslint default rule-set configuration for shiftcode proj
 
 ### remark
 
-by using this module, the [eslint-plugin](../eslint-plugin) module will be automatically included too.
+by using this module, the [eslint-rules](../eslint-rules) module will be automatically included too.
 
 ## usage
 
