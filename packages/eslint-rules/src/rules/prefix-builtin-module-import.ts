@@ -10,7 +10,7 @@ export enum PrefixNodeModuleImportMessageIds {
 }
 
 const createRule = ESLintUtils.RuleCreator(
-  () => 'https://github.com/shiftcode/sc-commons/blob/master/README.md#sc-commons',
+  () => 'https://github.com/shiftcode/sc-commons-public/blob/master/README.md#sc-commons-public',
 )
 
 export const prefixBuiltinModuleImportRule = createRule({

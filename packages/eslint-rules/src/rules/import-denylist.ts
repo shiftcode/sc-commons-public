@@ -5,7 +5,7 @@ import { ESLintUtils } from '@typescript-eslint/utils'
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
 
 const createRule = ESLintUtils.RuleCreator(
-  () => 'https://github.com/shiftcode/sc-commons/blob/master/README.md#sc-commons',
+  () => 'https://github.com/shiftcode/sc-commons-public/blob/master/README.md#sc-commons-public',
 )
 
 export enum ImportDenylistMessageIds {

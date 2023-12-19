@@ -2,7 +2,7 @@
   "name": "@shiftcode/eslint-rules",
   "version": "1.0.0",
   "description": "eslint-rules for shiftcode-specific eslint rules",
-  "repository": "https://github.com/shiftcode/sc-commons",
+  "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "sideEffects": false,
@@ -31,7 +31,7 @@
     "@typescript-eslint/rule-tester": "^6.8.0"
   },
   "peerDependencies": {
-    "eslint": "^8.40.0"
+    "eslint": "^8.56.0"
   },
   "publishConfig": {
     "directory": "dist"

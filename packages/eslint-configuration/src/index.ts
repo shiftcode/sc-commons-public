@@ -31,7 +31,7 @@ module.exports = {
     {
       files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@shiftcode', '@typescript-eslint', 'unused-imports'],
+      plugins: ['@shiftcode/eslint-rules', '@typescript-eslint', 'unused-imports'],
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking', // includes "eslint-recommended" ruleset

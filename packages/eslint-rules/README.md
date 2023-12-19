@@ -17,7 +17,7 @@ module.exports = {
 
   overrides: [
     {
-      plugins: ['@shiftcode'],
+      plugins: ['@shiftcode/eslint-rules'],
       files: ['*.ts'],
       rules: {
         '@shiftcode/import-denylist': [ // former TSLint rule: "import-blacklist"
