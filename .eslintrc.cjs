@@ -2,7 +2,7 @@
 module.exports = {
   root: true,
   extends: [
-    '@shiftcode/eslint-configuration',
+    '@shiftcode/shiftcode',
   ],
 
   parserOptions: {

@@ -12,4 +12,4 @@ TS-specific rules).
 
 contains a draft of an 1:1-transformation from mt-fadas root tslint.yml into eslintrc configuration.
 
-> Note: file is outdated in comparison to current eslint-configuration.
+> Note: file is outdated in comparison to current eslint-config-shiftcode.

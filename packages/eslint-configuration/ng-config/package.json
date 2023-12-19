@@ -1,5 +1,0 @@
-{
-  "name": "@shiftcode/eslint-configuration/ng-config",
-  "main": "./index.js",
-  "sideEffects": false
-}

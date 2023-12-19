@@ -1,5 +1,5 @@
 {
-  "name": "@shiftcode/eslint-configuration",
+  "name": "@shiftcode/eslint-config-shiftcode",
   "version": "1.0.0",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
@@ -7,7 +7,6 @@
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "sideEffects": false,
   "type": "commonjs",
-  "main": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,6 +17,9 @@
       "default": "./dist/ng-config/index.js"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
@@ -33,7 +35,7 @@
     "test:ci": "yarn test"
   },
   "dependencies": {
-    "@shiftcode/eslint-rules": "^1.0.0",
+    "@shiftcode/eslint-plugin-shiftcode": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.56.0",

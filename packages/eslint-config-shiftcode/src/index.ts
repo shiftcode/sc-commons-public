@@ -31,7 +31,7 @@ module.exports = {
     {
       files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@shiftcode/eslint-rules', '@typescript-eslint', 'unused-imports'],
+      plugins: ['@shiftcode/shiftcode', '@typescript-eslint', 'unused-imports'],
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking', // includes "eslint-recommended" ruleset
@@ -40,8 +40,8 @@ module.exports = {
         /*
          * additional rules that are not contained within the both extensions configured above
          */
-        '@shiftcode/deny-parent-index-file-import': 'error',
-        '@shiftcode/prefix-builtin-module-import': 'error',
+        '@shiftcode/shiftcode/deny-parent-index-file-import': 'error',
+        '@shiftcode/shiftcode/prefix-builtin-module-import': 'error',
         
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/explicit-member-accessibility': [
