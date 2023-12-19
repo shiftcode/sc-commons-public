@@ -21,7 +21,7 @@ module.exports = {
     
   // all child eslintrc configs from workspace packages inherit this extension
   extends: [
-    '@shiftcode/eslint-config-shiftcode',
+    '^shiftcode',
   ],
   
   // ...
@@ -32,8 +32,8 @@ module.exports = {
 
 the following provided configurations might be included:
 
-- ``@shiftcode/eslint-config-shiftcode``: rule-set for common javascript and typescript files
-- ``@shiftcode/eslint-config-shiftcode/ng-config``: angular-specific rule-set for angular apps
+- ``shiftcode``: rule-set for common javascript and typescript files
+- ``shiftcode/ng-config``: angular-specific rule-set for angular apps
 
 ## Optional Peer Dependencies
 All the optional peer dependencies (`@angular-eslint/*`) are only required if the [ng-config](./src/ng-config/index.ts)
@@ -41,7 +41,7 @@ is used
 
 ## Ideas
 
-it could be useful to create another configuration (i.e. ``@shiftcode/eslint-config-shiftcode/node-config``)
+it could be useful to create another configuration (i.e. ``shiftcode/node-config``)
 used within services/backend workspaces, because the naming conventions aren't really the same as for a client workspace.
 
 Examples:

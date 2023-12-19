@@ -1,5 +1,5 @@
 {
-  "name": "@shiftcode/eslint-plugin-shiftcode",
+  "name": "eslint-plugin-shiftcode",
   "version": "1.0.0",
   "description": "eslint-rules for shiftcode-specific eslint rules",
   "repository": "https://github.com/shiftcode/sc-commons-public",

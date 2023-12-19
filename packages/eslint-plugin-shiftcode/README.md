@@ -17,10 +17,10 @@ module.exports = {
 
   overrides: [
     {
-      plugins: ['plugin:@shiftcode/eslint-plugin-shiftcode'],
+      plugins: ['shiftcode'],
       files: ['*.ts'],
       rules: {
-        '@shiftcode/import-denylist': [ // former TSLint rule: "import-blacklist"
+        'shiftcode/import-denylist': [ // former TSLint rule: "import-blacklist"
           'error',
           {
             patterns: [
