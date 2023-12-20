@@ -1,4 +1,4 @@
-# eslint-config-shiftcode
+# @shiftcode/eslint-config-recommended
 
 > 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
 
@@ -9,7 +9,7 @@ This module provides an eslint default rule-set configuration for shiftcode proj
 
 ### remark
 
-by using this module, the [eslint-plugin-shiftcode](../eslint-plugin-shiftcode) module will be automatically included too.
+by using this module, the [@shiftcode/eslint-plugin-rules](../eslint-plugin-rules) module will be automatically included too.
 
 ## usage
 
@@ -32,8 +32,8 @@ module.exports = {
 
 the following provided configurations might be included:
 
-- ``shiftcode``: rule-set for common javascript and typescript files
-- ``shiftcode/ng-config``: angular-specific rule-set for angular apps
+- ``@shiftcode/recommended``: rule-set for common javascript and typescript files
+- ``@shiftcode/recommended/ng-config``: angular-specific rule-set for angular apps
 
 ## Optional Peer Dependencies
 All the optional peer dependencies (`@angular-eslint/*`) are only required if the [ng-config](./src/ng-config/index.ts)

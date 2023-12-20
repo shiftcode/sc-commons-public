@@ -1,5 +1,5 @@
 {
-  "name": "shiftcode/ng-config",
+  "name": "@shiftcode/recommended/ng-config",
   "main": "./index.js",
   "sideEffects": false
 }

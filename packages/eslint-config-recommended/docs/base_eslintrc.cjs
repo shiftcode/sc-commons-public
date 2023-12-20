@@ -96,6 +96,6 @@ module.exports = {
 
   /*
    * NOTE: parserOptions always have to be set by specific consuming config.
-   * (defining a project like ["./tsconfig.json"] would look up the file inside this sc-commons-public/eslint-config-shiftcode package)
+   * (defining a project like ["./tsconfig.json"] would look up the file inside this sc-commons-public/eslint-config-recommended package)
    */
 }

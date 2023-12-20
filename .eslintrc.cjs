@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   root: true,
-  extends: ['shiftcode'],
+  extends: ['@shiftcode/recommended'],
 
   parserOptions: {
     sourceType: 'module',

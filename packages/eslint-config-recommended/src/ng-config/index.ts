@@ -10,7 +10,7 @@ module.exports = {
       files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
       extends: ['plugin:@angular-eslint/recommended', 'plugin:@angular-eslint/template/process-inline-templates'],
       rules: {
-        'shiftcode/import-denylist': [
+        '@shiftcode/rules/import-denylist': [
           // TSLint: "import-blacklist"
           'error',
           {

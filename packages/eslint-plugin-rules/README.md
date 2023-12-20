@@ -1,4 +1,4 @@
-# eslint-plugin-shiftcode
+# @shiftcode/eslint-plugin-rules
 
 > 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
 
@@ -17,10 +17,10 @@ module.exports = {
 
   overrides: [
     {
-      plugins: ['shiftcode'],
+      plugins: ['@shiftcode/rules'],
       files: ['*.ts'],
       rules: {
-        'shiftcode/import-denylist': [ // former TSLint rule: "import-blacklist"
+        '@shiftcode/rules/import-denylist': [ // former TSLint rule: "import-blacklist"
           'error',
           {
             patterns: [
@@ -48,7 +48,7 @@ the following custom rules are provided within this module:
 > deny-parent-index-file-import
 
 - imports from parent index files are not allowed; i.e. ``import { stuff } from '..'``
-- <span style="color: orange">note: this rule is already included by [eslint-config-shiftcode](../eslint-config-shiftcode)</span>
+- <span style="color: orange">note: this rule is already included by [@shiftcode/eslint-config-recommended](../eslint-config-recommended)</span>
 
 > import-denylist
 
