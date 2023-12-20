@@ -13,5 +13,4 @@ module.exports = {
     '^(\\.{1,2}/.*)\\.js$': '$1',
     ...pathsToModuleNameMapper(tsConfig.compilerOptions.paths ?? {}, { prefix: '<rootDir>' }),
   },
-  setupFiles: ['reflect-metadata'],
 }
