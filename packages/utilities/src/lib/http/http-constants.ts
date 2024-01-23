@@ -67,6 +67,10 @@ export enum ContentType {
   JSON = 'application/json',
   TXT = 'text/plain',
   XML = 'application/xml',
+  CSV = 'text/csv',
+  DOCX = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  XLSX = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  PPTX = 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
 }
 
 export enum CorsHeader {
@@ -92,6 +96,7 @@ export enum HttpMethod {
 
 export enum CommonHttpHeader {
   CONTENT_TYPE = 'Content-Type',
+  CONTENT_DISPOSITION = 'Content-Disposition',
   VARY = 'Vary',
   CONTENT_LENGTH = 'Content-Length',
   AUTHORIZATION = 'Authorization',
