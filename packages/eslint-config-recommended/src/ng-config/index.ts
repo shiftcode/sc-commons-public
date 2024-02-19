@@ -33,8 +33,8 @@ module.exports = {
       files: ['*.html'],
       extends: [
         'plugin:@angular-eslint/template/recommended',
-        'prettier' // disable rules that will be auto fixed by prettier
-        ],
+        'prettier', // disable rules that will be auto fixed by prettier
+      ],
       rules: {},
     },
   ],

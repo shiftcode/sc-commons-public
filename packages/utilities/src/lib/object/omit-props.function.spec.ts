@@ -19,5 +19,4 @@ describe('omitProps', () => {
     // if omitProps would not propertly remove `b` from the type, it would not be assignable
     expect(fn(omitProps(value, ['b']))).toBe(true)
   })
-
 })

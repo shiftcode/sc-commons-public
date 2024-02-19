@@ -16,7 +16,7 @@ module.exports = {
       plugins: ['eslint-plugin-import'],
       extends: [
         'eslint:recommended', // catching common JS problems
-        'prettier' // disable rules that will be auto fixed by prettier
+        'prettier', // disable rules that will be auto fixed by prettier
       ],
       rules: {
         'no-console': 'error', // TSLint: "no-console"
@@ -24,9 +24,9 @@ module.exports = {
         'import/no-deprecated': 'error', // TSLint: "deprecation"
         'import/no-extraneous-dependencies': 'error', // TSLint: "no-implicit-dependencies"
         'import/no-internal-modules': 'error', // TSLint: "no-submodule-imports"
-        'curly': 'error', // TSLint: "curly"
-        'eqeqeq': 'error', // TSLint: "triple-equals"
-        "@typescript-eslint/ban-tslint-comment": "error", // TSLint: "ban"
+        curly: 'error', // TSLint: "curly"
+        eqeqeq: 'error', // TSLint: "triple-equals"
+        '@typescript-eslint/ban-tslint-comment': 'error', // TSLint: "ban"
       },
     },
     {
@@ -43,7 +43,7 @@ module.exports = {
          */
         '@shiftcode/rules/deny-parent-index-file-import': 'error',
         '@shiftcode/rules/prefix-builtin-module-import': 'error',
-        
+
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/explicit-member-accessibility': [
           // TSLint: "member-access"
@@ -187,12 +187,12 @@ module.exports = {
         // no-unused-vars does not support a fixer for "unused imports" which is highly shitty.
         // therefore we use another plugin which can splits up the unused-vars rule into two rules with a fixer for unused imports
         '@typescript-eslint/no-unused-vars': 'off',
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error",
-          { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+          'error',
+          { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
         ],
-        
+
         /*
          * disabling rules from extensions
          */
@@ -203,26 +203,24 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/unbound-method': 'off',
-        '@typescript-eslint/no-unsafe-enum-comparison':'off',
-        
+        '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+
         'no-case-declarations': 'off', // TS marks as error anyway ("TS2454: Variable is used before being assigned.")
-        
-        
       },
     },
     /*
      * allow some commonly used patterns for testing to pass eslint
      */
     {
-      files: ['**/test/**/*.ts','*.spec.ts', '*.test.ts'],
+      files: ['**/test/**/*.ts', '*.spec.ts', '*.test.ts'],
       rules: {
         'no-console': 'off',
         'max-classes-per-file': 'off', // TSLint: "max-classes-per-file"
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',
         // it's ok to define dependencies also in the root package.json (eg. @jest/globals, ...)
-        "import/no-extraneous-dependencies": ["error", {"packageDir": ['.', '../..']}] 
-      }
+        'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
+      },
     },
   ],
 }
