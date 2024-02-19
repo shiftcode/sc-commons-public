@@ -1,4 +1,4 @@
-# we use eslint instead of ng lint, because we can't use --project (tsconfig specifying files with include, exclude )
+# we use eslint instead of ng lint, because we can't use --project (tsconfig specifying files with include, exclude)
 # and --files argument pointing to other files
 src/{**/,}*.ts,test/{**/,}*.ts:
   - yarn prettier:staged
