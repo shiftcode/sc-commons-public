@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-plugin-rules",
-  "version": "1.1.0-pr22.1",
+  "version": "1.1.0-pr22.2",
   "description": "eslint-rules for shiftcode-specific eslint rules",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
