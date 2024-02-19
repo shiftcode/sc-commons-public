@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@2.0.1...@shiftcode/utilities@2.1.0) (2024-01-23)
+
+### Features
+
+- **clamp:** add clamp function ([890d835](https://github.com/shiftcode/sc-commons-public/commit/890d835c2a631109b96d83a881610c025a6035aa))
+- **http-constants:** add Content-Disposition to the CommonHttpHeader enum ([c1475fe](https://github.com/shiftcode/sc-commons-public/commit/c1475fed7fe3b00ea9ada11bf0307e41736d7923))
+- **http-constants:** add csv,docx,xlsx,pptx to the ContentType enum ([90cc26b](https://github.com/shiftcode/sc-commons-public/commit/90cc26bc038c7c0ff352ed51fb9609af0aa43a0c))
+- **object-utils:** add pick-props and omit-props ([cae2311](https://github.com/shiftcode/sc-commons-public/commit/cae2311ca2d427214039d77280e109d215484789))
+- **promise-utils:** add makeDeferred function ([a91f11a](https://github.com/shiftcode/sc-commons-public/commit/a91f11aa6ebc5ea9ff58dd1e98203e39f9127180))
+- **string-utils:** add capitalize function ([ed2673f](https://github.com/shiftcode/sc-commons-public/commit/ed2673fb26e9609a10011532b907f5e55b18f3e1))
+- **type-utils:** add UnionToIntersection utility type ([f7adab0](https://github.com/shiftcode/sc-commons-public/commit/f7adab04533fa2546e09a792d3ee63f6968c1d6c))
+
 ## [2.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@2.0.0...@shiftcode/utilities@2.0.1) (2022-12-12)
 
 **Note:** Version bump only for package @shiftcode/utilities
