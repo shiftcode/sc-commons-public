@@ -1,6 +1,5 @@
 import { words } from './words.js'
 
-// tslint:disable:one-variable-per-declaration
 const emojiVar = '\ufe0f',
   heart = '\u2764' + emojiVar,
   comboGlyph = '\ud83d\udc68\u200d' + heart + '\u200d\ud83d\udc8B\u200d\ud83d\udc68',

@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 import fs from 'node:fs'
 import { dirname, normalize as normalizePath } from 'node:path'
 import process from 'node:process'
 import yargs from 'yargs'
+// eslint-disable-next-line import/no-internal-modules
 import { hideBin } from 'yargs/helpers'
 import { ensureDir, fixPackageJsonPaths, PCKG_JSON } from './helpers.js'
 
@@ -73,4 +75,4 @@ async function run() {
   }
 }
 
-run()
+void run()

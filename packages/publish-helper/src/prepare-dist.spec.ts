@@ -1,8 +1,8 @@
-import {fixPackageJsonPaths} from './helpers.js'
+import { fixPackageJsonPaths } from './helpers.js'
 
 describe('prepare-dist', () => {
 
-    test('path rewrite', async () => {
+    test('path rewrite', () => {
         const packageJson = {name: 'sample-package', main: './dist/_cjs/index.js', module: './dist/index.js', exports: {'.':'./dist/index.js'}}
         const packageJson2 = {...packageJson, exports: {'.': {types:'./dist/index.d.ts', default: './dist/index.js', require: './dist/_cjs/index.js'}}}
         const fixedPackagesJson = fixPackageJsonPaths(packageJson, 'dist/', () => {})
