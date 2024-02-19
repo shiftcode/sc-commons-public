@@ -26,6 +26,7 @@ module.exports = {
         'import/no-internal-modules': 'error', // TSLint: "no-submodule-imports"
         'curly': 'error', // TSLint: "curly"
         'eqeqeq': 'error', // TSLint: "triple-equals"
+        "@typescript-eslint/ban-tslint-comment": "error", // TSLint: "ban"
       },
     },
     {

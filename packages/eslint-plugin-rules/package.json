@@ -26,6 +26,7 @@
     "test:ci": "yarn test"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^2.1.4",
     "@typescript-eslint/utils": "^6.8.0"
   },
   "devDependencies": {
