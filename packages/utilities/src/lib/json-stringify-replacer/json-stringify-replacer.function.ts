@@ -1,4 +1,3 @@
-// @ts-ignore
 /**
  * replaces map and set objects with plain object representing the type and the values
  * set -> { type: 'set', values: ['value1', 'value2'] }

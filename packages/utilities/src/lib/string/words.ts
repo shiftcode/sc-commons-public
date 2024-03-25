@@ -1,7 +1,6 @@
 // copied from lodash source
 
 /** Used to compose unicode character classes. */
-// tslint:disable-next-line:one-variable-per-declaration
 const rsAstralRange = '\\ud800-\\udfff',
   rsComboMarksRange = '\\u0300-\\u036f',
   reComboHalfMarksRange = '\\ufe20-\\ufe2f',
@@ -19,7 +18,6 @@ const rsAstralRange = '\\ud800-\\udfff',
   rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange
 
 /** Used to compose unicode capture groups. */
-// tslint:disable-next-line:one-variable-per-declaration
 const rsApos = "['\u2019]",
   rsAstral = '[' + rsAstralRange + ']',
   rsBreak = '[' + rsBreakRange + ']',
@@ -37,7 +35,6 @@ const rsApos = "['\u2019]",
   rsZWJ = '\\u200d'
 
 /** Used to compose unicode regexes. */
-// tslint:disable-next-line:one-variable-per-declaration
 const rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
   rsMiscUpper = '(?:' + rsUpper + '|' + rsMisc + ')',
   rsOptContrLower = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
@@ -50,10 +47,10 @@ const rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
   rsOrdUpper = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
   rsSeq = rsOptVar + reOptMod + rsOptJoin,
   rsEmoji = '(?:' + [rsDingbat, rsRegional, rsSurrPair].join('|') + ')' + rsSeq,
+  // eslint-disable-next-line unused-imports/no-unused-vars
   rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')'
 
 /** Used to match complex or compound words. */
-// tslint:disable-next-line:one-variable-per-declaration
 const reUnicodeWord = RegExp(
   [
     rsUpper + '?' + rsLower + '+' + rsOptContrLower + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',

@@ -9,8 +9,10 @@ import { Tag } from '../tag/tag.enum.js'
  * @return Returns a new object with the predicate applied to each value
  */
 export function mapValuesDeep(
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   collection: any | null | undefined,
   predicate: (value: any, keyOrIndex: any /* keyOrIndex of obj | index in arr */, obj: any /* obj | arr */) => any,
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 ): any | null | undefined {
   if (collection === null || collection === undefined) {
     return collection

@@ -125,7 +125,7 @@ describe('compare with', () => {
       expect(
         compareWith(
           () => {},
-          (a: number) => {},
+          (_: number) => {},
         ),
       ).toBeFalsy()
       expect(
@@ -200,6 +200,7 @@ describe('compare with', () => {
       expect(compareWith(a, b, isGreetingCustomizer)).toBeTruthy()
 
       expect(
+        // eslint-disable-next-line unused-imports/no-unused-vars
         compareWith(a, b, (value1: any[], value2: any[]) => {
           return Array.isArray(a) && Array.isArray(b) && a.includes('hi') && b.includes('hello')
         }),

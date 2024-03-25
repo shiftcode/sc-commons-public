@@ -1,5 +1,6 @@
 export interface CustomGitHubContext {
   /** stringified object of type {@link GitHubContext} */
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   GITHUB_CONTEXT: string
 }
 
@@ -7,6 +8,7 @@ export interface GitHubContext {
   ref: string
   sha: string
   event: PullRequestSynchronizeEvent
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   event_name: 'push' | 'pull_request'
   token: string
   repository: string
@@ -21,6 +23,7 @@ export interface GithubRef {
 
 export interface PullRequestEvent {
   action: 'open' | 'synchronize'
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   pull_request: {
     base: GithubRef
     head: GithubRef

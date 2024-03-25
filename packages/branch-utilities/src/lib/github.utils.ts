@@ -1,4 +1,3 @@
-import exp from 'constants'
 import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types/index.js'
 
 /**
@@ -34,7 +33,6 @@ export function getGithubBranchName(env: GithubActionEnv): string {
   } else {
     if (hasGithubContext(env)) {
       const ctx: GitHubContext = JSON.parse(env.GITHUB_CONTEXT)
-      // tslint:disable-next-line:no-non-null-assertion
       return ctx.ref.replace('refs/heads/', '')
     }
     throw new Error(`env var GITHUB_CONTEXT must be defined`)
@@ -51,6 +49,7 @@ export function getGhToken(env: unknown): string {
   throw new Error('no GH_TOKEN found in env')
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 function hasGhToken<T extends object>(x: T): x is T & { GH_TOKEN: string } {
   return 'GH_TOKEN' in x && typeof (<any>x)['GH_TOKEN'] === 'string'
 }
