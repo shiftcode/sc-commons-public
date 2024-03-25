@@ -21,7 +21,7 @@ module.exports = {
         ],
 
         /*
-         * We frequently apply classes (within some conditions, i.e. key-values.component, see mt-fadas)
+         * We frequently apply classes (within some conditions, i.e. key-values.component)
          * via component host property.
          * Angular styleguide, in comparison, recommends to apply classes/attributes via @HostListener or @HostBinding:
          *   https://angular.io/guide/styleguide#style-06-03

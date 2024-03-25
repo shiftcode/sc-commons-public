@@ -36,24 +36,6 @@ module.exports = {
          * rules that are covered by ESLint plugins
          */
         'import/no-deprecated': 'warn', // TSLint: "deprecation"
-        'import/no-internal-modules': [ // TSLint: "no-submodule-imports"
-          'error',
-          {
-            allow: [
-              '@angular/*',
-              '@apollo/*',
-              '@shiftcode/iac-helper/*',
-              'app/',
-              'aws-sdk/*',
-              'aws-cdk-lib/*',
-              'aws-serverless-express/middleware/*',
-              'core-js/*',
-              'date-fns/esm/locale/*',
-              'fs/*',
-              'zone.js/*',
-            ],
-          },
-        ],
         'jsdoc/no-types': 'error', // TSLint: "no-redundant-jsdoc"
       },
     },

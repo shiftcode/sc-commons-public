@@ -10,6 +10,6 @@ TS-specific rules).
 
 ### `base_eslintrc.cjs`
 
-contains a draft of an 1:1-transformation from mt-fadas root tslint.yml into eslintrc configuration.
+contains the configuration for transforming tslint.yml into eslintrc configuration.
 
 > Note: file is outdated in comparison to current @shiftcode/eslint-config-recommended.

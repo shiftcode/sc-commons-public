@@ -4,8 +4,7 @@
 
 > ⚠️ This module exports code using CommonJS
 
-This module provides an eslint default rule-set configuration for shiftcode projects.\
-( currently, it is verified against mt-fadas - further projects coming soon )
+This module provides an eslint default rule-set configuration for shiftcode projects.
 
 ### remark
 
