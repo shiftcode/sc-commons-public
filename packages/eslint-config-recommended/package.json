@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "1.1.0-pr22.4",
+  "version": "1.1.0-pr22.5",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -36,7 +36,7 @@
     "test:ci": "yarn test"
   },
   "dependencies": {
-    "@shiftcode/eslint-plugin-rules": "^1.1.0-pr22.4",
+    "@shiftcode/eslint-plugin-rules": "^1.1.0-pr22.5",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.56.0",
