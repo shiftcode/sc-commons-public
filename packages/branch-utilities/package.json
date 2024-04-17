@@ -20,7 +20,7 @@
     "lint:ci": "yarn lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
-    "lint:staged": "yarn lint",
+    "lint:staged": "eslint --fix --cache",
     "prettier": "prettier --write --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",

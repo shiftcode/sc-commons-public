@@ -34,7 +34,7 @@ export function getEnumValues<E extends MixedEnum<E>>(en: E): Array<string | num
   return keys
     .map((key) => <[keyof E, string | number]>[key, (<any>en)[key]])
     .filter(([k, v]) => k === v || typeof v === 'number' || keys.indexOf(v) === -1)
-    .map(([_, v]) => v)
+    .map(([, v]) => v)
 }
 
 /**
