@@ -19,7 +19,7 @@ export type EnumValuesOf<E> = E extends Record<any, infer U> ? U : never
 /**
  * returns all actual values of an enum with string values
  */
-export function getEnumValues<E extends StringEnum<E>>(en: E): EnumValuesOf<E>[]
+export function getEnumValues<E extends StringEnum<E>>(en: E): Array<EnumValuesOf<E>>
 /**
  * returns all actual values of an enum with number values
  */
@@ -34,7 +34,7 @@ export function getEnumValues<E extends MixedEnum<E>>(en: E): Array<string | num
   return keys
     .map((key) => <[keyof E, string | number]>[key, (<any>en)[key]])
     .filter(([k, v]) => k === v || typeof v === 'number' || keys.indexOf(v) === -1)
-    .map(([k, v]) => v)
+    .map(([, v]) => v)
 }
 
 /**

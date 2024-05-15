@@ -1,7 +1,0 @@
-extends:
-  - "../../tslint.yml"
-rules:
-  no-console: false
-  no-submodule-imports:
-    - true
-    - "yargs/helpers"

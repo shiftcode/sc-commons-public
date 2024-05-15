@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /** see https://help.github.com/en/github/automating-your-workflow-with-github-actions/using-environment-variables#default-environment-variables */
 export interface GithubActionEnv {
   HOME: string

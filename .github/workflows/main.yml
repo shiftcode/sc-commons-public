@@ -57,6 +57,9 @@ jobs:
       # yarn install
       - name: Install
         run: HUSKY=0 yarn --frozen-lockfile
+      # build lint plugins before linting
+      - name: Build lint plugins
+        run: yarn build:lint:ci
       # lint
       - name: Lint
         run: yarn lint:ci

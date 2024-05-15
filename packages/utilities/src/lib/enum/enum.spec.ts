@@ -36,7 +36,7 @@ enum Mix {
 /**
  * assert the subject satisfies the specified type T
  */
-function assertType<T>(subject: T): void {
+function assertType<T>(_: T): void {
   return
 }
 

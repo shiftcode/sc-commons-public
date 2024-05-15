@@ -21,6 +21,5 @@ export function hexToRgb(hex: string): [red: number, green: number, blue: number
 
   const val = Number.parseInt(hexString, 16)
 
-  // tslint:disable-next-line:no-bitwise
   return [(val >> 16) & 0xff, (val >> 8) & 0xff, val & 0xff]
 }

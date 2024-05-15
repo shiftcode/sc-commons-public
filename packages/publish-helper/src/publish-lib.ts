@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 import {
   BranchInfo,
   getBranchInfo,
@@ -9,8 +10,8 @@ import {
   isGithubWorkflow,
 } from '@shiftcode/branch-utilities'
 import * as process from 'node:process'
-
 import yargs from 'yargs'
+// eslint-disable-next-line import/no-internal-modules
 import { hideBin } from 'yargs/helpers'
 import { exec } from './helpers.js'
 
@@ -45,7 +46,7 @@ async function run() {
   }
 }
 
-run()
+void run()
 
 function log(...args: any[]) {
   console.log(`publish-libs::`, ...(args || []).map((v) => (typeof v === 'string' ? v : JSON.stringify(v))))
@@ -67,7 +68,6 @@ function publish(opts: Options, env: unknown) {
       // otherwise no new github workflow is triggered (when using wrong token)
       publishPreRelease(opts, branchInfo, JSON.parse(env.GITHUB_CONTEXT) as GitHubContext, getGhToken(env))
     } else {
-      // tslint:disable-next-line:no-invalid-template-strings
       throw new Error('GITHUB_CONTEXT not defined as env var. Use `GITHUB_CONTEXT: ${{ toJson(github) }}` for action ')
     }
   } else {

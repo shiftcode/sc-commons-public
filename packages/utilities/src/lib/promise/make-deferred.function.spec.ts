@@ -1,7 +1,6 @@
 import { makeDeferred } from './make-deferred.function.js'
 
 describe('makeDeferred', () => {
-
   test('returns an object containing a promise', () => {
     const { promise } = makeDeferred()
     expect(promise).toBeInstanceOf(Promise)
@@ -18,5 +17,4 @@ describe('makeDeferred', () => {
     reject(new Error('Foo Bar'))
     await expect(promise).rejects.toThrow('Foo Bar')
   })
-
 })

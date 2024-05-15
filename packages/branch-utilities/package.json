@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/branch-utilities",
-  "version": "2.0.1",
+  "version": "2.1.0-pr22.4",
   "description": "Utilities for local and ci to get branch name and stage",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -16,10 +16,11 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "lint": "yarn lint:src --fix && yarn lint:test --fix",
-    "lint:ci": "yarn lint:src && yarn lint:test",
-    "lint:src": "tslint --format codeFrame --project ./tsconfig.json",
-    "lint:test": "tslint --format codeFrame --project ./tsconfig.jest.json",
+    "lint": "yarn lint:src:fix",
+    "lint:ci": "yarn lint:src",
+    "lint:src": "eslint ./src",
+    "lint:src:fix": "eslint ./src --cache --fix",
+    "lint:staged": "eslint --fix --cache",
     "prettier": "prettier --write --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",

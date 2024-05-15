@@ -8,7 +8,6 @@
           "build",
           "lint:ci",
           "lint:src",
-          "lint:test",
           "test:ci"
         ]
       }
