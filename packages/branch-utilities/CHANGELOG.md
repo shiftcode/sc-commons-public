@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@2.0.1...@shiftcode/branch-utilities@2.1.0) (2024-05-15)
+
+### Features
+
+- **eslint:** use globally ([c4dac67](https://github.com/shiftcode/sc-commons-public/commit/c4dac67b437955c0fb67bc69e1cfa8c337092b44))
+- pr improvements ([feab565](https://github.com/shiftcode/sc-commons-public/commit/feab5657bb50fb8a60036b512746e14c51c6aa6a))
+- **tslint:** remove unused files ([abb2074](https://github.com/shiftcode/sc-commons-public/commit/abb2074c05b363ecff51473eff1a9feacfb534cc))
+
 ## [2.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@2.0.0...@shiftcode/branch-utilities@2.0.1) (2022-12-12)
 
 **Note:** Version bump only for package @shiftcode/branch-utilities

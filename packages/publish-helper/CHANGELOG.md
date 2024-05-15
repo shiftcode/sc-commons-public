@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@2.0.1...@shiftcode/publish-helper@2.1.0) (2024-05-15)
+
+### Features
+
+- **eslint:** use globally ([c4dac67](https://github.com/shiftcode/sc-commons-public/commit/c4dac67b437955c0fb67bc69e1cfa8c337092b44))
+- pr improvements ([feab565](https://github.com/shiftcode/sc-commons-public/commit/feab5657bb50fb8a60036b512746e14c51c6aa6a))
+- **prettier:** over entire project ([ae9754f](https://github.com/shiftcode/sc-commons-public/commit/ae9754fa1267c6f481ef727ba2a8d7dcc0d98f1e))
+- **tslint:** remove unused files ([abb2074](https://github.com/shiftcode/sc-commons-public/commit/abb2074c05b363ecff51473eff1a9feacfb534cc))
+
 ## [2.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@2.0.0...@shiftcode/publish-helper@2.0.1) (2022-12-12)
 
 **Note:** Version bump only for package @shiftcode/publish-helper
