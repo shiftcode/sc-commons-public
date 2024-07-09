@@ -2,14 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "es2022",
-    "module": "CommonJS",
     "outDir": "./dist",
     "declarationDir": "./dist",
     "strictPropertyInitialization": false,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node"],
   },
   "include": [
     "src/**/*.ts"

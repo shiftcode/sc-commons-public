@@ -20,7 +20,7 @@ ruleTester.run('import-denylist', importDenyListRule, {
       code: `import {foo} from '@angular/core'`,
     },
     {
-      options: [],
+      options: [] as any,
       // language=typescript
       code: `import {foo} from '@angular/core'`,
     },

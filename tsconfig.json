@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node16",
-    "target": "es2022",
-    "module": "es2022",
+    "module": "node16",
+    "target": "es2023",
     "strict": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "./dist/",
-    "outDir": "./dist/",
-    "importHelpers": true,
-    "esModuleInterop": true
+    "importHelpers": true
   },
   "exclude": [
     "**/*.spec.ts",
