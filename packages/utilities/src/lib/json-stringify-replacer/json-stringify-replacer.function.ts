@@ -7,6 +7,6 @@ export function jsonMapSetStringifyReplacer(key: string, value: any) {
   return value instanceof Set
     ? { type: 'scStringifiedSet', values: Array.from(value.values()) }
     : value instanceof Map
-    ? { type: 'scStringifiedMap', entries: Array.from(value.entries()) }
-    : value
+      ? { type: 'scStringifiedMap', entries: Array.from(value.entries()) }
+      : value
 }
