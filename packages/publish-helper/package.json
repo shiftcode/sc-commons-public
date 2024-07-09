@@ -13,8 +13,8 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "lint": "yarn lint:src:fix",
-    "lint:ci": "yarn lint:src",
+    "lint": "npm run lint:src:fix",
+    "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
@@ -22,8 +22,8 @@
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ./dist/prepare-dist.js",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js --passWithNoTests",
-    "test:ci": "yarn test",
-    "test:watch": "yarn test --watch"
+    "test:ci": "npm run test",
+    "test:watch": "npm run test --watch"
   },
   "dependencies": {
     "conventional-changelog-angular": "^5.0.13",

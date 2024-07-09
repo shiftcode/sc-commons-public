@@ -23,9 +23,9 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "build:lint:ci": "yarn build",
-    "lint": "yarn lint:src:fix",
-    "lint:ci": "yarn lint:src",
+    "build:lint:ci": "npm run build",
+    "lint": "npm run lint:src:fix",
+    "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
@@ -33,7 +33,7 @@
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "echo 'Error: no test specificed'",
-    "test:ci": "yarn test"
+    "test:ci": "npm run test"
   },
   "dependencies": {
     "@shiftcode/eslint-plugin-rules": "^1.1.0",
