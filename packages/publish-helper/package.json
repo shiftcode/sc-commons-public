@@ -27,11 +27,11 @@
   },
   "dependencies": {
     "conventional-changelog-angular": "^5.0.13",
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@shiftcode/branch-utilities": "^3.0.0-pr28.3",
-    "@types/yargs": "^17.0.13"
+    "@types/yargs": "^17.0.32"
   },
   "peerDependencies": {
     "@shiftcode/branch-utilities": "^3.0.0 || ^3.0.0-pr28",
