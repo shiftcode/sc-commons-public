@@ -6,7 +6,7 @@ const tsRootDirectory = join(__dirname, '../..', 'test')
 const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: 2023,
     tsconfigRootDir: tsRootDirectory,
     project: './tsconfig.json',
   },

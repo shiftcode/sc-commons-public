@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "node16",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "target": "es2023",
     "strict": true,
     "sourceMap": true,
