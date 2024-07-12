@@ -45,7 +45,7 @@ export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
   let isPr = false
 
   if (isFullBranchOverrideDefined(env)) {
-    // full branch name override via en vars SC_OVERRIDE_BRANCH_NAME and SC_OVERRIDE_IS_PR
+    // full branch name override via env vars SC_OVERRIDE_BRANCH_NAME and SC_OVERRIDE_IS_PR
     branchName = getBranchNameOverride(env)
     isPr = getIsPrOverride(env)
   } else if (isGithubWorkflow(env)) {

@@ -10,6 +10,8 @@ describe('base utils', () => {
     test('works when master run locally with override', () => {
       const env: CustomScOverrideEnv = {
         SC_OVERRIDE: 'true',
+        SC_OVERRIDE_BRANCH_NAME: undefined,
+        SC_OVERRIDE_IS_PR: undefined,
       }
       expect(getBranchInfo(env, 'master')).toEqual(<BranchInfo>{
         stage: 'master',
@@ -59,6 +61,21 @@ describe('base utils', () => {
         isPr: false,
         stage: 'master',
         name: 'master',
+      })
+    })
+
+    test('works with env var overrides', () => {
+      const env: CustomScOverrideEnv = {
+        SC_OVERRIDE: 'true',
+        SC_OVERRIDE_BRANCH_NAME: '#1313-on-branch-to-override-them-all',
+        SC_OVERRIDE_IS_PR: 'true',
+      }
+      expect(getBranchInfo(env, 'master')).toEqual(<BranchInfo>{
+        stage: 'pr1313',
+        isPr: true,
+        isProd: false,
+        name: 'on-branch-to-override-them-all',
+        branchName: '#1313-on-branch-to-override-them-all',
       })
     })
   })
