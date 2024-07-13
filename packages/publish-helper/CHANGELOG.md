@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@2.1.0...@shiftcode/publish-helper@3.0.0) (2024-07-13)
+
+### Bug Fixes
+
+- **publish-helper:** provide string flag to include option ([deda8f6](https://github.com/shiftcode/sc-commons-public/commit/deda8f637cd0965331a3a57f620e9af18f27b866))
+- **publish-helper:** update peer dependency definition ([78f20da](https://github.com/shiftcode/sc-commons-public/commit/78f20da81c715b6f459e056362729cf6917b954e))
+- use correct syntax to provide args to npm scripts ([f2353c1](https://github.com/shiftcode/sc-commons-public/commit/f2353c18daeecc44bcbf7c31c29730a06bddc8be))
+
+### Build System
+
+- **deps:** upgrade typescript and minimum required node version ([8417ec4](https://github.com/shiftcode/sc-commons-public/commit/8417ec403de6f33fa50caa96692a29c32c186b0e))
+- **lerna:** upgrade to version 7 ([08e6957](https://github.com/shiftcode/sc-commons-public/commit/08e6957d5f233916161eeae3f7f5eba79ebfd095))
+- **lerna:** upgrade to version 8 ([e98fcab](https://github.com/shiftcode/sc-commons-public/commit/e98fcab2c750297b1a9d37c406dfda5d82596887))
+
+### BREAKING CHANGES
+
+- **deps:** Minimum required node version is 20. In general the runtime (node or browser for utilities) must support es2023.
+- **lerna:** requires lerna^8
+- **lerna:** requires lerna^7
+
 # [2.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@2.0.1...@shiftcode/publish-helper@2.1.0) (2024-05-15)
 
 ### Features

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-plugin-rules@1.1.0...@shiftcode/eslint-plugin-rules@2.0.0) (2024-07-13)
+
+### Build System
+
+- **deps:** upgrade typescript and minimum required node version ([8417ec4](https://github.com/shiftcode/sc-commons-public/commit/8417ec403de6f33fa50caa96692a29c32c186b0e))
+
+### BREAKING CHANGES
+
+- **deps:** Minimum required node version is 20. In general the runtime (node or browser for utilities) must support es2023.
+
 # 1.1.0 (2024-05-15)
 
 ### Features

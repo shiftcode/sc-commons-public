@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@1.1.0...@shiftcode/eslint-config-recommended@2.0.0) (2024-07-13)
+
+### Build System
+
+- **deps:** upgrade @angular-eslint/\* ([b7e857e](https://github.com/shiftcode/sc-commons-public/commit/b7e857efe54d49e759d1ad15a69c7ac0fbd7af30)), closes [/github.com/angular-eslint/angular-eslint/blob/main/CHANGELOG.md#1800-2024-05-29](https://github.com//github.com/angular-eslint/angular-eslint/blob/main/CHANGELOG.md/issues/1800-2024-05-29)
+- **deps:** upgrade typescript and minimum required node version ([8417ec4](https://github.com/shiftcode/sc-commons-public/commit/8417ec403de6f33fa50caa96692a29c32c186b0e))
+
+### BREAKING CHANGES
+
+- **deps:**
+- **deps:** Minimum required node version is 20. In general the runtime (node or browser for utilities) must support es2023.
+
 # 1.1.0 (2024-05-15)
 
 ### Features
