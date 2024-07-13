@@ -8,9 +8,12 @@
  */
 export function groupBy<T>(collection: T[], propOrFn: keyof T | ((val: T) => string | number)): Record<string, T[]> {
   const valFn: (v: T) => any = typeof propOrFn === 'function' ? propOrFn : (v: T) => v[propOrFn]
-  return collection.reduce((u, i) => {
-    const vk: any = valFn(i)
-    u[vk] = u[vk] ? [...u[vk], i] : [i]
-    return u
-  }, <Record<string, T[]>>{})
+  return collection.reduce(
+    (u, i) => {
+      const vk: any = valFn(i)
+      u[vk] = u[vk] ? [...u[vk], i] : [i]
+      return u
+    },
+    <Record<string, T[]>>{},
+  )
 }

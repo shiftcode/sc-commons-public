@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@2.2.0...@shiftcode/utilities@3.0.0) (2024-07-13)
+
+### Bug Fixes
+
+- use correct syntax to provide args to npm scripts ([f2353c1](https://github.com/shiftcode/sc-commons-public/commit/f2353c18daeecc44bcbf7c31c29730a06bddc8be))
+
+### Build System
+
+- **deps:** upgrade typescript and minimum required node version ([8417ec4](https://github.com/shiftcode/sc-commons-public/commit/8417ec403de6f33fa50caa96692a29c32c186b0e))
+
+### BREAKING CHANGES
+
+- **deps:** Minimum required node version is 20. In general the runtime (node or browser for utilities) must support es2023.
+
 # [2.2.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@2.1.0...@shiftcode/utilities@2.2.0) (2024-05-15)
 
 ### Features

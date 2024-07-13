@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "es2021",
+    "target": "es2023",
     "outDir": "./dist/",
     "declarationDir": "./dist/"
   },

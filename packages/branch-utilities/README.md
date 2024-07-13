@@ -1,6 +1,6 @@
 # branch-utilities
 
-> 🎯 Target runtime: es2022 ([Node >= 18](https://node.green/#ES2022))
+> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
 
 Utilities for branch info depending on env (GitHub Workflow or Local)
 

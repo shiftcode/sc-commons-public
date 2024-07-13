@@ -18,6 +18,7 @@ const argv = yargs(hideBin(process.argv)).option('include', {
   type: 'array',
   description: 'copy additional files into the dist folder',
   default: [],
+  string: true
 }).argv
 
 function log(...args: any[]) {

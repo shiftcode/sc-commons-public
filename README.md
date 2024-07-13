@@ -6,6 +6,11 @@ Public helper packages with commonly used utilities / helpers.
 >[![@shiftcode/branch-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fbranch-utilities%2Fpackage.json&label=%40shiftcode%2Fbranch-utilities)](packages/branch-utilities) \
 >functions to read information about the current branch either locally or inside Github actions.
 
+>[![@shiftcode/eslint-config-recommended](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Feslint-config-recommended%2Fpackage.json&label=%40shiftcode%2Feslint-config-recommended)](packages/eslint-config-recommended) \
+>Our recommended config for eslint. We provide two versions, one for usage in node projects and one for Angular.
+
+>[![@shiftcode/eslint-plugin-rules](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Feslint-plugin-rules%2Fpackage.json&label=%40shiftcode%2Feslint-plugin-rules)](packages/eslint-plugin-rules) \
+>Contains some custom es lint rules. Those are used in our recommended eslint config.
  
 >[![@shiftcode/publish-helper](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fpublish-helper%2Fpackage.json&label=%40shiftcode%2Fpublish-helper)](packages/publish-helper)\
 >scripts to prepare and publish libs inside mono-repos with lerna
@@ -20,8 +25,8 @@ Add a `.npmrc` file to the root of your project:
 ```
 
 ## Quick Start
-* `yarn`
-* `yarn build`
+* `npm i`
+* `npm run build`
 * start developing
 
 
@@ -44,16 +49,16 @@ We use lerna to manage the packages.
 - For lerna to know the topological order of packages, we define the dependencies between the packages in each individual package as `devDependency`
 - For testing reasons we compile against the source code to run tests without prior compiling of the source, this requires `tsconfig.paths` definitions and also `moduleNameMapper` in `jest.config.js`
 
-
 ## ES Version
 We support two runtimes: `node` and `latest browser versions`.
 
-### Node^18
-Node^18 (which is also supported by AWS Lambda) supports [97%](https://node.green/#ES2022) of `es2022` features and [100%](https://node.green/#ES2023) of `es2023` features.
+### Node 20
+Node 20 (which is also supported by AWS Lambda) supports [97%](https://node.green/#ES2022) of `es2022` features 
+(no version supports 100%) and [100%](https://node.green/#ES2023) of `es2023` features.
 The only `es2022` feature that is currently not supported and needs a polyfill when using it is
 [RegExp Match Indices (shows up in flags)](https://node.green/#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag-) (see [2ality blog](https://2ality.com/2019/12/regexp-match-indices.html) for insights). 
 Polyfill can be found here: https://www.npmjs.com/package/regexp-match-indices.
 
 ### Browser
-For modern browsers the latest fully supported version is `es2021` (see [can-i-use](https://caniuse.com/?feats=mdn-javascript_builtins_string_replaceall,mdn-javascript_builtins_promise_any,mdn-javascript_builtins_weakref,mdn-javascript_operators_logical_or_assignment,mdn-javascript_operators_logical_and_assignment,mdn-javascript_operators_logical_nullish_assignment,mdn-javascript_grammar_numeric_separators,mdn-javascript_builtins_finalizationregistry)))
-which therefore is the target for `@shiftcode/utilities` package.
+For modern browsers the latest fully supported version is `es2023` (see [can-i-use](https://caniuse.com/?search=es2023))
+which therefore is the target for `@shiftcode/utilities` package (see [package README](./packages/utilities/README.md)).

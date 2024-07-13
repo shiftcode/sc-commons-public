@@ -69,34 +69,40 @@ export function fixPackageJsonPaths(
       log('rewrite exports paths. from', val)
       if (typeof val === 'object' && Object.keys(val as Record<any, any>).length) {
         console.log('val === object', val)
-        val = Object.entries(val).reduce((obj, [moduleName, exportPathOrObj]) => {
-          if (exportPathOrObj && typeof exportPathOrObj === 'string') {
-            /*
-             * something like:
-             * exports: {
-             *  ".": "./index.js",
-             *  ...potentially others
-             * }
-             */
-            obj[moduleName] = fixPath(exportPathOrObj)
-          } else if (exportPathOrObj && typeof exportPathOrObj === 'object') {
-            /*
-             * something like:
-             * exports: {
-             *  ".": {
-             *    "types: "./index.d.ts",
-             *    "default: "./index.js",
-             *  },
-             *  ...potentially others
-             * }
-             */
-            obj[moduleName] = Object.entries(exportPathOrObj).reduce((o, [k2, v]) => {
-              o[k2] = fixPath(v)
-              return o
-            }, {} as Record<string, string>)
-          }
-          return obj
-        }, {} as Record<string, string | { types?: string; default?: string; required?: string }>)
+        val = Object.entries(val).reduce(
+          (obj, [moduleName, exportPathOrObj]) => {
+            if (exportPathOrObj && typeof exportPathOrObj === 'string') {
+              /*
+               * something like:
+               * exports: {
+               *  ".": "./index.js",
+               *  ...potentially others
+               * }
+               */
+              obj[moduleName] = fixPath(exportPathOrObj)
+            } else if (exportPathOrObj && typeof exportPathOrObj === 'object') {
+              /*
+               * something like:
+               * exports: {
+               *  ".": {
+               *    "types: "./index.d.ts",
+               *    "default: "./index.js",
+               *  },
+               *  ...potentially others
+               * }
+               */
+              obj[moduleName] = Object.entries(exportPathOrObj).reduce(
+                (o, [k2, v]) => {
+                  o[k2] = fixPath(v)
+                  return o
+                },
+                {} as Record<string, string>,
+              )
+            }
+            return obj
+          },
+          {} as Record<string, string | { types?: string; default?: string; required?: string }>,
+        )
       } else {
         throw new Error(`structure of field exports (${JSON.stringify(val)}) is not support by prepare-dist script`)
       }

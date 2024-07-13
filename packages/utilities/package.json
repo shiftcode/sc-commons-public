@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/utilities",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Contains some utilities",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -16,8 +16,8 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "lint": "yarn lint:src:fix",
-    "lint:ci": "yarn lint:src",
+    "lint": "npm run lint:src:fix",
+    "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
@@ -25,8 +25,8 @@
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js",
-    "test:ci": "yarn test",
-    "test:watch": "yarn test --watch"
+    "test:ci": "npm run test",
+    "test:watch": "npm run test -- --watch"
   },
   "peerDependencies": {
     "tslib": "^2.3.0"
