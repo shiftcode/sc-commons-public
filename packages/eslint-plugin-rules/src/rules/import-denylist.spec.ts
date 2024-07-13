@@ -6,7 +6,7 @@ const tsRootDirectory = join(__dirname, '../..', 'test')
 const ruleTester = new RuleTester({
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: 2023,
     tsconfigRootDir: tsRootDirectory,
     project: './tsconfig.json',
   },
@@ -20,7 +20,7 @@ ruleTester.run('import-denylist', importDenyListRule, {
       code: `import {foo} from '@angular/core'`,
     },
     {
-      options: [],
+      options: [] as any,
       // language=typescript
       code: `import {foo} from '@angular/core'`,
     },

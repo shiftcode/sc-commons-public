@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-plugin-rules",
-  "version": "1.1.0",
+  "version": "2.0.0-pr28.4",
   "description": "eslint-rules for shiftcode-specific eslint rules",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -13,9 +13,9 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "build:lint:ci": "yarn build",
-    "lint": "yarn lint:src:fix",
-    "lint:ci": "yarn lint:src",
+    "build:lint:ci": "npm run build",
+    "lint": "npm run lint:src:fix",
+    "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
@@ -23,14 +23,15 @@
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "jest",
-    "test:ci": "yarn test"
+    "test:ci": "npm run test"
   },
   "dependencies": {
     "@eslint/eslintrc": "^2.1.4",
-    "@typescript-eslint/utils": "^6.8.0"
+    "@typescript-eslint/utils": "^7.16.0"
   },
   "devDependencies": {
-    "@typescript-eslint/rule-tester": "^6.8.0"
+    "@typescript-eslint/parser": "^7.16.0",
+    "@typescript-eslint/rule-tester": "^7.16.0"
   },
   "peerDependencies": {
     "eslint": "^8.56.0"

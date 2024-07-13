@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "1.1.0",
+  "version": "2.0.0-pr28.4",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -23,9 +23,9 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "build:lint:ci": "yarn build",
-    "lint": "yarn lint:src:fix",
-    "lint:ci": "yarn lint:src",
+    "build:lint:ci": "npm run build",
+    "lint": "npm run lint:src:fix",
+    "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
@@ -33,23 +33,23 @@
     "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "echo 'Error: no test specificed'",
-    "test:ci": "yarn test"
+    "test:ci": "npm run test"
   },
   "dependencies": {
-    "@shiftcode/eslint-plugin-rules": "^1.1.0",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
+    "@shiftcode/eslint-plugin-rules": "^2.0.0-pr28.4",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
     "eslint": "^8.56.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-unused-imports": "^3.0.0"
+    "eslint-plugin-unused-imports": "^3.2.0"
   },
   "peerDependencies": {
-    "@angular-eslint/builder": "^15.0.0",
-    "@angular-eslint/eslint-plugin": "^15.0.0",
-    "@angular-eslint/eslint-plugin-template": "^15.0.0",
-    "@angular-eslint/schematics": "^15.0.0",
-    "@angular-eslint/template-parser": "^15.0.0"
+    "@angular-eslint/builder": "^18.0.0",
+    "@angular-eslint/eslint-plugin": "^18.0.0",
+    "@angular-eslint/eslint-plugin-template": "^18.0.0",
+    "@angular-eslint/schematics": "^18.0.0",
+    "@angular-eslint/template-parser": "^18.0.0"
   },
   "peerDependenciesMeta": {
     "@angular-eslint/builder": {

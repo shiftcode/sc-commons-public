@@ -1,24 +1,27 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build:ci",
-          "build",
-          "lint:ci",
-          "lint:src",
-          "test:ci"
-        ]
-      }
-    }
-  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
+    },
+    "build:ci": {
+      "cache": true
+    },
+    "lint:ci": {
+      "cache": true
+    },
+    "lint:src": {
+      "cache": true
+    },
+    "test:ci": {
+      "cache": true
     }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": ["default"]
   }
 }

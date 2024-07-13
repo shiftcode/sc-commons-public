@@ -20,8 +20,8 @@ Add a `.npmrc` file to the root of your project:
 ```
 
 ## Quick Start
-* `yarn`
-* `yarn build`
+* `npm i`
+* `npm run build`
 * start developing
 
 
