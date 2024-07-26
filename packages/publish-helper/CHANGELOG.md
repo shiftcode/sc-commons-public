@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@3.0.0...@shiftcode/publish-helper@3.0.1) (2024-07-26)
+
+**Note:** Version bump only for package @shiftcode/publish-helper
+
 # [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@2.1.0...@shiftcode/publish-helper@3.0.0) (2024-07-13)
 
 ### Bug Fixes

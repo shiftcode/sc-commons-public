@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.0.0...@shiftcode/branch-utilities@3.1.0) (2024-07-26)
+
+### Features
+
+- **branch-utilities:** add tests and fix typos ([65f3bde](https://github.com/shiftcode/sc-commons-public/commit/65f3bde7ab6da506ac5015e0e75f95ca1f66bd10))
+- **branch-utilities:** added branchName and isPr override via ENV ([b0f502a](https://github.com/shiftcode/sc-commons-public/commit/b0f502a9afa0d49fa5a249ccafc6625411db79a4))
+- **branch-utilities:** make eslint happy ([a276015](https://github.com/shiftcode/sc-commons-public/commit/a27601504cda2221dd0cdeda24ab24a029d4f8d0))
+
 # [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@2.1.0...@shiftcode/branch-utilities@3.0.0) (2024-07-13)
 
 ### Bug Fixes
