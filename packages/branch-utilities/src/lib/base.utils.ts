@@ -43,7 +43,12 @@ export function createStageInfo(stage: string): StageInfo {
  */
 export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
   let isPr = false
-  if (isGithubWorkflow(env)) {
+
+  if (isFullBranchOverrideDefined(env)) {
+    // full branch name override via env vars SC_OVERRIDE_BRANCH_NAME and SC_OVERRIDE_IS_PR
+    branchName = getBranchNameOverride(env)
+    isPr = getIsPrOverride(env)
+  } else if (isGithubWorkflow(env)) {
     // github workflow environment
     branchName = branchName ?? getGithubBranchName(env)
     isPr = isGithubPullRequest(env)
@@ -73,6 +78,20 @@ export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
       name,
     }
   }
+}
+
+export function isFullBranchOverrideDefined(envVars: unknown): envVars is CustomScOverrideEnv {
+  return envVars !== null
+    && typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_BRANCH_NAME ==='string'
+    && typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_IS_PR ==='string'
+}
+
+export function getBranchNameOverride(env: CustomScOverrideEnv): string {
+  return env.SC_OVERRIDE_BRANCH_NAME
+}
+
+export function getIsPrOverride(env: CustomScOverrideEnv): boolean {
+  return env.SC_OVERRIDE_IS_PR === 'true'
 }
 
 /**
