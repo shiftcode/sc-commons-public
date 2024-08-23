@@ -26,7 +26,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "conventional-changelog-angular": "^5.0.13",
+    "conventional-changelog-angular": "^8.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
