@@ -41,7 +41,7 @@ export function createStageInfo(stage: string): StageInfo {
  * @return Returns the branch info containing the stage which is defined as xx|pr<branchId> or 'master' / 'main'
  * @throws if master | main branch is used locally without override flag
  */
-export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
+export function getBranchInfo(env: unknown, branchName?: string, noLog?: boolean): BranchInfo {
   let isPr = false
 
   if (isFullBranchOverrideDefined(env)) {
@@ -58,7 +58,7 @@ export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
   }
 
   if (isMasterBranch(branchName) || isMainBranch(branchName)) {
-    if (!isGithubWorkflow(env) && !isScOverrideActive(env)) {
+    if (!isGithubWorkflow(env) && !isScOverrideActive(env) && !noLog) {
       throw new Error(`prod (master or main) branch can't be used locally`)
     }
     return {
@@ -81,9 +81,11 @@ export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
 }
 
 export function isFullBranchOverrideDefined(envVars: unknown): envVars is CustomScOverrideEnv {
-  return envVars !== null
-    && typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_BRANCH_NAME ==='string'
-    && typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_IS_PR ==='string'
+  return (
+    envVars !== null &&
+    typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_BRANCH_NAME === 'string' &&
+    typeof (envVars as CustomScOverrideEnv).SC_OVERRIDE_IS_PR === 'string'
+  )
 }
 
 export function getBranchNameOverride(env: CustomScOverrideEnv): string {
