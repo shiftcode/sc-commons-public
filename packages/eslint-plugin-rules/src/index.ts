@@ -1,8 +1,8 @@
-import { denyParentIndexFileImportRule } from './rules/deny-parent-index-file-import'
-import { importDenyListRule } from './rules/import-denylist'
-import { prefixBuiltinModuleImportRule } from './rules/prefix-builtin-module-import'
+import { denyParentIndexFileImportRule } from './rules/deny-parent-index-file-import.js'
+import { importDenyListRule } from './rules/import-denylist.js'
+import { prefixBuiltinModuleImportRule } from './rules/prefix-builtin-module-import.js'
 
-module.exports = {
+export default {
   rules: {
     'deny-parent-index-file-import': denyParentIndexFileImportRule,
     'import-denylist': importDenyListRule,
