@@ -1,34 +1,22 @@
-import { join } from 'node:path'
-import { RuleTester } from '@typescript-eslint/rule-tester'
+import { createRuleTester } from '../utils/rule-tester'
 import { ImportDenylistMessageIds, importDenyListRule } from './import-denylist'
 
-const tsRootDirectory = join(__dirname, '../..', 'test')
-const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2023,
-    tsconfigRootDir: tsRootDirectory,
-    project: './tsconfig.json',
-  },
-})
+const ruleTester = createRuleTester()
 
 ruleTester.run('import-denylist', importDenyListRule, {
   valid: [
     {
       options: [{ patterns: ['/aws-cdk-lib\\/core/'] }],
-      // language=typescript
       code: `import {foo} from '@angular/core'`,
     },
     {
-      options: [] as any,
-      // language=typescript
+      options: [],
       code: `import {foo} from '@angular/core'`,
     },
   ],
   invalid: [
     {
       options: [{ patterns: [/aws-cdk-lib\/core/] }],
-      // language=typescript
       code: `import {foo} from 'aws-cdk-lib/core'`,
       errors: [
         {
