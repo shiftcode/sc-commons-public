@@ -1,28 +1,17 @@
-import { RuleTester } from '@typescript-eslint/rule-tester'
-import { join } from 'node:path'
+import { createRuleTester } from '../utils/rule-tester'
 import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from './prefix-builtin-module-import'
 
-const tsRootDirectory = join(__dirname, '../..', 'test')
-const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2023,
-    tsconfigRootDir: tsRootDirectory,
-    project: './tsconfig.json',
-  },
-})
+const ruleTester = createRuleTester()
 
 ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
   valid: [
     {
-      // language=typescript
       code: `
         import { writeFile } from 'node:fs/promises'
         import { verify } from 'node:crypto'
       `,
     },
     {
-      // language=typescript
       code: `
         import { join } from 'node:path'
       `,
@@ -30,7 +19,6 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
   ],
   invalid: [
     {
-      // language=typescript
       code: `import { writeFile } from 'fs'`,
       errors: [
         {
@@ -41,7 +29,6 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       output: `import { writeFile } from 'node:fs'`,
     },
     {
-      // language=typescript
       code: `
         import { writeFileSync } from 'node:fs'
         import { writeFile } from 'fs/promises'
@@ -64,7 +51,6 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       `,
     },
     {
-      // language=typescript
       code: `const fs = require('fs')`,
       errors: [
         {

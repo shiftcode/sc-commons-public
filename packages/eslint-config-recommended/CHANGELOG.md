@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@2.0.1...@shiftcode/eslint-config-recommended@3.0.0) (2025-01-03)
+
+### Build System
+
+- **deps:** upgrade @angular-eslint/\* ([fb1b0b4](https://github.com/shiftcode/sc-commons-public/commit/fb1b0b4161aaf9e23345ed543f598a5a4a79f7ba))
+
+### BREAKING CHANGES
+
+- **deps:** Requires angular 19.
+
 ## [2.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@2.0.0...@shiftcode/eslint-config-recommended@2.0.1) (2024-07-13)
 
 **Note:** Version bump only for package @shiftcode/eslint-config-recommended
