@@ -37,12 +37,6 @@
   "dependencies": {
     "ansi-styles": "^6.2.1"
   },
-  "devDependencies": {
-    "@shiftcode/utilities": "^3.0.0"
-  },
-  "peerDependencies": {
-    "@shiftcode/utilities": "^3.0.0 || ^3.0.0-pr28.3"
-  },
   "publishConfig": {
     "directory": "dist"
   }
