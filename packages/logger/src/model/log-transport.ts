@@ -1,4 +1,4 @@
-import { LogLevel } from '../model/log-level.enum.js'
+import { LogLevel } from './log-level.enum.js'
 
 export abstract class LogTransport {
   protected logLevel: LogLevel

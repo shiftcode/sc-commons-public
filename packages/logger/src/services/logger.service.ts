@@ -1,6 +1,6 @@
 import { Logger } from '../model/logger.js'
 import { stringToColor } from '../utils/logger-helper.js'
-import { LogTransport } from './log-transport.js'
+import { LogTransport } from '../model/log-transport.js'
 
 export class LoggerService {
   private loggers = new Map<string, number>()

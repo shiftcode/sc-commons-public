@@ -1,4 +1,4 @@
-import { LogTransport } from '../services/log-transport.js'
+import { LogTransport } from './log-transport.js'
 import { LogLevel } from './log-level.enum.js'
 
 export class Logger {
