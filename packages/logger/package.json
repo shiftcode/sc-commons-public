@@ -34,9 +34,6 @@
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {
-    "ansi-styles": "^6.2.1"
-  },
   "publishConfig": {
     "directory": "dist"
   }
