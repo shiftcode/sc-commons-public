@@ -2,7 +2,9 @@
   "extends": "../../tsconfig.jest.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {}
+    "paths": {
+      "@shiftcode/utilities": ["../utilities/src"]
+    }
   },
   "include": [
     "src/**/*.spec.ts",
