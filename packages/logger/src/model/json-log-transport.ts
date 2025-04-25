@@ -10,9 +10,9 @@ export abstract class JsonLogTransport extends LogTransport {
   log(level: LogLevel, clazzName: string, _hexColor: string, timestamp: Date, args: any[]) {
     if (this.isLevelEnabled(level)) {
       const logObject = createJsonLogObjectData(level, clazzName, timestamp, args)
-      this.transportLog(logObject)
+      this.transportLog(level, logObject)
     }
   }
 
-  abstract transportLog(logObject: JsonLogObjectData): void
+  abstract transportLog(level: LogLevel, logDataObject: JsonLogObjectData): void
 }
