@@ -34,6 +34,9 @@
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"
   },
+  "devDependencies": {
+    "@shiftcode/utilities": "^3.0.1 || ^3.0.1-pr999.0"
+  },
   "peerDependencies": {
     "@shiftcode/utilities": "^3.0.1 || ^3.0.1-pr999.0"
   },
