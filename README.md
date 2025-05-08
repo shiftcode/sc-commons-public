@@ -52,8 +52,8 @@ We use lerna to manage the packages.
 ## ES Version
 We support two runtimes: `node` and `latest browser versions`.
 
-### Node 20
-Node 20 (which is also supported by AWS Lambda) supports [97%](https://node.green/#ES2022) of `es2022` features 
+### Node 22
+Node 22 (which is also supported by AWS Lambda) supports [97%](https://node.green/#ES2022) of `es2022` features 
 (no version supports 100%) and [100%](https://node.green/#ES2023) of `es2023` features.
 The only `es2022` feature that is currently not supported and needs a polyfill when using it is
 [RegExp Match Indices (shows up in flags)](https://node.green/#ES2022-features-RegExp-Match-Indices---hasIndices-----d--flag-) (see [2ality blog](https://2ality.com/2019/12/regexp-match-indices.html) for insights). 

@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {pathsToModuleNameMapper} from 'ts-jest'
-import tsConfig from './tsconfig.jest.json' assert {type: 'json'}
+import { readFileSync } from 'node:fs'
+
+const tsConfig = JSON.parse(readFileSync('./tsconfig.jest.json', 'utf-8'))
 
 export default {
     testEnvironment: 'node',
