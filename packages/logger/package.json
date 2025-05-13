@@ -34,8 +34,11 @@
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"
   },
+  "devDependencies": {
+    "@shiftcode/utilities": "^3.0.0"
+  },
   "peerDependencies": {
-    "@shiftcode/utilities": "^3.0.0 || ^3.0.0-pr28.3"
+    "@shiftcode/utilities": "^3.0.0"
   },
   "publishConfig": {
     "directory": "dist"
