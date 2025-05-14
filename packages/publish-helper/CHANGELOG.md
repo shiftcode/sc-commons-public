@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@3.0.1...@shiftcode/publish-helper@3.1.0) (2025-05-14)
+
+### Features
+
+- **publish-helper:** update conventional-changelog-angular ([1ec776b](https://github.com/shiftcode/sc-commons-public/commit/1ec776b3f0017dcad90e92376afcdd11ab77e418))
+
 ## [3.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@3.0.0...@shiftcode/publish-helper@3.0.1) (2024-07-26)
 
 **Note:** Version bump only for package @shiftcode/publish-helper
