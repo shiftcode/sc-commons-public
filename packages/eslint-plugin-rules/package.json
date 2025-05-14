@@ -36,6 +36,9 @@
   "peerDependencies": {
     "eslint": "^8.56.0"
   },
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  },
   "publishConfig": {
     "directory": "dist"
   }

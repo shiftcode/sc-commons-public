@@ -31,6 +31,9 @@
   "peerDependencies": {
     "tslib": "^2.3.0"
   },
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  },
   "publishConfig": {
     "directory": "dist"
   }

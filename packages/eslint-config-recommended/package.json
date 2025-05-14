@@ -68,6 +68,9 @@
       "optional": true
     }
   },
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  },
   "publishConfig": {
     "directory": "dist"
   }
