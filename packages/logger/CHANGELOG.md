@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@1.1.0...@shiftcode/logger@2.0.0) (2025-05-15)
+
+### Bug Fixes
+
+- **logger:** add @shiftcode/utilities as devDependency ([def2b0e](https://github.com/shiftcode/sc-commons-public/commit/def2b0ebe1bc0f25fd9719e993657bcc148ed520))
+
+### Features
+
+- **package:** specify node version in the individual packages ([78e01d0](https://github.com/shiftcode/sc-commons-public/commit/78e01d0be016e22584a17e7c021cc1b4408c4d1f))
+
+### BREAKING CHANGES
+
+- **package:** Requires Node 20 or >=22
+
 # 1.1.0 (2025-05-13)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.1.0...@shiftcode/branch-utilities@4.0.0) (2025-05-15)
+
+### Features
+
+- **package:** specify node version in the individual packages ([78e01d0](https://github.com/shiftcode/sc-commons-public/commit/78e01d0be016e22584a17e7c021cc1b4408c4d1f))
+
+### BREAKING CHANGES
+
+- **package:** Requires Node 20 or >=22
+
 # [3.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.0.0...@shiftcode/branch-utilities@3.1.0) (2024-07-26)
 
 ### Features
