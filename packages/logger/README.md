@@ -9,18 +9,18 @@ messages to various transports.
 # Usage
 
 ````typescript
-import { Logger, LogLevel, LogTransport } from '@shiftcode/logger'
+import { Logger, LogLevel, LogTransport, BaseLoggerService } from '@shiftcode/logger'
 
 // Create a transport for logging to the console with a specific log level
 const transport = new LogTransport(
   LogLevel.DEBUG, // This controls the minimum log level
 )
 
-// LoggerService is used to manage loggers and their transports
-const loggerService = new LoggerService([transport])
+// BaseLoggerService is used to manage loggers and their transports
+const baseLoggerService = new BaseLoggerService([transport])
 
 // Create a logger instance with a specific name and color
-const logger = loggerService.getInstance('MyLogger', '#abcdef')
+const logger = baseLoggerService.getInstance('MyLogger', '#abcdef')
 
 // Logging messages at different levels
 logger.debug('This is a debug message')

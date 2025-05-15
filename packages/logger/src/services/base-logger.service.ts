@@ -2,7 +2,7 @@ import { Logger } from '../model/logger.js'
 import { stringToColor } from '../utils/logger-helper.js'
 import { LogTransport } from '../model/log-transport.js'
 
-export class LoggerService {
+export class BaseLoggerService {
   private loggers = new Map<string, number>()
 
   constructor(private readonly logTransports: LogTransport[]) {}

@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/logger",
-  "version": "2.0.0",
+  "version": "3.0.0-pr48.1",
   "description": "logger for local and aws lambda execution",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
