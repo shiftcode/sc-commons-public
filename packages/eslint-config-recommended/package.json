@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "4.0.0",
+  "version": "5.0.0-pr50.2",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -45,11 +45,11 @@
     "eslint-plugin-unused-imports": "^4.1.4"
   },
   "peerDependencies": {
-    "@angular-eslint/builder": "^19.0.0",
-    "@angular-eslint/eslint-plugin": "^19.0.0",
-    "@angular-eslint/eslint-plugin-template": "^19.0.0",
-    "@angular-eslint/schematics": "^19.0.0",
-    "@angular-eslint/template-parser": "^19.0.0"
+    "@angular-eslint/builder": "^20.0.0",
+    "@angular-eslint/eslint-plugin": "^20.0.0",
+    "@angular-eslint/eslint-plugin-template": "^20.0.0",
+    "@angular-eslint/schematics": "^20.0.0",
+    "@angular-eslint/template-parser": "^20.0.0"
   },
   "peerDependenciesMeta": {
     "@angular-eslint/builder": {
