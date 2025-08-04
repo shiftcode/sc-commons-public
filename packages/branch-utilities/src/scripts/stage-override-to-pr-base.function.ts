@@ -1,4 +1,4 @@
-import { execReturn } from '../lib/helpers.js'
+import { execSync } from 'node:child_process'
 
 export interface StageOverrideToPrBaseOptions {
   branchNameOverride?: string
@@ -9,7 +9,7 @@ export async function stageOverrideToPrBase(
 ): Promise<string> {
   const opts = await options
 
-  const gitHubPrJson = execReturn('gh pr list --json headRefName,title,isDraft,closed')
+  const gitHubPrJson = execSync('gh pr list --json headRefName,title,isDraft,closed', { encoding: 'utf8' }).trim()
   const gitHubPrs = JSON.parse(gitHubPrJson)
 
   const branchNameOverride = opts.branchNameOverride || process.env['GITHUB_BASE_REF']
