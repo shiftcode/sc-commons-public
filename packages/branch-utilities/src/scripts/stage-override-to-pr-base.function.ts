@@ -6,7 +6,7 @@ export interface StageOverrideToPrBaseOptions {
 
 export async function stageOverrideToPrBase(
   options: StageOverrideToPrBaseOptions | Promise<StageOverrideToPrBaseOptions>,
-): Promise<void> {
+): Promise<string> {
   const opts = await options
 
   const gitHubPrJson = execReturn('gh pr list --json headRefName,title,isDraft,closed')
@@ -15,9 +15,8 @@ export async function stageOverrideToPrBase(
   const branchNameOverride = opts.branchNameOverride || process.env['GITHUB_BASE_REF']
   const isPrOverride = !!gitHubPrs.find((pr: any) => pr.headRefName === branchNameOverride)
 
-  // export to env
-  process.stdout.write(`
+  return `
   export SC_OVERRIDE_BRANCH_NAME=${branchNameOverride}
   export SC_OVERRIDE_IS_PR=${isPrOverride}
-  `)
+  `
 }
