@@ -13,6 +13,9 @@
       "default": "./dist/index.js"
     }
   },
+  "bin": {
+    "stage-override-to-pr-base": "./dist/stage-override-to-pr-base.js"
+  },
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
@@ -27,6 +30,9 @@
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js",
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
   },
   "peerDependencies": {
     "tslib": "^2.3.0"
