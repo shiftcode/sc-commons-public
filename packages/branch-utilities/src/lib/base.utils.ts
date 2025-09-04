@@ -143,8 +143,8 @@ export function isMainBranch(branchName: string): boolean {
  * @throws Throws an error if given branchName does not match our convention
  */
 export function parseBranchName(branchName: string): { branchId: number; branchName: string } {
-  const matches = REGEX_BRANCH_NAME_DEFAULT.exec(branchName) || REGEX_BRANCH_NAME_COPILOT.exec(branchName)
-  if (matches && matches.groups) {
+  const matches = REGEX_BRANCH_NAME_DEFAULT.exec(branchName) ?? REGEX_BRANCH_NAME_COPILOT.exec(branchName)
+  if (matches?.groups) {
     return {
       branchId: parseInt(matches.groups['id'], 10),
       branchName: matches.groups['name'],
@@ -163,7 +163,7 @@ export function parseBranchName(branchName: string): { branchId: number; branchN
  * @return returns true if the stage is 'master' or 'main', false if not
  */
 export function isProduction(stageName: string): boolean {
-  return REGEX_MASTER.test(stageName) || REGEX_MAIN.test(stageName)
+  return REGEX_MASTER.test(stageName) ?? REGEX_MAIN.test(stageName)
 }
 
 /**
