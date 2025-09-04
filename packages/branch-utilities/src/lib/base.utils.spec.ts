@@ -95,9 +95,13 @@ describe('base utils', () => {
 
     test('works for github copilot created branches', () => {
       expect(parseBranchName('copilot/fix-123')).toEqual({ branchId: 123, branchName: 'fix' } satisfies ReturnType<typeof parseBranchName>)
+      expect(parseBranchName('copilot/feat-123')).toEqual({ branchId: 123, branchName: 'feat' } satisfies ReturnType<typeof parseBranchName>)
     })
+
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()
+      expect(() => parseBranchName('copilot/123-fix')).toThrow()
+      expect(() => parseBranchName('feat/copilot/fix-123')).toThrow()
     })
   })
 })

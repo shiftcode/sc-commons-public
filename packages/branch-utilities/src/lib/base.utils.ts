@@ -18,7 +18,7 @@ const REGEX_BRANCH_NAME_DEFAULT = /^[a-z]*\/?#(?<id>\d+)-(?<name>.*)$/
  * regex to match the branch convention github copilot uses with the following named capture groups: id, name
  * @example copilot/fix-789 -> { id:  '789',  name: 'fix' }
  */
-const REGEX_BRANCH_NAME_COPILOT = /copilot\/(?<name>fix)-(?<id>\d+)/
+const REGEX_BRANCH_NAME_COPILOT = /^copilot\/(?<name>.*)-(?<id>\d+)$/
 
 export interface StageInfo {
   isProd: boolean
