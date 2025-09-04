@@ -81,11 +81,20 @@ describe('base utils', () => {
   })
 
   describe('parseBranchName', () => {
+
     test('works when valid pattern', () => {
-      expect(parseBranchName('#7-abc').branchId).toBe(7)
+      expect(parseBranchName('#7-abc')).toEqual({ branchId: 7, branchName: 'abc' } satisfies ReturnType<typeof parseBranchName>)
+
       expect(parseBranchName('#72-abc').branchId).toBe(72)
+      expect(parseBranchName('#000-int').branchId).toBe(0)
+      expect(parseBranchName('#001-test').branchId).toBe(1)
+
       expect(parseBranchName('#72- whatever').branchId).toBe(72)
       expect(parseBranchName('feature/#72-ok').branchId).toBe(72)
+    })
+
+    test('works for github copilot created branches', () => {
+      expect(parseBranchName('copilot/fix-123')).toEqual({ branchId: 123, branchName: 'fix' } satisfies ReturnType<typeof parseBranchName>)
     })
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()

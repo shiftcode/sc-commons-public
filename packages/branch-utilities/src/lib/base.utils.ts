@@ -8,8 +8,17 @@ export const REGEX_MASTER = /^master$/
 /** regex to match the main branch */
 export const REGEX_MAIN = /^main$/
 
-/** regex to match our branch conventions with the following capture groups: fullMatch / branch id / branch name */
-export const REGEX_BRANCH_NAME = /^[a-z]*\/?#(\d+)-(.*)/
+/**
+ * regex to match our branch conventions with the following named capture groups: id, name
+ * @example #123-my-feature ->  { id:  '123',  name: 'my-feature' }
+ * @example feature/#456-yanr -> { id:  '456',  name: 'yanr' }
+ */
+const REGEX_BRANCH_NAME_DEFAULT = /^[a-z]*\/?#(?<id>\d+)-(?<name>.*)$/
+/**
+ * regex to match the branch convention github copilot uses with the following named capture groups: id, name
+ * @example copilot/fix-789 -> { id:  '789',  name: 'fix' }
+ */
+const REGEX_BRANCH_NAME_COPILOT = /copilot\/(?<name>fix)-(?<id>\d+)/
 
 export interface StageInfo {
   isProd: boolean
@@ -134,13 +143,11 @@ export function isMainBranch(branchName: string): boolean {
  * @throws Throws an error if given branchName does not match our convention
  */
 export function parseBranchName(branchName: string): { branchId: number; branchName: string } {
-  const matches = branchName.match(REGEX_BRANCH_NAME)
-  if (matches) {
-    // [0] full match / [1] branch id / [2] branch name
-    const [, branchId, branchN] = matches
+  const matches = REGEX_BRANCH_NAME_DEFAULT.exec(branchName) || REGEX_BRANCH_NAME_COPILOT.exec(branchName)
+  if (matches && matches.groups) {
     return {
-      branchId: parseInt(branchId, 10),
-      branchName: branchN,
+      branchId: parseInt(matches.groups['id'], 10),
+      branchName: matches.groups['name'],
     }
   } else {
     throw new Error(
