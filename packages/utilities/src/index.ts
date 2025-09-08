@@ -10,6 +10,7 @@ export * from './lib/json-stringify-replacer/json-stringify-replacer.function.js
 export * from './lib/map-values-deep/map-values-deep.js'
 export * from './lib/object/omit-props.function.js'
 export * from './lib/object/pick-props.function.js'
+export * from './lib/object/pick-props-assert-defined.function.js'
 export * from './lib/promise/make-deferred.function.js'
 export * from './lib/math/clamp.function.js'
 export * from './lib/math/random-int.js'
