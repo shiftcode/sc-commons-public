@@ -1,7 +1,6 @@
-# we use eslint instead of ng lint, because we can't use --project (tsconfig specifying files with include, exclude)
-# and --files argument pointing to other files
-src/{**/,}*.ts,test/{**/,}*.ts:
-  - npm run prettier:staged
+# Reformat all .ts / .js
+"**/*.(t|j)s":
+  - npm run format:staged
   - npm run lint:staged
 
 # sort package.json keys

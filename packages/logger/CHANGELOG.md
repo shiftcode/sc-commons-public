@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@3.0.1...@shiftcode/logger@3.0.2) (2025-09-09)
+
+**Note:** Version bump only for package @shiftcode/logger
+
+## [3.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@3.0.0...@shiftcode/logger@3.0.1) (2025-09-09)
+
+**Note:** Version bump only for package @shiftcode/logger
+
 # [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@2.0.0...@shiftcode/logger@3.0.0) (2025-05-15)
 
 ### Code Refactoring

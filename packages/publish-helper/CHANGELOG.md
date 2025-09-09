@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.1.0...@shiftcode/publish-helper@4.1.1) (2025-09-09)
+
+**Note:** Version bump only for package @shiftcode/publish-helper
+
+# [4.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.0.0...@shiftcode/publish-helper@4.1.0) (2025-09-04)
+
+### Features
+
+- **publish-helper:** support latest branch-utilities to allow github copilot branch names ([6777213](https://github.com/shiftcode/sc-commons-public/commit/67772138cc2070ed5f5cd8ce8630dbd9aadfbbfc))
+
 # [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@3.1.0...@shiftcode/publish-helper@4.0.0) (2025-05-15)
 
 ### Features

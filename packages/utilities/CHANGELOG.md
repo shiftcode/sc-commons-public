@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.1.0...@shiftcode/utilities@4.2.0) (2025-09-09)
+
+### Features
+
+- **object-utilities:** add fn to pick props + assert defined from object ([8880673](https://github.com/shiftcode/sc-commons-public/commit/888067334274a6fcb65197bcc47931360eb96b2f))
+- **object-utilities:** add getValueAssertDefined function ([527cfc3](https://github.com/shiftcode/sc-commons-public/commit/527cfc3cc253edba1fcb92aee960d875be47080c))
+
+# [4.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.0.0...@shiftcode/utilities@4.1.0) (2025-09-09)
+
+### Features
+
+- **utilities:** add basic ts guards to check for a certain type from value ([b98721e](https://github.com/shiftcode/sc-commons-public/commit/b98721efc8ebb83216ce3833538d4bc3cc454a32))
+
 # [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@3.0.0...@shiftcode/utilities@4.0.0) (2025-05-15)
 
 ### Features

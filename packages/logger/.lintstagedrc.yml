@@ -1,6 +1,6 @@
 # Reformat all .ts / .js
 "**/*.(t|j)s":
-  - npm run prettier:staged
+  - npm run format:staged
   - npm run lint:staged
 
 # sort package.json keys
