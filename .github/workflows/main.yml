@@ -94,8 +94,8 @@ jobs:
       - name: Build lint plugins
         run: npm run build:lint:ci
       # check formatting
-      - name: Prettier Check
-        run: npm run prettier:check
+      - name: Check Formatting
+        run: npm run format:ci
       # lint
       - name: Lint
         run: npm run lint:ci
