@@ -14,6 +14,7 @@
     "lint:ci": "lerna run lint:ci",
     "prepare": "husky",
     "prettier": "lerna run prettier",
+    "prettier:check": "lerna run prettier:check",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"
   },
