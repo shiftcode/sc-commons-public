@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@4.0.0...@shiftcode/branch-utilities@5.0.0) (2025-09-04)
+
+### Features
+
+- **branch-utilities:** support naming convention for github copilot branch names ([56dbb58](https://github.com/shiftcode/sc-commons-public/commit/56dbb5846397601a6dc2c238d4b4a828604cb7f1))
+
+### BREAKING CHANGES
+
+- **branch-utilities:** REGEX_BRANCH_NAME is no longer exported. use the utility function `parseBranchName` instead
+
 # [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.1.0...@shiftcode/branch-utilities@4.0.0) (2025-05-15)
 
 ### Features
