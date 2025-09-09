@@ -93,6 +93,9 @@ jobs:
       # build lint plugins before linting
       - name: Build lint plugins
         run: npm run build:lint:ci
+      # check formatting
+      - name: Check Formatting
+        run: npm run format:ci
       # lint
       - name: Lint
         run: npm run lint:ci

@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/publish-helper",
-  "version": "4.1.0",
+  "version": "4.1.1-pr53.1",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -13,13 +13,15 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
+    "format": "npm run format:base -- --write",
+    "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
+    "format:ci": "npm run format:base -- --check",
+    "format:staged": "prettier --write --config ../../.prettierrc.yml",
     "lint": "npm run lint:src:fix",
     "lint:ci": "npm run lint:src",
     "lint:src": "eslint ./src",
     "lint:src:fix": "eslint ./src --cache --fix",
     "lint:staged": "eslint --fix --cache",
-    "prettier": "prettier --write --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
-    "prettier:staged": "prettier --write --config ../../.prettierrc.yml",
     "prepublish": "node ./dist/prepare-dist.js",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js --passWithNoTests",
     "test:ci": "npm run test",
@@ -30,7 +32,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^5.0.0",
+    "@shiftcode/branch-utilities": "^5.0.1-pr53.1",
     "@types/yargs": "^17.0.32"
   },
   "peerDependencies": {
