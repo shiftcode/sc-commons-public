@@ -12,7 +12,7 @@
     "build:ci": "lerna run build",
     "build:lint:ci": "lerna run build:lint:ci",
     "format": "lerna run format",
-    "format:ci": "lerna run format:check",
+    "format:ci": "lerna run format:ci",
     "lint:ci": "lerna run lint:ci",
     "prepare": "husky",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",

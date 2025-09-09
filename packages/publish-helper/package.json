@@ -13,9 +13,9 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "format": "npm run prettier:base -- --write",
+    "format": "npm run format:base -- --write",
     "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
-    "format:check": "npm run prettier:base -- --check",
+    "format:ci": "npm run format:base -- --check",
     "format:staged": "prettier --write --config ../../.prettierrc.yml",
     "lint": "npm run lint:src:fix",
     "lint:ci": "npm run lint:src",
