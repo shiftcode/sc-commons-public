@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.0.0...@shiftcode/utilities@4.1.0) (2025-09-09)
+
+### Features
+
+- **utilities:** add basic ts guards to check for a certain type from value ([b98721e](https://github.com/shiftcode/sc-commons-public/commit/b98721efc8ebb83216ce3833538d4bc3cc454a32))
+
 # [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@3.0.0...@shiftcode/utilities@4.0.0) (2025-05-15)
 
 ### Features
