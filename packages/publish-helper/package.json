@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/publish-helper",
-  "version": "4.1.1",
+  "version": "4.1.2-pr65.0",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^5.0.1",
+    "@shiftcode/branch-utilities": "^5.0.2-pr65.0",
     "@types/yargs": "^17.0.32"
   },
   "peerDependencies": {
