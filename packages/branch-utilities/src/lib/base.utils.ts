@@ -165,7 +165,7 @@ export function parseBranchName(branchName: string): { branchId: number; branchN
  * @return returns true if the stage is 'master' or 'main', false if not
  */
 export function isProduction(stageName: string): boolean {
-  return REGEX_MASTER.test(stageName) ?? REGEX_MAIN.test(stageName)
+  return REGEX_MASTER.test(stageName) || REGEX_MAIN.test(stageName)
 }
 
 /**
