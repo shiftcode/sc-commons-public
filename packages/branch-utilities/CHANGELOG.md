@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.1...@shiftcode/branch-utilities@5.0.2) (2025-09-11)
+
+### Bug Fixes
+
+- **is-production:** crucial fix to detect `main` correctly as production ([8c1d1ca](https://github.com/shiftcode/sc-commons-public/commit/8c1d1cadd0205513b82c058df597b39c73cab411))
+
 ## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.0...@shiftcode/branch-utilities@5.0.1) (2025-09-09)
 
 **Note:** Version bump only for package @shiftcode/branch-utilities
