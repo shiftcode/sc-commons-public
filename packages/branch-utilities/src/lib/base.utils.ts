@@ -41,7 +41,7 @@ export function createStageInfo(stage: string): StageInfo {
  * @return Returns the branch info containing the stage which is defined as xx|pr<branchId> or 'master' / 'main'
  * @throws if master | main branch is used locally without override flag
  */
-export function getBranchInfo(env: unknown, branchName?: string, noLog?: boolean): BranchInfo {
+export function getBranchInfo(env: unknown, branchName?: string): BranchInfo {
   let isPr = false
 
   if (isFullBranchOverrideDefined(env)) {
@@ -58,7 +58,7 @@ export function getBranchInfo(env: unknown, branchName?: string, noLog?: boolean
   }
 
   if (isMasterBranch(branchName) || isMainBranch(branchName)) {
-    if (!isGithubWorkflow(env) && !isScOverrideActive(env) && !noLog) {
+    if (!isGithubWorkflow(env) && !isScOverrideActive(env)) {
       throw new Error(`prod (master or main) branch can't be used locally`)
     }
     return {
