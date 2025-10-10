@@ -1,6 +1,8 @@
+import { builtinModules } from 'node:module'
+
 import { TSESTree } from '@typescript-eslint/utils'
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
-import { builtinModules } from 'node:module'
+
 import { createScRule } from './create-rule.function.js'
 // ------------------------------------------------------------------------------
 // Rule Definition

@@ -1,6 +1,7 @@
 import eslintAngular from 'angular-eslint'
-import { defineScTsConfig } from '../index.js'
 import { defineConfig } from 'eslint/config'
+
+import { defineScTsConfig } from '../index.js'
 
 /**
  * define the shiftcode eslint config for angular.

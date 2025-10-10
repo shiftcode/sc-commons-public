@@ -1,5 +1,5 @@
-import { LogTransport } from './log-transport.js'
 import { LogLevel } from './log-level.enum.js'
+import { LogTransport } from './log-transport.js'
 
 export class Logger {
   constructor(

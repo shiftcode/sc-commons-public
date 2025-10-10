@@ -1,7 +1,8 @@
+import { ConfigObject, Plugin, RuleDefinition } from '@eslint/core'
+
 import { denyParentIndexFileImportRule } from './rules/deny-parent-index-file-import.js'
 import { importDenyListRule } from './rules/import-denylist.js'
 import { prefixBuiltinModuleImportRule } from './rules/prefix-builtin-module-import.js'
-import { ConfigObject, Plugin, RuleDefinition } from '@eslint/core'
 
 const DEFAULT_RULE_NS = `@shiftcode`
 

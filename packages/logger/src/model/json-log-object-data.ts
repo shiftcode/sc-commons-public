@@ -1,4 +1,5 @@
 import { getEnumKeyFromNum } from '@shiftcode/utilities'
+
 import { LogLevel } from './log-level.enum.js'
 
 export interface JsonLogObjectData {

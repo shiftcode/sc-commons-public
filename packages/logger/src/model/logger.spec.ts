@@ -1,5 +1,5 @@
-import { Logger, LogLevel } from '../index.js'
 import { SpyLogTransport } from '../../test/spy-log.transport.js'
+import { Logger, LogLevel } from '../index.js'
 import { stringToColor } from '../utils/logger-helper.js'
 
 describe('Logger behavior', () => {

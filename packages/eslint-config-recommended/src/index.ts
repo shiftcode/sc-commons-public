@@ -1,11 +1,11 @@
 import eslint from '@eslint/js'
+import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
+import { defineConfig } from 'eslint/config'
 import eslintPrettier from 'eslint-config-prettier'
 import eslintPluginImport from 'eslint-plugin-import'
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports'
-import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
 import eslintTs from 'typescript-eslint'
-
-import { defineConfig } from 'eslint/config'
 
 /**
  * define the shiftcode eslint config for typescript.
@@ -36,7 +36,12 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
     {
       files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
       extends: [eslint.configs.recommended],
+      plugins: {
+        'simple-import-sort': eslintPluginSimpleImportSort,
+      },
       rules: {
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
         'no-console': 'error',
         'max-classes-per-file': 'error',
         curly: 'error',
