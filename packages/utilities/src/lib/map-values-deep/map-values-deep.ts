@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { getTag } from '../tag/get-tag.function.js'
 import { Tag } from '../tag/tag.enum.js'
 

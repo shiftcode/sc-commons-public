@@ -53,32 +53,32 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
           'error',
           { accessibility: 'no-public' }, // override default accessibility configuration ('explicit')
         ],
-        // '@typescript-eslint/member-ordering': [
-        //     'error',
-        //     {
-        //         default: [
-        //             'public-static-field',
-        //             'protected-static-field',
-        //             'private-static-field',
-        //
-        //             'public-instance-field',
-        //             'protected-instance-field',
-        //             'private-instance-field',
-        //
-        //             'public-static-method',
-        //             'protected-static-method',
-        //             'private-static-method',
-        //
-        //             'public-constructor',
-        //             'protected-constructor',
-        //             'private-constructor',
-        //
-        //             'public-instance-method',
-        //             'protected-instance-method',
-        //             'private-instance-method',
-        //         ],
-        //     },
-        // ],
+        '@typescript-eslint/member-ordering': [
+          'error',
+          {
+            default: [
+              'public-static-field',
+              'protected-static-field',
+              'private-static-field',
+
+              'public-instance-field',
+              'protected-instance-field',
+              'private-instance-field',
+
+              'public-static-method',
+              'protected-static-method',
+              'private-static-method',
+
+              'public-constructor',
+              'protected-constructor',
+              'private-constructor',
+
+              'public-instance-method',
+              'protected-instance-method',
+              'private-instance-method',
+            ],
+          },
+        ],
 
         /*
          * the rule sorts selectors in the following priority:
@@ -185,8 +185,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
          */
         '@typescript-eslint/no-non-null-assertion': 'error', // override "recommended" (severity: "warn")
 
-        //
-        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
 
         /*
          * disabling rules from extensions
@@ -194,9 +193,6 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off', // <-- why do we disable this rule? i mean you can just define a type/interface and use a type-assertion. at least better unsafe access
-        '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/unbound-method': 'off',
         '@typescript-eslint/no-unsafe-enum-comparison': 'off',
 

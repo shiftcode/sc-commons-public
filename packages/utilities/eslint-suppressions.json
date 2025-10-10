@@ -1,0 +1,50 @@
+{
+  "src/lib/compare-with/compare-with.ts": {
+    "@typescript-eslint/no-unsafe-call": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 4
+    }
+  },
+  "src/lib/enum/enum.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/lib/group-by/group-by.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/lib/json-stringify-replacer/json-stringify-replacer.function.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/map-values-deep/map-values-deep.spec.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/lib/map-values-deep/map-values-deep.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/lib/object/omit-props.function.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/object/pick-props-assert-defined.function.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/object/pick-props.function.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    }
+  }
+}

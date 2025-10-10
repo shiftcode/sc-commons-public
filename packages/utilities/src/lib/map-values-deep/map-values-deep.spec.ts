@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { mapValuesDeep } from './map-values-deep.js'
 
 describe('map values deep', () => {
