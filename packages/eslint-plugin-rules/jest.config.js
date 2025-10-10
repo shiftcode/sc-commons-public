@@ -1,5 +1,4 @@
 /* eslint-env node,es2023 */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { pathsToModuleNameMapper } from 'ts-jest'
 import tsConfig from './tsconfig.jest.json' with { type: 'json' }
 
