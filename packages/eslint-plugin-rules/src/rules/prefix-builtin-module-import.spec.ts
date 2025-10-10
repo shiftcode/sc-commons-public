@@ -4,11 +4,10 @@ import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from 
 
 const tsRootDirectory = join(__dirname, '../..', 'test')
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 2023,
-    tsconfigRootDir: tsRootDirectory,
-    project: './tsconfig.json',
+    sourceType: 'module',
+    parserOptions: { project: './tsconfig.json', tsconfigRootDir: tsRootDirectory },
   },
 })
 
@@ -18,7 +17,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       // language=typescript
       code: `
         import { writeFile } from 'node:fs/promises'
-        import { verify } from 'node:crypto'
+        import crypto from 'node:crypto'
       `,
     },
     {
@@ -45,7 +44,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       code: `
         import { writeFileSync } from 'node:fs'
         import { writeFile } from 'fs/promises'
-        import { verify } from 'crypto'
+        import crypto from 'crypto'
       `,
       errors: [
         {
@@ -60,7 +59,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       output: `
         import { writeFileSync } from 'node:fs'
         import { writeFile } from 'node:fs/promises'
-        import { verify } from 'node:crypto'
+        import crypto from 'node:crypto'
       `,
     },
     {

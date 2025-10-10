@@ -2,50 +2,67 @@
 
 > 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
 
-> ⚠️ This module exports code using CommonJS
 
 This module provides an eslint default rule-set configuration for shiftcode projects.
 
 ### remark
 
-by using this module, the [@shiftcode/eslint-plugin-rules](../eslint-plugin-rules) module will be automatically included too.
+by using this module, the [@shiftcode/eslint-plugin-rules](../eslint-plugin-rules) module will be automatically included
+too.
+and depends on additional libraries that provide rules.
 
 ## usage
+the module only exports a single function `defineScTsConfig` which can be used to create the eslint configuration.
+it is basically a wrapper around the new eslint `defineConfig` function but already includes the setup for typescript,
+some rules with default configurations and will ensure the prettier rules (disabling formatting rules) are included at last.
 
-sample .eslintrc.js file:
+sample `eslint.config.mjs`:
 
-```javascript
-module.exports = {
-  // ...
-    
-  // all child eslintrc configs from workspace packages inherit this extension
-  extends: [
-    '^shiftcode',
-  ],
-  
-  // ...
-}
+```js
+import { defineScTsConfig } from '@shiftcode/eslint-config-recommended'
+
+export default defineScTsConfig(
+  {
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      parserOptions: { project: ['./tsconfig.json', './tsconfig.spec.json'] },
+    },
+  },
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'error',
+    },
+  }
+)
 ```
 
-## provided configurations
+## Additional configurations
 
-the following provided configurations might be included:
+Additionally on the submodule `/angular` the `defineScAngularConfig` function is exported 
+which includes angular-specific rules and configurations.
 
-- ``@shiftcode/recommended``: rule-set for common javascript and typescript files
-- ``@shiftcode/recommended/ng-config``: angular-specific rule-set for angular apps
+```js
+import { defineScAngularConfig } from '@shiftcode/eslint-config-recommended/angular'
 
-## Optional Peer Dependencies
-All the optional peer dependencies (`@angular-eslint/*`) are only required if the [ng-config](./src/ng-config/index.ts)
-is used
+export default defineScAngularConfig(
+  {
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      parserOptions: {
+        project: ['./tsconfig.app.json', './tsconfig.spec.json'],
+      },
+    },
+  },
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@angular-eslint/component-selector': ['error', { type: 'element', prefix: 'gf', style: 'kebab-case' }],
+    },
+  }
+)
+```
 
-## Ideas
-
-it could be useful to create another configuration (i.e. ``shiftcode/node-config``)
-used within services/backend workspaces, because the naming conventions aren't really the same as for a client workspace.
-
-Examples:
-- const PEdgeLabel = ...
-- export const JwtGuardConfig = ...
-- const { TextP } = process
-- export function VersionedITOf<T,K> { ... }
-- etc.
+when using the angular configuration, the peer dependency `angular-eslint` is required.

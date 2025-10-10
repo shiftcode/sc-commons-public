@@ -1,17 +1,13 @@
 // ------------------------------------------------------------------------------
 // Rule Definition
 // ------------------------------------------------------------------------------
-import { ESLintUtils } from '@typescript-eslint/utils'
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
-
-const createRule = ESLintUtils.RuleCreator(
-  () => 'https://github.com/shiftcode/sc-commons-public/blob/master/README.md#sc-commons-public',
-)
+import { createScRule } from './create-rule.function'
 
 export enum ImportDenylistMessageIds {
   DENIED_PATH = 'deniedPath',
 }
-export const importDenyListRule = createRule({
+export const importDenyListRule = createScRule({
   create(context: Readonly<RuleContext<any, Array<{ patterns: Array<string | RegExp> }>>>) {
     const patterns: Array<string | RegExp> = context.options?.[0]?.patterns ?? []
 

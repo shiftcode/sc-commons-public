@@ -4,11 +4,10 @@ import { ImportDenylistMessageIds, importDenyListRule } from './import-denylist'
 
 const tsRootDirectory = join(__dirname, '../..', 'test')
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 2023,
-    tsconfigRootDir: tsRootDirectory,
-    project: './tsconfig.json',
+    sourceType: 'module',
+    parserOptions: { project: './tsconfig.json', tsconfigRootDir: tsRootDirectory },
   },
 })
 

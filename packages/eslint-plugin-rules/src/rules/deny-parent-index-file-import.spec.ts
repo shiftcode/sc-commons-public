@@ -1,13 +1,15 @@
 import { RuleTester } from '@typescript-eslint/rule-tester'
 import { join } from 'node:path'
+
 import { DenyParentIndexFileImportMessageIds, denyParentIndexFileImportRule } from './deny-parent-index-file-import'
+
 const tsRootDirectory = join(__dirname, '../..', 'test')
+
 const ruleTester = new RuleTester({
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 2023,
-    tsconfigRootDir: tsRootDirectory,
-    project: './tsconfig.json',
+    sourceType: 'module',
+    parserOptions: { project: './tsconfig.json', tsconfigRootDir: tsRootDirectory },
   },
 })
 
