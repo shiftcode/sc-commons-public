@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.1...@shiftcode/branch-utilities@5.0.2) (2025-09-11)
+
+### Bug Fixes
+
+- **is-production:** crucial fix to detect `main` correctly as production ([8c1d1ca](https://github.com/shiftcode/sc-commons-public/commit/8c1d1cadd0205513b82c058df597b39c73cab411))
+
+## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.0...@shiftcode/branch-utilities@5.0.1) (2025-09-09)
+
+**Note:** Version bump only for package @shiftcode/branch-utilities
+
+# [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@4.0.0...@shiftcode/branch-utilities@5.0.0) (2025-09-04)
+
+### Features
+
+- **branch-utilities:** support naming convention for github copilot branch names ([56dbb58](https://github.com/shiftcode/sc-commons-public/commit/56dbb5846397601a6dc2c238d4b4a828604cb7f1))
+
+### BREAKING CHANGES
+
+- **branch-utilities:** REGEX_BRANCH_NAME is no longer exported. use the utility function `parseBranchName` instead
+
+# [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.1.0...@shiftcode/branch-utilities@4.0.0) (2025-05-15)
+
+### Features
+
+- **package:** specify node version in the individual packages ([78e01d0](https://github.com/shiftcode/sc-commons-public/commit/78e01d0be016e22584a17e7c021cc1b4408c4d1f))
+
+### BREAKING CHANGES
+
+- **package:** Requires Node 20 or >=22
+
 # [3.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@3.0.0...@shiftcode/branch-utilities@3.1.0) (2024-07-26)
 
 ### Features

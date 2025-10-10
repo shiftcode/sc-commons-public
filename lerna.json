@@ -3,7 +3,7 @@
   "version": "independent",
   "command": {
     "version": {
-      "allowBranch": "*",
+      "allowBranch": "**/*",
       "message": "build(release): next version [skip_build]"
     },
     "publish": {

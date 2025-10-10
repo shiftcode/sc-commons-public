@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@5.0.0...@shiftcode/eslint-config-recommended@5.0.1) (2025-09-09)
+
+**Note:** Version bump only for package @shiftcode/eslint-config-recommended
+
+# [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@4.0.0...@shiftcode/eslint-config-recommended@5.0.0) (2025-06-30)
+
+### Features
+
+- **eslint-config-recommended:** add support for @angular-eslint/\*[@20](https://github.com/20) ([170758a](https://github.com/shiftcode/sc-commons-public/commit/170758a1b030832cbf64f3536f62a783af5cf622))
+- **eslint-config-recommended:** update to stable @angular-eslint/\* packages ([eade5ad](https://github.com/shiftcode/sc-commons-public/commit/eade5adc383aa04b014a55fe405dfc412e78695c))
+
+### BREAKING CHANGES
+
+- **eslint-config-recommended:** minimum version of @angular-eslint/\* peer dependencies must be ^20
+
+# [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@3.0.0...@shiftcode/eslint-config-recommended@4.0.0) (2025-05-15)
+
+### Features
+
+- **package:** specify node version in the individual packages ([78e01d0](https://github.com/shiftcode/sc-commons-public/commit/78e01d0be016e22584a17e7c021cc1b4408c4d1f))
+
+### BREAKING CHANGES
+
+- **package:** Requires Node 20 or >=22
+
+# [3.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@2.0.1...@shiftcode/eslint-config-recommended@3.0.0) (2025-01-03)
+
+### Build System
+
+- **deps:** upgrade @angular-eslint/\* ([fb1b0b4](https://github.com/shiftcode/sc-commons-public/commit/fb1b0b4161aaf9e23345ed543f598a5a4a79f7ba))
+
+### BREAKING CHANGES
+
+- **deps:** Requires angular 19.
+
 ## [2.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@2.0.0...@shiftcode/eslint-config-recommended@2.0.1) (2024-07-13)
 
 **Note:** Version bump only for package @shiftcode/eslint-config-recommended

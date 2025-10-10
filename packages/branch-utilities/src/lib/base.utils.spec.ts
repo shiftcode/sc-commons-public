@@ -1,4 +1,4 @@
-import { BranchInfo, getBranchInfo, parseBranchName } from './base.utils.js'
+import { BranchInfo, getBranchInfo, isProduction, isPullRequest, parseBranchName } from './base.utils.js'
 import { CustomGitHubContext, GithubActionEnv, GitHubContext } from './types/index.js'
 import { CustomScOverrideEnv } from './types/sc-override-env-var.type.js'
 
@@ -82,13 +82,58 @@ describe('base utils', () => {
 
   describe('parseBranchName', () => {
     test('works when valid pattern', () => {
-      expect(parseBranchName('#7-abc').branchId).toBe(7)
+      expect(parseBranchName('#7-abc')).toEqual({ branchId: 7, branchName: 'abc' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
+
       expect(parseBranchName('#72-abc').branchId).toBe(72)
+      expect(parseBranchName('#000-int').branchId).toBe(0)
+      expect(parseBranchName('#001-test').branchId).toBe(1)
+
       expect(parseBranchName('#72- whatever').branchId).toBe(72)
       expect(parseBranchName('feature/#72-ok').branchId).toBe(72)
     })
+
+    test('works for github copilot created branches', () => {
+      expect(parseBranchName('copilot/fix-123')).toEqual({ branchId: 123, branchName: 'fix' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
+      expect(parseBranchName('copilot/feat-123')).toEqual({ branchId: 123, branchName: 'feat' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
+    })
+
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()
+      expect(() => parseBranchName('copilot/123-fix')).toThrow()
+      expect(() => parseBranchName('feat/copilot/fix-123')).toThrow()
+    })
+  })
+
+  describe('isProduction', () => {
+    test.each([
+      ['main', true],
+      ['master', true],
+      ['prod', false],
+      ['xx1', false],
+      ['pr1', false],
+      ['pr1-main', false],
+      ['xx1-master', false],
+    ])("when '%s' it returns %s", (stageName, expected) => {
+      expect(isProduction(stageName)).toBe(expected)
+    })
+  })
+
+  describe('isPullRequest', () => {
+    test.each([
+      ['pr1', true],
+      ['pr123456', true],
+      ['xx1', false],
+      ['xx123', false],
+      ['main', false],
+      ['master', false],
+    ])("when '%s' it returns %s", (stageName, expected) => {
+      expect(isPullRequest(stageName)).toBe(expected)
     })
   })
 })
