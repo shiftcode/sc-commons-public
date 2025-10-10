@@ -1,9 +1,9 @@
 /* eslint-env node,es2023 */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const pathsToModuleNameMapper = require('ts-jest').pathsToModuleNameMapper
-const tsConfig = require('./tsconfig.jest.json')
+import { pathsToModuleNameMapper } from 'ts-jest'
+import tsConfig from './tsconfig.jest.json' with { type: 'json' }
 
-module.exports = {
+export default {
   testEnvironment: 'node',
   extensionsToTreatAsEsm: ['.ts'],
   transform: {
