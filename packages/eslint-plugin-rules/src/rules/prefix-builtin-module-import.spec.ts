@@ -1,5 +1,5 @@
-import { createRuleTester } from '../utils/rule-tester'
-import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from './prefix-builtin-module-import'
+import { createRuleTester } from '../utils/rule-tester.js'
+import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from './prefix-builtin-module-import.js'
 
 const ruleTester = createRuleTester()
 

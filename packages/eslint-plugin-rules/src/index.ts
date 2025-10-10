@@ -5,15 +5,15 @@ import { ConfigObject, Plugin, RuleDefinition } from '@eslint/core'
 
 const DEFAULT_RULE_NS = `@shiftcode`
 
-export const meta = { name: '@shiftcode/eslint-plugin-rules' } satisfies Plugin['meta']
+const meta = { name: '@shiftcode/eslint-plugin-rules' } satisfies Plugin['meta']
 
-export const rules: Record<string, RuleDefinition> = {
+const rules: Record<string, RuleDefinition> = {
   'deny-parent-index-file-import': denyParentIndexFileImportRule,
   'prefix-builtin-module-import': prefixBuiltinModuleImportRule,
   'import-denylist': importDenyListRule,
 } as Record<string, any>
 
-export const configs = {
+const configs = {
   recommended: {
     name: 'recommended',
     plugins: {
@@ -25,3 +25,9 @@ export const configs = {
     },
   },
 } satisfies Record<string, ConfigObject>
+
+export default {
+  meta,
+  rules,
+  configs,
+}

@@ -3,7 +3,7 @@
 // ------------------------------------------------------------------------------
 import { TSESTree } from '@typescript-eslint/utils'
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
-import { createScRule } from './create-rule.function'
+import { createScRule } from './create-rule.function.js'
 
 export enum DenyParentIndexFileImportMessageIds {
   DENIED_IMPORT = 'deniedImport',

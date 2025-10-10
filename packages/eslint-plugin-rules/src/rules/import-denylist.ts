@@ -2,7 +2,7 @@
 // Rule Definition
 // ------------------------------------------------------------------------------
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
-import { createScRule } from './create-rule.function'
+import { createScRule } from './create-rule.function.js'
 
 export enum ImportDenylistMessageIds {
   DENIED_PATH = 'deniedPath',
