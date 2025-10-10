@@ -6,10 +6,8 @@
 This module provides an eslint default rule-set configuration for shiftcode projects.
 
 ### remark
-
-by using this module, the [@shiftcode/eslint-plugin-rules](../eslint-plugin-rules) module will be automatically included
-too.
-and depends on additional libraries that provide rules.
+By using this module, the [@shiftcode/eslint-plugin-rules](../eslint-plugin-rules) module will be automatically installed
+as dependency.
 
 ## usage
 the module only exports a single function `defineScTsConfig` which can be used to create the eslint configuration.

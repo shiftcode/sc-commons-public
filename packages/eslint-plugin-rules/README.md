@@ -2,8 +2,6 @@
 
 > 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
 
-> ⚠️ This module exports code using CommonJS
-
 This module holds some custom eslint plugins written in typescript. See [doc](https://typescript-eslint.io/custom-rules)
 for instructions on how to create custom plugins using `typescript-eslint`.
 
