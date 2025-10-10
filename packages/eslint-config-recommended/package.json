@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "5.0.1",
+  "version": "5.1.0-pr26.0",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@eslint/js": "^9.37.0",
-    "@shiftcode/eslint-plugin-rules": "^4.0.1",
+    "@shiftcode/eslint-plugin-rules": "^4.1.0-pr26.0",
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
