@@ -217,7 +217,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
       rules: {
         'import/no-deprecated': 'error',
         'import/no-extraneous-dependencies': 'error',
-        'import/no-internal-modules': 'error',
+        'import/no-internal-modules': ['error', { allow: ['aws-cdk-lib/*', '@aws-cdk/*'] }],
 
         // no-unused-vars does not support a fixer for "unused imports" which is highly shitty.
         // therefore we use another plugin "unused-imports" which can splits up the unused-vars rule into two rules
