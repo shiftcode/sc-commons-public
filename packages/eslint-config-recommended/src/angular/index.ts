@@ -50,6 +50,31 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
 
         '@angular-eslint/use-lifecycle-interface': 'error',
         '@angular-eslint/use-pipe-transform-interface': 'error',
+
+        // default grouping extended with our internal app/... (tsconfig.path) imports as a seperate group
+        // default group definition copied from: https://github.com/lydell/eslint-plugin-simple-import-sort/blob/main/src/imports.js#L5
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              // Side effect imports.
+              ['^\\u0000'],
+              // Node.js builtins prefixed with `node:`.
+              ['^node:'],
+              // Packages.
+              // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+              ['^@?\\w'],
+              // Internal packages exposed trough tsconfig.path tha use app/ or @/ as shortcut. (like app/shared, or @/shared)
+              ['^(@|app)(/.*|$)'],
+              // Absolute imports and other imports such as Vue-style `@/foo`.
+              // Anything not matched in another group.
+              ['^'],
+              // Relative imports.
+              // Anything that starts with a dot.
+              ['^\\.'],
+            ],
+          },
+        ],
       },
     },
 
