@@ -248,7 +248,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
     // for files which are not part of the src/ folder and for test files
     // it is ok to use dependencies that are listed inside the root package.json (e.g. @shiftcode/eslint-config-recommended)
     {
-      files: ['!**/src/**', '**/*.spec.ts', '**/*.test.ts'],
+      files: ['!**/src/**/*.{ts,mts,cts,js,mjs,cjs}', '**/*.spec.ts', '**/*.test.ts'],
       rules: {
         'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
       },
