@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/logger",
-  "version": "3.0.3-pr26.7",
+  "version": "3.0.3-pr26.8",
   "description": "logger for local and aws lambda execution",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -33,7 +33,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
-    "@shiftcode/utilities": "^4.3.0-pr26.7"
+    "@shiftcode/utilities": "^4.3.0-pr26.8"
   },
   "peerDependencies": {
     "@shiftcode/utilities": "^4.0.0 || ^4.0.0-pr53"
