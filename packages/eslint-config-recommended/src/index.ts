@@ -208,15 +208,16 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
 
     // this config is for js and ts but needs to override the upper ones
     {
-      files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
-      extends: [],
       plugins: {
         import: eslintPluginImport,
         'unused-imports': eslintPluginUnusedImports,
       },
       rules: {
+        'import/order': 'off', // handled by simple-import-sort
         'import/no-deprecated': 'error',
+        'import/first': 'error',
         'import/no-extraneous-dependencies': 'error',
+        'import/newline-after-import': ['error', { count: 1 }], // do not change count - only works with prettier when 1
         'import/no-internal-modules': ['error', { allow: ['aws-cdk-lib/*', '@aws-cdk/*'] }],
 
         // no-unused-vars does not support a fixer for "unused imports" which is highly shitty.
@@ -248,7 +249,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
     // for files which are not part of the src/ folder and for test files
     // it is ok to use dependencies that are listed inside the root package.json (e.g. @shiftcode/eslint-config-recommended)
     {
-      files: ['!**/src/**/*.{ts,mts,cts,js,mjs,cjs}', '**/*.spec.ts', '**/*.test.ts'],
+      files: ['!**/src/**', '**/*.spec.ts', '**/*.test.ts'],
       rules: {
         'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
       },
