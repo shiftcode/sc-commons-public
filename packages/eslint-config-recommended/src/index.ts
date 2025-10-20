@@ -209,6 +209,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
 
     // this config is for js and ts but needs to override the upper ones
     {
+      files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
       plugins: {
         import: eslintPluginImport,
         'unused-imports': eslintPluginUnusedImports,
