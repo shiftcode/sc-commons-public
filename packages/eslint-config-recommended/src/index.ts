@@ -84,6 +84,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
             ],
           },
         ],
+        '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
         /*
          * the rule sorts selectors in the following priority:
