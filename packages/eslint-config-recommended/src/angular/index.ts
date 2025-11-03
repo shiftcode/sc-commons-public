@@ -82,6 +82,8 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
       files: ['**/*.html'],
       extends: [...eslintAngular.configs.templateRecommended],
       rules: {
+        '@angular-eslint/template/no-inline-styles': 'off', // also disallows custom properties like style="--my-prop: value".
+
         '@angular-eslint/template/no-duplicate-attributes': 'error',
         '@angular-eslint/template/button-has-type': 'error',
         '@angular-eslint/template/prefer-control-flow': 'error',
