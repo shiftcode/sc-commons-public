@@ -17,7 +17,6 @@
       "default": "./dist/angular/index.js"
     }
   },
-  "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
@@ -44,10 +43,10 @@
     "typescript-eslint": "8.46.0"
   },
   "devDependencies": {
-    "angular-eslint": "^20.3.0"
+    "angular-eslint": "^20.5.1"
   },
   "peerDependencies": {
-    "angular-eslint": "^20.3.0"
+    "angular-eslint": "^20.5.1"
   },
   "peerDependenciesMeta": {
     "angular-eslint": {
