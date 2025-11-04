@@ -1,7 +1,7 @@
 import { SpyLogTransport } from '../../test/spy-log.transport.js'
-import { BaseLoggerService } from './base-logger.service.js'
 import { LogLevel } from '../model/log-level.enum.js'
 import { Logger } from '../model/logger.js'
+import { BaseLoggerService } from './base-logger.service.js'
 
 describe('BaseLoggerService with SpyLogTransport', () => {
   it('should use the spy log transport', () => {

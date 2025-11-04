@@ -1,57 +1,64 @@
-module.exports = {
-  /*
-   * note: "root" is explicitly not set: this has to be defined by the consuming eslintrc declaration
-   */
+import eslint from '@eslint/js'
+import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
+import { defineConfig } from 'eslint/config'
+import eslintPrettier from 'eslint-config-prettier'
+import eslintPluginImport from 'eslint-plugin-import'
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
+import eslintPluginUnusedImports from 'eslint-plugin-unused-imports'
+import eslintTs from 'typescript-eslint'
 
-  /*
-   * If we move those generally applicable rules directly to the "modules.export" object, it will generate errors
-   * for .html files in the consuming project because "eslint:recommended" is not applicable to them.
-   *
-   * Besides that, concerning to angular-eslint documentation, it is strongly recommended to configure all rules
-   * within appropriate file-types-filtered overrides blocks and not directly inside the module.
-   */
-  overrides: [
+/**
+ * define the shiftcode eslint config for typescript.
+ * the function wraps given configs with some common settings and adds prettier rules at the end.
+ * all that's left for you is to define the `languageOptions` and potential rules you want to override/add.
+
+ * @example ```ts
+ * import { defineScTsConfig } from '@shiftcode/eslint-config-recommended'
+ * export default defineScTsConfig(
+ *   {
+ *     languageOptions: {
+ *       parserOptions: {
+ *         project: ['./tsconfig.json', './tsconfig.spec.json'],
+ *       },
+ *     }
+ *   },
+ *   {
+ *     files: ['**\/*.ts'],
+ *     rules: {
+ *       '@typescript-eslint/explicit-function-return-type': 'error',
+ *     }
+ *   }
+ * )
+ * ```
+ */
+export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): ReturnType<typeof defineConfig> {
+  return defineConfig(
     {
-      files: ['*.ts', '*.cts', '*.mts', '*.tsx', '*.js', '*.cjs', '*.mjs', '*.jsx'],
-      plugins: ['eslint-plugin-import'],
-      extends: [
-        'eslint:recommended', // catching common JS problems
-        'prettier', // disable rules that will be auto fixed by prettier
-      ],
+      files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
+      extends: [eslint.configs.recommended],
+      plugins: {
+        'simple-import-sort': eslintPluginSimpleImportSort,
+      },
       rules: {
-        'no-console': 'error', // TSLint: "no-console"
-        'max-classes-per-file': 'error', // TSLint: "max-classes-per-file"
-        'import/no-deprecated': 'error', // TSLint: "deprecation"
-        'import/no-extraneous-dependencies': 'error', // TSLint: "no-implicit-dependencies"
-        'import/no-internal-modules': 'error', // TSLint: "no-submodule-imports"
-        curly: 'error', // TSLint: "curly"
-        eqeqeq: 'error', // TSLint: "triple-equals"
-        '@typescript-eslint/ban-tslint-comment': 'error', // TSLint: "ban"
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+        'no-console': 'error',
+        'max-classes-per-file': 'error',
+        curly: 'error',
+        eqeqeq: 'error',
       },
     },
-    {
-      files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@shiftcode/rules', '@typescript-eslint', 'unused-imports'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking', // includes "eslint-recommended" ruleset
-      ],
-      rules: {
-        /*
-         * additional rules that are not contained within the both extensions configured above
-         */
-        '@shiftcode/rules/deny-parent-index-file-import': 'error',
-        '@shiftcode/rules/prefix-builtin-module-import': 'error',
 
+    {
+      files: ['**/*.{ts,mts,cts}'],
+      extends: [eslintTs.configs.recommendedTypeChecked, eslintScPlugin.configs.recommended],
+      rules: {
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/explicit-member-accessibility': [
-          // TSLint: "member-access"
           'error',
           { accessibility: 'no-public' }, // override default accessibility configuration ('explicit')
         ],
         '@typescript-eslint/member-ordering': [
-          // TSLint: "member-ordering"
           'error',
           {
             default: [
@@ -77,6 +84,7 @@ module.exports = {
             ],
           },
         ],
+        '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
         /*
          * the rule sorts selectors in the following priority:
@@ -93,7 +101,6 @@ module.exports = {
          * Link: https://typescript-eslint.io/rules/naming-convention/#how-does-the-rule-automatically-order-selectors
          */
         '@typescript-eslint/naming-convention': [
-          // TSLint: "class-name", "interface-name"
           'error',
           /*
            * NO NOT USE GROUP SELECTORS AS THEY MAKE IT FAR MORE COMPLICATED TO READ/UNDERSTAND.
@@ -184,14 +191,7 @@ module.exports = {
          */
         '@typescript-eslint/no-non-null-assertion': 'error', // override "recommended" (severity: "warn")
 
-        // no-unused-vars does not support a fixer for "unused imports" which is highly shitty.
-        // therefore we use another plugin which can splits up the unused-vars rule into two rules with a fixer for unused imports
-        '@typescript-eslint/no-unused-vars': 'off',
-        'unused-imports/no-unused-imports': 'error',
-        'unused-imports/no-unused-vars': [
-          'error',
-          { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-        ],
+        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
 
         /*
          * disabling rules from extensions
@@ -199,28 +199,66 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/unbound-method': 'off',
         '@typescript-eslint/no-unsafe-enum-comparison': 'off',
 
-        'no-case-declarations': 'off', // TS marks as error anyway ("TS2454: Variable is used before being assigned.")
+        // not a ts rule but useless for ts files: TS marks as error "TS2454: Variable is used before being assigned."
+        'no-case-declarations': 'off',
       },
     },
+
+    // this config is for js and ts but needs to override the upper ones
+    {
+      files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
+      plugins: {
+        import: eslintPluginImport,
+        'unused-imports': eslintPluginUnusedImports,
+      },
+      rules: {
+        'import/order': 'off', // handled by simple-import-sort
+        'import/no-deprecated': 'error',
+        'import/first': 'error',
+        'import/no-extraneous-dependencies': 'error',
+        'import/newline-after-import': ['error', { count: 1 }], // do not change count - only works with prettier when 1
+        'import/no-internal-modules': ['error', { allow: ['aws-cdk-lib/*', '@aws-cdk/*'] }],
+
+        // no-unused-vars does not support a fixer for "unused imports" which is highly shitty.
+        // therefore we use another plugin "unused-imports" which can splits up the unused-vars rule into two rules
+        // with a fixer for unused imports.
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+          'error',
+          { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+        ],
+      },
+    },
+
     /*
      * allow some commonly used patterns for testing to pass eslint
      */
     {
-      files: ['**/test/**/*.ts', '*.spec.ts', '*.test.ts'],
+      files: ['**/test/**/*.ts', '**/*.spec.ts', '**/*.test.ts'],
       rules: {
         'no-console': 'off',
-        'max-classes-per-file': 'off', // TSLint: "max-classes-per-file"
+        'max-classes-per-file': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        // it's ok to define dependencies also in the root package.json (eg. @jest/globals, ...)
+      },
+    },
+
+    // for files which are not part of the src/ folder and for test files
+    // it is ok to use dependencies that are listed inside the root package.json (e.g. @shiftcode/eslint-config-recommended)
+    {
+      files: ['!**/src/**', '**/*.spec.ts', '**/*.test.ts'],
+      rules: {
         'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
       },
     },
-  ],
+
+    ...configs,
+
+    eslintPrettier,
+  )
 }

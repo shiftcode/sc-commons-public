@@ -1,25 +1,22 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "5.0.1",
+  "version": "6.0.0-pr26.12",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
   "author": "shiftcode GmbH <team@shiftcode.ch>",
   "sideEffects": false,
-  "type": "commonjs",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./ng-config": {
-      "types": "./dist/ng-config/index.d.ts",
-      "default": "./dist/ng-config/index.js"
+    "./angular": {
+      "types": "./dist/angular/index.d.ts",
+      "default": "./dist/angular/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
@@ -28,45 +25,31 @@
     "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "format:ci": "npm run format:base -- --check",
     "format:staged": "prettier --write --config ../../.prettierrc.yml",
-    "lint": "npm run lint:src:fix",
-    "lint:ci": "npm run lint:src",
-    "lint:src": "eslint ./src",
-    "lint:src:fix": "eslint ./src --cache --fix",
+    "lint": "eslint --fix --cache ./src",
+    "lint:ci": "eslint ./src",
     "lint:staged": "eslint --fix --cache",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "echo 'Error: no test specificed'",
     "test:ci": "npm run test"
   },
   "dependencies": {
-    "@shiftcode/eslint-plugin-rules": "^4.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-unused-imports": "^4.1.4"
+    "@eslint/js": "^9.37.0",
+    "@shiftcode/eslint-plugin-rules": "^5.0.0-pr26.12",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "typescript-eslint": "8.46.0"
+  },
+  "devDependencies": {
+    "angular-eslint": "^20.5.1"
   },
   "peerDependencies": {
-    "@angular-eslint/builder": "^20.0.0",
-    "@angular-eslint/eslint-plugin": "^20.0.0",
-    "@angular-eslint/eslint-plugin-template": "^20.0.0",
-    "@angular-eslint/schematics": "^20.0.0",
-    "@angular-eslint/template-parser": "^20.0.0"
+    "angular-eslint": "^20.5.1"
   },
   "peerDependenciesMeta": {
-    "@angular-eslint/builder": {
-      "optional": true
-    },
-    "@angular-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@angular-eslint/eslint-plugin-template": {
-      "optional": true
-    },
-    "@angular-eslint/schematics": {
-      "optional": true
-    },
-    "@angular-eslint/template-parser": {
+    "angular-eslint": {
       "optional": true
     }
   },

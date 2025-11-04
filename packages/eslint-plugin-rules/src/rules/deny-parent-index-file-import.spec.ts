@@ -1,5 +1,5 @@
-import { createRuleTester } from '../utils/rule-tester'
-import { DenyParentIndexFileImportMessageIds, denyParentIndexFileImportRule } from './deny-parent-index-file-import'
+import { createRuleTester } from '../utils/rule-tester.js'
+import { DenyParentIndexFileImportMessageIds, denyParentIndexFileImportRule } from './deny-parent-index-file-import.js'
 
 const ruleTester = createRuleTester()
 

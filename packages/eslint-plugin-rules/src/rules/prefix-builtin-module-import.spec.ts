@@ -1,5 +1,5 @@
-import { createRuleTester } from '../utils/rule-tester'
-import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from './prefix-builtin-module-import'
+import { createRuleTester } from '../utils/rule-tester.js'
+import { prefixBuiltinModuleImportRule, PrefixNodeModuleImportMessageIds } from './prefix-builtin-module-import.js'
 
 const ruleTester = createRuleTester()
 
@@ -8,7 +8,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
     {
       code: `
         import { writeFile } from 'node:fs/promises'
-        import { verify } from 'node:crypto'
+        import crypto from 'node:crypto'
       `,
     },
     {
@@ -32,7 +32,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       code: `
         import { writeFileSync } from 'node:fs'
         import { writeFile } from 'fs/promises'
-        import { verify } from 'crypto'
+        import crypto from 'crypto'
       `,
       errors: [
         {
@@ -47,7 +47,7 @@ ruleTester.run('prefix-builtin-module-import', prefixBuiltinModuleImportRule, {
       output: `
         import { writeFileSync } from 'node:fs'
         import { writeFile } from 'node:fs/promises'
-        import { verify } from 'node:crypto'
+        import crypto from 'node:crypto'
       `,
     },
     {

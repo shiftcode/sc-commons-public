@@ -1,0 +1,17 @@
+{
+  "src/rules/deny-parent-index-file-import.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/rules/import-denylist.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/rules/prefix-builtin-module-import.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 2
+    }
+  }
+}

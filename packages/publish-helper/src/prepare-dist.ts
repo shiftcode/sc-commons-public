@@ -3,9 +3,11 @@
 import fs from 'node:fs'
 import { dirname, normalize as normalizePath } from 'node:path'
 import process from 'node:process'
+
 import yargs from 'yargs'
 // eslint-disable-next-line import/no-internal-modules
 import { hideBin } from 'yargs/helpers'
+
 import { ensureDir, fixPackageJsonPaths, PCKG_JSON } from './helpers.js'
 
 const FILES_TO_CP = /(README|CHANGES|CHANGELOG|HISTORY|LICENSE|LICENCE|NOTICE')/i

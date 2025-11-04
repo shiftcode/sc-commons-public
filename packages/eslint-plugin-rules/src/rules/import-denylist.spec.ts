@@ -1,5 +1,5 @@
-import { createRuleTester } from '../utils/rule-tester'
-import { ImportDenylistMessageIds, importDenyListRule } from './import-denylist'
+import { createRuleTester } from '../utils/rule-tester.js'
+import { ImportDenylistMessageIds, importDenyListRule } from './import-denylist.js'
 
 const ruleTester = createRuleTester()
 

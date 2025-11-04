@@ -1,6 +1,7 @@
-import { RuleTester } from '@typescript-eslint/rule-tester'
 import { join } from 'node:path'
+
 import * as parser from '@typescript-eslint/parser'
+import { RuleTester } from '@typescript-eslint/rule-tester'
 
 const tsRootDirectory = join(__dirname, '../..', 'test')
 

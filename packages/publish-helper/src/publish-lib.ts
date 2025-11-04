@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+import * as process from 'node:process'
+
 import {
   BranchInfo,
   getBranchInfo,
@@ -9,10 +11,10 @@ import {
   hasGithubContext,
   isGithubWorkflow,
 } from '@shiftcode/branch-utilities'
-import * as process from 'node:process'
 import yargs from 'yargs'
 // eslint-disable-next-line import/no-internal-modules
 import { hideBin } from 'yargs/helpers'
+
 import { exec } from './helpers.js'
 
 interface Options {

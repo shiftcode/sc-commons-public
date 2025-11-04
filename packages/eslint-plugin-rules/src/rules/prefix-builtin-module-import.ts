@@ -1,6 +1,9 @@
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils'
-import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
 import { builtinModules } from 'node:module'
+
+import { TSESTree } from '@typescript-eslint/utils'
+import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
+
+import { createScRule } from './create-rule.function.js'
 // ------------------------------------------------------------------------------
 // Rule Definition
 // ------------------------------------------------------------------------------
@@ -9,13 +12,9 @@ export enum PrefixNodeModuleImportMessageIds {
   USE_NODE_PREFIX_FOR_BUILTIN_MODULE = 'useNotePrefixForBuiltinModule',
 }
 
-const createRule = ESLintUtils.RuleCreator(
-  () => 'https://github.com/shiftcode/sc-commons-public/blob/master/README.md#sc-commons-public',
-)
-
-export const prefixBuiltinModuleImportRule = createRule({
+export const prefixBuiltinModuleImportRule = createScRule({
   create(context: Readonly<RuleContext<any, any>>) {
-    const testAndReportModulPathOnNode = (node: TSESTree.Node, path: string) => {
+    const testAndReportModulePathOnNode = (node: TSESTree.Node, path: string) => {
       if (builtinModules.includes(path)) {
         context.report({
           node: node,
@@ -28,7 +27,7 @@ export const prefixBuiltinModuleImportRule = createRule({
 
     return {
       ImportDeclaration(node: TSESTree.ImportDeclaration) {
-        testAndReportModulPathOnNode(node.source, node.source.value)
+        testAndReportModulePathOnNode(node.source, node.source.value)
       },
       CallExpression(node: TSESTree.CallExpression) {
         if ((node.callee as any).name !== 'require') {
@@ -40,7 +39,7 @@ export const prefixBuiltinModuleImportRule = createRule({
           return
         }
 
-        testAndReportModulPathOnNode(node.arguments[0], arg0)
+        testAndReportModulePathOnNode(node.arguments[0], arg0)
       },
     }
   },

@@ -1,0 +1,12 @@
+{
+  "src/lib/base.utils.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/github.utils.ts": {
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 1
+    }
+  }
+}

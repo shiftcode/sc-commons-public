@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "types": ["jest", "node"],
+    "paths": {
+      "@shiftcode/branch-utilities": ["../branch-utilities/src/index.ts"],
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": []
+}
+

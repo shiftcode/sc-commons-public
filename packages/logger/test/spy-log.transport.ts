@@ -1,6 +1,6 @@
-import { LogLevel, LogTransport } from '../src/index.js'
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { jest } from '@jest/globals'
+
+import { LogLevel, LogTransport } from '../src/index.js'
 
 export class SpyLogTransport extends LogTransport {
   private logMock = jest.fn()

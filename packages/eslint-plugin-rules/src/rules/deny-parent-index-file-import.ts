@@ -1,18 +1,16 @@
 // ------------------------------------------------------------------------------
 // Rule Definition
 // ------------------------------------------------------------------------------
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils'
+import { TSESTree } from '@typescript-eslint/utils'
 import { RuleContext } from '@typescript-eslint/utils/ts-eslint'
+
+import { createScRule } from './create-rule.function.js'
 
 export enum DenyParentIndexFileImportMessageIds {
   DENIED_IMPORT = 'deniedImport',
 }
 
-const createRule = ESLintUtils.RuleCreator(
-  () => 'https://github.com/shiftcode/sc-commons-public/blob/master/README.md#sc-commons-public',
-)
-
-export const denyParentIndexFileImportRule = createRule({
+export const denyParentIndexFileImportRule = createScRule({
   create(context: Readonly<RuleContext<any, any>>) {
     const indexFileRegExp = new RegExp(/^\.[\.\/\.]*\.$/) // eslint-disable-line no-useless-escape
 

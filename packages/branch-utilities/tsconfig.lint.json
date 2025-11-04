@@ -2,11 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist",
-    "declarationDir": "./dist",
-    "types": ["node"],
+    "types": ["jest", "node"]
   },
   "include": [
-    "src/**/*.ts"
-  ]
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": []
 }
+

@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/logger",
-  "version": "3.0.2",
+  "version": "3.0.3-pr26.15",
   "description": "logger for local and aws lambda execution",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -24,20 +24,16 @@
     "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "format:ci": "npm run format:base -- --check",
     "format:staged": "prettier --write --config ../../.prettierrc.yml",
-    "lint": "npm run lint:src:fix && npm run lint:test:fix",
-    "lint:ci": "npm run lint:src && npm run lint:test",
-    "lint:src": "eslint ./src",
-    "lint:src:fix": "eslint ./src --cache --fix",
-    "lint:staged": "npm run lint",
-    "lint:test": "eslint ./test",
-    "lint:test:fix": "eslint ./test --cache --fix",
+    "lint": "eslint --fix --cache ./src ./test",
+    "lint:ci": "eslint ./src ./test",
+    "lint:staged": "eslint --fix --cache",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js",
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
-    "@shiftcode/utilities": "^4.2.0"
+    "@shiftcode/utilities": "^4.3.0-pr26.15"
   },
   "peerDependencies": {
     "@shiftcode/utilities": "^4.0.0 || ^4.0.0-pr53"
