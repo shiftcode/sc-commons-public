@@ -1,2 +1,5 @@
 ./package.json:
   - npx sort-package-json
+
+'*':
+  - npm run format:staged

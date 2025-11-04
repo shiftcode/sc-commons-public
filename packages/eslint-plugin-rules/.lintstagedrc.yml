@@ -1,8 +1,5 @@
-# Reformat all .ts / .js
-"**/*.(t|j)s":
-  - npm run format:staged
+'{src,test}/**/*.(t|j)s':
   - npm run lint:staged
 
-# sort package.json keys
-./package.json:
+'./package.json':
   - sort-package-json
