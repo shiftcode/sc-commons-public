@@ -7,10 +7,6 @@
       "@shiftcode/eslint-plugin-rules": ["../eslint-plugin-rules/src/index.ts"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": []
 }
-

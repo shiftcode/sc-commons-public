@@ -6,8 +6,5 @@
       "@shiftcode/utilities": ["../utilities/src"]
     }
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "test/**/*.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "test/**/*.ts"]
 }

@@ -6,9 +6,5 @@
       "@shiftcode/branch-utilities": ["../branch-utilities/src/index.ts"]
     }
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "test/**/*.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "test/**/*.ts"]
 }
-
