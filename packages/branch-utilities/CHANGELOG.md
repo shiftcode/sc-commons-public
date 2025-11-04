@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.2...@shiftcode/branch-utilities@5.1.0) (2025-11-04)
+
+### Features
+
+- replace cjs to mjs files ([de2580a](https://github.com/shiftcode/sc-commons-public/commit/de2580a2b0e8a8da97ac3a0ca884e5467ba91237))
+
+### Reverts
+
+- **base-utils:** undo odd change ([91a2b72](https://github.com/shiftcode/sc-commons-public/commit/91a2b722c021c97bbb7e45c2e54d90d13731a3f3))
+
 ## [5.0.2](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.0.1...@shiftcode/branch-utilities@5.0.2) (2025-09-11)
 
 ### Bug Fixes
