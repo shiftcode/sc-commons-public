@@ -41,8 +41,17 @@ export default defineConfig(
 alternative you can configure the plugin like this:
 
 ```js
+import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
+
 export default defineConfig({
-  
+  files: ['**/*.ts'],
+  plugins: {
+    '@shiftcode': eslintScPlugin
+  },
+  rules: {
+    '@shiftcode/prefix-builtin-module-import': 'error',
+    // ...
+  }
 })
 ```
 
