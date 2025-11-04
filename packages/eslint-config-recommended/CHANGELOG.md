@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@5.0.1...@shiftcode/eslint-config-recommended@6.0.0) (2025-11-04)
+
+### Bug Fixes
+
+- **eslint:** fix rule config ([d4dd222](https://github.com/shiftcode/sc-commons-public/commit/d4dd222c56acdf1e648ef1b764768b6ccdd9ea5e))
+- **rules:** useful config for rule import/no-extraneous-dependencies ([3a9d398](https://github.com/shiftcode/sc-commons-public/commit/3a9d3986beb8b2c8742bf64240783c9256071ce5))
+
+### Documentation
+
+- **readme:** eslint v9.37 ([0b2340c](https://github.com/shiftcode/sc-commons-public/commit/0b2340caccf1aa192852e5d1062ba4cb0f1f95ca))
+
+### Features
+
+- **angular-rules:** turn on prefer-output-readonly and prefer-host-metadata-property ([e445f40](https://github.com/shiftcode/sc-commons-public/commit/e445f404fa012e4324a317fe8090ca0d048f67c6))
+- **angular-template-rules:** turn off no-inline-styles ([e65870e](https://github.com/shiftcode/sc-commons-public/commit/e65870ede9941c11ea7f713ca3c1a607f194d996))
+- **eslint-angular:** add improved config for simple-import-sort/imports ([de47a15](https://github.com/shiftcode/sc-commons-public/commit/de47a155460f78f72da12dc7c73613771e4a98f7))
+- **eslint:** refine rule config ([2e7582a](https://github.com/shiftcode/sc-commons-public/commit/2e7582ac042032725f928f541f40f467d4f6b9b6))
+- **eslint:** refine rule config ([66cdbc4](https://github.com/shiftcode/sc-commons-public/commit/66cdbc48c029cd237c10262319ca6f6fe2a139c1))
+- **eslint:** refine rule config ([b0087ad](https://github.com/shiftcode/sc-commons-public/commit/b0087adb836b17a9f795a99b8c4e6f3ab524d4b3))
+- **eslint:** refine rule config ([7016656](https://github.com/shiftcode/sc-commons-public/commit/70166568d5e9c4601633d0d40b73e8cf9ddf9c7a))
+- **eslint:** sensible default ([45abe49](https://github.com/shiftcode/sc-commons-public/commit/45abe49c5981e6e45ae798d828d80878dc3f700e))
+- replace cjs to mjs files ([de2580a](https://github.com/shiftcode/sc-commons-public/commit/de2580a2b0e8a8da97ac3a0ca884e5467ba91237))
+
+### BREAKING CHANGES
+
+- **readme:** - no eslint ^9.37 is required
+
+* sc config is applied by using the exposed functions
+* sc rules shall be used with recommended config
+
 ## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@5.0.0...@shiftcode/eslint-config-recommended@5.0.1) (2025-09-09)
 
 **Note:** Version bump only for package @shiftcode/eslint-config-recommended

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-plugin-rules@4.0.1...@shiftcode/eslint-plugin-rules@5.0.0) (2025-11-04)
+
+### Bug Fixes
+
+- **src:** make imports type:module compatible ([0534ac0](https://github.com/shiftcode/sc-commons-public/commit/0534ac01e630bfe54f75f91fdc8eec06eb8e73b8))
+
+### Documentation
+
+- **readme:** eslint v9.37 ([0b2340c](https://github.com/shiftcode/sc-commons-public/commit/0b2340caccf1aa192852e5d1062ba4cb0f1f95ca))
+
+### Features
+
+- replace cjs to mjs files ([de2580a](https://github.com/shiftcode/sc-commons-public/commit/de2580a2b0e8a8da97ac3a0ca884e5467ba91237))
+
+### BREAKING CHANGES
+
+- **readme:** - no eslint ^9.37 is required
+
+* sc config is applied by using the exposed functions
+* sc rules shall be used with recommended config
+
 ## [4.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-plugin-rules@4.0.0...@shiftcode/eslint-plugin-rules@4.0.1) (2025-09-09)
 
 **Note:** Version bump only for package @shiftcode/eslint-plugin-rules

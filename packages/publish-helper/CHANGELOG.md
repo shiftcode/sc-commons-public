@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.1.2...@shiftcode/publish-helper@4.2.0) (2025-11-04)
+
+### Features
+
+- replace cjs to mjs files ([de2580a](https://github.com/shiftcode/sc-commons-public/commit/de2580a2b0e8a8da97ac3a0ca884e5467ba91237))
+
 ## [4.1.2](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.1.1...@shiftcode/publish-helper@4.1.2) (2025-09-11)
 
 **Note:** Version bump only for package @shiftcode/publish-helper

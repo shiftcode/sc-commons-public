@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.2.0...@shiftcode/utilities@4.3.0) (2025-11-04)
+
+### Features
+
+- replace cjs to mjs files ([de2580a](https://github.com/shiftcode/sc-commons-public/commit/de2580a2b0e8a8da97ac3a0ca884e5467ba91237))
+
+### Reverts
+
+- **tsconfig:** use es2023 ([5a6020e](https://github.com/shiftcode/sc-commons-public/commit/5a6020e2bdaba68ced6108fbc419a0961877ac37))
+
 # [4.2.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.1.0...@shiftcode/utilities@4.2.0) (2025-09-09)
 
 ### Features
