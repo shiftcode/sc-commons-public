@@ -4,10 +4,7 @@
     "declaration": false,
     "declarationDir": null,
     "noEmit": true,
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "strictPropertyInitialization": false,
     "resolveJsonModule": true
   },

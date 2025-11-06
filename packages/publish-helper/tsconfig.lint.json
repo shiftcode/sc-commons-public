@@ -4,13 +4,9 @@
     "baseUrl": "./",
     "types": ["jest", "node"],
     "paths": {
-      "@shiftcode/branch-utilities": ["../branch-utilities/src/index.ts"],
+      "@shiftcode/branch-utilities": ["../branch-utilities/src/index.ts"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": []
 }
-

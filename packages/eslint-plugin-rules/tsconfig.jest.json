@@ -3,9 +3,5 @@
   "compilerOptions": {
     "baseUrl": "./"
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "test/**/*.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "test/**/*.ts"]
 }
-

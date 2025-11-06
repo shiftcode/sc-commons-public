@@ -14,25 +14,25 @@ import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
 
 export default defineConfig(
   // ...
-    {
-      files: ['*.ts'],
-      extends: [eslintScPlugin.configs.recommended],
-      rules: {
-        '@shiftcode/import-denylist': [ // former TSLint rule: "import-blacklist"
-          'error',
-          {
-            patterns: [
-              /aws-cdk-lib\/core/,
-              /\.\/(core|models|shared|static)\/.*/, // use app/* instead
-              /^app\/core/,    // disallow importing from self
-              /^somewhat\/.*/, // import filename must never start with "somewhat"
-              /example$/,      // import filename must never end with "example"
-              // etc ...
-            ],
-          },
-        ],
-      },
+  {
+    files: ['*.ts'],
+    extends: [eslintScPlugin.configs.recommended],
+    rules: {
+      '@shiftcode/import-denylist': [
+        'error',
+        {
+          patterns: [
+            /aws-cdk-lib\/core/,
+            /\.\/(core|models|shared|static)\/.*/, // use app/* instead
+            /^app\/core/, // disallow importing from self
+            /^somewhat\/.*/, // import filename must never start with "somewhat"
+            /example$/, // import filename must never end with "example"
+            // etc ...
+          ],
+        },
+      ],
     },
+  },
 
   // ...
 )
@@ -46,12 +46,12 @@ import eslintScPlugin from '@shiftcode/eslint-plugin-rules'
 export default defineConfig({
   files: ['**/*.ts'],
   plugins: {
-    '@shiftcode': eslintScPlugin
+    '@shiftcode': eslintScPlugin,
   },
   rules: {
     '@shiftcode/prefix-builtin-module-import': 'error',
     // ...
-  }
+  },
 })
 ```
 
@@ -72,17 +72,20 @@ This can potentially be replaced by using [no-restricted-imports](https://eslint
 - example configuration: see above
 
 ### prefix-builtin-module-import
+
 This rule ensures all node builtin modules are imported with the `node:` prefix.
 
 - <span style="color: orange">note: this rule is already included by [@shiftcode/eslint-config-recommended](../eslint-config-recommended)</span>
 
-
 ✅ Correct
+
 ```js
 import { writeFile } from 'node:fs/promises'
 import crypto from 'node:crypto'
 ```
+
 ❌ Incorrect
+
 ```js
 import { writeFile } from 'fs/promises'
 import crypto from 'crypto'

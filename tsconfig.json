@@ -8,8 +8,5 @@
     "declaration": true,
     "importHelpers": true
   },
-  "exclude": [
-    "**/*.spec.ts",
-    "packages/**/test/**/*.ts"
-  ]
+  "exclude": ["**/*.spec.ts", "packages/**/test/**/*.ts"]
 }

@@ -11,8 +11,9 @@
   "scripts": {
     "build:ci": "lerna run build",
     "build:lint:ci": "lerna run build --scope @shiftcode/eslint-plugin-rules && lerna run build --scope @shiftcode/eslint-config-recommended",
-    "format": "lerna run format",
-    "format:ci": "lerna run format:ci",
+    "format": "prettier --write .",
+    "format:ci": "prettier --check .",
+    "format:staged": "prettier --write --ignore-unknown",
     "lint:ci": "lerna run lint:ci",
     "prepare": "husky",
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
