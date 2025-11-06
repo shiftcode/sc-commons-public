@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-plugin-rules@5.0.0...@shiftcode/eslint-plugin-rules@5.0.1) (2025-11-06)
+
+**Note:** Version bump only for package @shiftcode/eslint-plugin-rules
+
 # [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-plugin-rules@4.0.1...@shiftcode/eslint-plugin-rules@5.0.0) (2025-11-04)
 
 ### Bug Fixes
