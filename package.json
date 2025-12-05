@@ -20,7 +20,7 @@
     "test:ci": "lerna run test:ci"
   },
   "dependencies": {
-    "lerna": "^8.1.6",
+    "lerna": "^9.0.3",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
