@@ -46,7 +46,7 @@
     "angular-eslint": "^20.5.1"
   },
   "peerDependencies": {
-    "angular-eslint": "^20.5.1"
+    "angular-eslint": "^20.5.1 || ^21.0.0"
   },
   "peerDependenciesMeta": {
     "angular-eslint": {
