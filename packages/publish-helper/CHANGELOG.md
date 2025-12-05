@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.2.1...@shiftcode/publish-helper@5.0.0) (2025-12-05)
+
+### Features
+
+- **deps:** use latest lerna version ([5ccfad1](https://github.com/shiftcode/sc-commons-public/commit/5ccfad15ac4207a927b1ddeb58dffa20513a968c))
+
+### BREAKING CHANGES
+
+- **deps:** requires lerna@^9.0.3
+
 ## [4.2.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@4.2.0...@shiftcode/publish-helper@4.2.1) (2025-11-06)
 
 **Note:** Version bump only for package @shiftcode/publish-helper
