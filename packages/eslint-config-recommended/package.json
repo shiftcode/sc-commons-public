@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/eslint-config-recommended",
-  "version": "6.0.1",
+  "version": "6.1.0-pr69.0",
   "description": "default shiftcode config for eslint",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "UNLICENSED",
@@ -46,7 +46,7 @@
     "angular-eslint": "^20.5.1"
   },
   "peerDependencies": {
-    "angular-eslint": "^20.5.1"
+    "angular-eslint": "^20.5.1 || ^21.0.0"
   },
   "peerDependenciesMeta": {
     "angular-eslint": {
