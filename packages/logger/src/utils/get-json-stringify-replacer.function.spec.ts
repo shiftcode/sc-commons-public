@@ -92,7 +92,7 @@ describe('getJsonStringifyReplacer', () => {
   it('should use custom replacer prior handling Error instances', () => {
     const wrapErrors = (key: string, value: unknown) => {
       if (value instanceof Error) {
-        return new Error('Failed', {cause: value})
+        return new Error('Failed', { cause: value })
       }
       return value
     }
@@ -124,6 +124,4 @@ describe('getJsonStringifyReplacer', () => {
     expect(result).toContain('"bigNumber":"9007199254740991"')
     expect(result).toContain('"circular":"<circular reference>"')
   })
-
 })
-

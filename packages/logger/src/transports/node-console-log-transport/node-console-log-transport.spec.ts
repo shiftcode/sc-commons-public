@@ -153,5 +153,4 @@ describe('prints all the given arguments', () => {
     expect(typeof usedArgs[0]).toBe('string')
     expect(usedArgs[1]).toBe('{ propA: true }') // not json, but util.inspect style
   })
-
 })

@@ -37,7 +37,7 @@ export class NodeConsoleLogTransport extends LogTransport {
       } else {
         args = [
           `${logLevelEmoji[level]} ${colorizeForConsole(`${now} - ${clazzName} ::`, hexColor)}`,
-          ...args.map((a) => util.inspect(a, this.inspectOpts))
+          ...args.map((a) => util.inspect(a, this.inspectOpts)),
         ]
       }
 

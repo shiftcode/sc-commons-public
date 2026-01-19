@@ -4,7 +4,6 @@ import { jest } from '@jest/globals'
 import { LogLevel } from '../model/log-level.enum.js'
 import { LogTransport } from '../model/log-transport.js'
 
-
 export class SpyLogTransport extends LogTransport {
   private logMock = jest.fn()
 
