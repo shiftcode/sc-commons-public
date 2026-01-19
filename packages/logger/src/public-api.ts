@@ -6,6 +6,7 @@ export * from './transports/console-json-log-transport/console-json-log.transpor
 export * from './transports/console-json-log-transport/console-json-log-transport-config.js'
 export * from './transports/node-console-log-transport/node-console-log.transport.js'
 export * from './transports/node-console-log-transport/node-console-log-transport-config.js'
+export * from './utils/create-console-logger.function.js'
 export * from './utils/create-json-log-object-data.function.js'
 export * from './utils/format-error.function.js'
 export * from './utils/format-error.function.js'
