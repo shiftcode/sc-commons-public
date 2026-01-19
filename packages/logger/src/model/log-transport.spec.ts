@@ -1,6 +1,6 @@
-import { SpyLogTransport } from '../../test/spy-log.transport.js'
-import { LogLevel } from '../index.js'
+import { SpyLogTransport } from '../testing/spy-log.transport.js'
 import { stringToColor } from '../utils/logger-helper.js'
+import { LogLevel } from './log-level.enum.js'
 
 describe('respects the configured level', () => {
   test('respects level DEBUG', () => {
