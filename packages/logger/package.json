@@ -12,6 +12,14 @@
       "types": "./dist/public-api.d.ts",
       "default": "./dist/public-api.js"
     },
+    "./transports/console-json": {
+      "types": "./dist/transports/console-json-log-transport/public-api.d.ts",
+      "default": "./dist/transports/console-json-log-transport/public-api.js"
+    },
+    "./transports/node-console": {
+      "types": "./dist/transports/node-console-log-transport/public-api.d.ts",
+      "default": "./dist/transports/node-console-log-transport/public-api.js"
+    },
     "./testing": {
       "types": "./dist/testing/public-api.d.ts",
       "default": "./dist/testing/public-api.js"
