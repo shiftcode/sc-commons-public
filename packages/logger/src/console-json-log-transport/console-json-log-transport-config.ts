@@ -1,4 +1,4 @@
-import { LogLevel } from '../../model/log-level.enum.js'
+import { LogLevel } from '../model/log-level.enum.js'
 
 export interface ConsoleJsonLogTransportConfig {
   logLevel: LogLevel

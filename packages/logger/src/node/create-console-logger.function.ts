@@ -1,9 +1,9 @@
+import { ConsoleJsonLogTransport } from '../console-json-log-transport/console-json-log.transport.js'
 import { LogLevel } from '../model/log-level.enum.js'
 import { LogTransport } from '../model/log-transport.js'
 import { Logger } from '../model/logger.js'
 import { BaseLoggerService } from '../services/base-logger.service.js'
-import { ConsoleJsonLogTransport } from '../transports/console-json-log-transport/console-json-log.transport.js'
-import { NodeConsoleLogTransport } from '../transports/node-console-log-transport/node-console-log.transport.js'
+import { NodeConsoleLogTransport } from './node-console-log-transport/node-console-log.transport.js'
 
 /**
  * Creates a simple {@link Logger} instance that logs to the console with the specified name and log level

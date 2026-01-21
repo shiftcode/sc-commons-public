@@ -1,8 +1,8 @@
+import { ConsoleJsonLogTransport } from '../console-json-log-transport/console-json-log.transport.js'
 import { LogLevel } from '../model/log-level.enum.js'
 import { Logger } from '../model/logger.js'
-import { ConsoleJsonLogTransport } from '../transports/console-json-log-transport/console-json-log.transport.js'
-import { NodeConsoleLogTransport } from '../transports/node-console-log-transport/node-console-log.transport.js'
 import { createConsoleLogger } from './create-console-logger.function.js'
+import { NodeConsoleLogTransport } from './node-console-log-transport/node-console-log.transport.js'
 
 describe('createConsoleLogger', () => {
   it('should create logger with NodeConsoleLogTransport when type is "node"', () => {
