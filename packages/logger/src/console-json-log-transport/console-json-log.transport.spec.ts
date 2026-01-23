@@ -78,7 +78,7 @@ describe('respects the configured level', () => {
   afterEach(restoreConsole)
 
   test('respects level DEBUG', () => {
-    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.DEBUG })
+    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.DEBUG, belowLevelLogBufferSize: 0 })
     logger.log(LogLevel.DEBUG, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar debug'])
     logger.log(LogLevel.INFO, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar info'])
     logger.log(LogLevel.WARN, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar warn'])
@@ -89,8 +89,8 @@ describe('respects the configured level', () => {
     expect(consoleMock.error).toHaveBeenCalledTimes(1)
   })
   test('respects level INFO', () => {
-    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.INFO })
-    logger.log(LogLevel.DEBUG, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar debug'])
+    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.INFO, belowLevelLogBufferSize: 0 })
+    // do not log DEBUG to keep this focused on allowed levels only
     logger.log(LogLevel.INFO, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar info'])
     logger.log(LogLevel.WARN, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar warn'])
     logger.log(LogLevel.ERROR, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar error'])
@@ -100,9 +100,8 @@ describe('respects the configured level', () => {
     expect(consoleMock.error).toHaveBeenCalledTimes(1)
   })
   test('respects level WARN', () => {
-    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.WARN })
-    logger.log(LogLevel.DEBUG, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar debug'])
-    logger.log(LogLevel.INFO, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar info'])
+    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.WARN, belowLevelLogBufferSize: 0 })
+    // do not log DEBUG/INFO to keep this focused on allowed levels only
     logger.log(LogLevel.WARN, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar warn'])
     logger.log(LogLevel.ERROR, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar error'])
     expect(consoleMock.debug).toHaveBeenCalledTimes(0)
@@ -111,10 +110,8 @@ describe('respects the configured level', () => {
     expect(consoleMock.error).toHaveBeenCalledTimes(1)
   })
   test('respects level ERROR', () => {
-    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR })
-    logger.log(LogLevel.DEBUG, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar debug'])
-    logger.log(LogLevel.INFO, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar info'])
-    logger.log(LogLevel.WARN, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar warn'])
+    const logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR, belowLevelLogBufferSize: 0 })
+    // only log ERROR as allowed
     logger.log(LogLevel.ERROR, 'MyClass', stringToColor('MyClass'), new Date(), ['foo bar error'])
     expect(consoleMock.debug).toHaveBeenCalledTimes(0)
     expect(consoleMock.info).toHaveBeenCalledTimes(0)
@@ -242,5 +239,107 @@ describe('handles circular references in log data', () => {
         },
       }),
     )
+  })
+})
+
+// New tests for buffering behavior driven by belowLevelLogBufferSize
+
+describe('below-level buffering and flush on ERROR', () => {
+  let logger: ConsoleJsonLogTransport
+  let consoleMock: ConsoleMock
+
+  beforeEach(() => void (consoleMock = mockConsole()))
+  afterEach(restoreConsole)
+
+  const parseCallArg = (arg: unknown) => JSON.parse(arg as string) as { level: string; message: string }
+
+  test('buffers below-level DEBUG/WARN logs and flushes them before ERROR', () => {
+    logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR, belowLevelLogBufferSize: 10 })
+
+    const ts = new Date()
+    const color = stringToColor('MyClass')
+
+    logger.log(LogLevel.DEBUG, 'MyClass', color, ts, ['debug-1'])
+    logger.log(LogLevel.WARN, 'MyClass', color, ts, ['warn-1'])
+
+    // trigger flush
+    logger.log(LogLevel.ERROR, 'MyClass', color, ts, ['error-1'])
+
+    expect(consoleMock.debug).toHaveBeenCalledTimes(1)
+    expect(consoleMock.warn).toHaveBeenCalledTimes(1)
+    expect(consoleMock.error).toHaveBeenCalledTimes(1)
+
+    // verify order: flushed entries were logged before the ERROR
+    const debugOrder = consoleMock.debug.mock.invocationCallOrder[0]
+    const warnOrder = consoleMock.warn.mock.invocationCallOrder[0]
+    const errorOrder = consoleMock.error.mock.invocationCallOrder[0]
+    expect(debugOrder).toBeLessThan(warnOrder)
+    expect(warnOrder).toBeLessThan(errorOrder)
+
+    // verify messages preserved
+    const debugPayload = parseCallArg(consoleMock.debug.mock.calls[0][0])
+    const warnPayload = parseCallArg(consoleMock.warn.mock.calls[0][0])
+    const errorPayload = parseCallArg(consoleMock.error.mock.calls[0][0])
+
+    expect(debugPayload).toEqual(expect.objectContaining({ level: 'DEBUG', message: 'debug-1' }))
+    expect(warnPayload).toEqual(expect.objectContaining({ level: 'WARN', message: 'warn-1' }))
+    expect(errorPayload).toEqual(expect.objectContaining({ level: 'ERROR', message: 'error-1' }))
+  })
+
+  test('respects buffer size: only keep the last N items', () => {
+    logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR, belowLevelLogBufferSize: 2 })
+
+    const ts = new Date()
+    const color = stringToColor('MyClass')
+
+    logger.log(LogLevel.DEBUG, 'MyClass', color, ts, ['a'])
+    logger.log(LogLevel.DEBUG, 'MyClass', color, ts, ['b'])
+    logger.log(LogLevel.DEBUG, 'MyClass', color, ts, ['c']) // should evict 'a'
+
+    logger.log(LogLevel.ERROR, 'MyClass', color, ts, ['boom'])
+
+    expect(consoleMock.debug).toHaveBeenCalledTimes(2)
+    const flushedMessages = consoleMock.debug.mock.calls.map((c: any[]) => parseCallArg(c[0]).message)
+    expect(flushedMessages).toEqual(['b', 'c'])
+  })
+
+  test('buffer size 0 disables buffering', () => {
+    logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR, belowLevelLogBufferSize: 0 })
+
+    const ts = new Date()
+    const color = stringToColor('MyClass')
+
+    logger.log(LogLevel.DEBUG, 'MyClass', color, ts, ['pre']) // not kept
+    logger.log(LogLevel.ERROR, 'MyClass', color, ts, ['err'])
+
+    expect(consoleMock.debug).not.toHaveBeenCalled()
+    expect(consoleMock.error).toHaveBeenCalledTimes(1)
+  })
+
+  test('does not flush when ERROR is not enabled (log level OFF)', () => {
+    logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.OFF, belowLevelLogBufferSize: 5 })
+
+    const ts = new Date()
+
+    logger.log(LogLevel.DEBUG, 'MyClass', '#000000', ts, ['pre'])
+    logger.log(LogLevel.ERROR, 'MyClass', '#000000', ts, ['err']) // below-level, so no flush
+
+    expect(consoleMock.debug).not.toHaveBeenCalled()
+    expect(consoleMock.info).not.toHaveBeenCalled()
+    expect(consoleMock.warn).not.toHaveBeenCalled()
+    expect(consoleMock.error).not.toHaveBeenCalled()
+  })
+
+  test('clears buffer after flushing on ERROR', () => {
+    logger = new ConsoleJsonLogTransport({ logLevel: LogLevel.ERROR, belowLevelLogBufferSize: 5 })
+
+    const ts = new Date()
+
+    logger.log(LogLevel.DEBUG, 'MyClass', '#000000', ts, ['once'])
+    logger.log(LogLevel.ERROR, 'MyClass', '#000000', ts, ['first']) // flushes 'once'
+    logger.log(LogLevel.ERROR, 'MyClass', '#000000', ts, ['second']) // no additional debug flushed
+
+    expect(consoleMock.debug).toHaveBeenCalledTimes(1)
+    expect(consoleMock.error).toHaveBeenCalledTimes(2)
   })
 })
