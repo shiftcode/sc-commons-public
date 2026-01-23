@@ -40,7 +40,6 @@ export class ConsoleJsonLogTransport extends LogTransport {
     //   to cut any potential references to objects that could potentially change until the log is actually written.
     const message = JSON.stringify(logObject, getJsonStringifyReplacer(this.jsonStringifyReplacer))
 
-
     if (!this.isLevelEnabled(level)) {
       pushToRingBuffer(this.pendingBuffer, { level, message }, this.bufferSize)
       return

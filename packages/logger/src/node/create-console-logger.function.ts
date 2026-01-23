@@ -18,11 +18,7 @@ type Config = {
  * @param type decides whether to use {@link NodeConsoleLogTransport} or {@link ConsoleJsonLogTransport}
  * @param config optional configuration for the selected transport
  */
-export function createConsoleLogger(
-  name: string,
-  config: Config,
-  type: 'node' | 'json',
-): Logger {
+export function createConsoleLogger(name: string, config: Config, type: 'node' | 'json'): Logger {
   let transport: LogTransport
   switch (type) {
     case 'node':
