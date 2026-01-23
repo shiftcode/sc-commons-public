@@ -3,8 +3,8 @@
  */
 export function pushToRingBuffer<T>(buffer: T[], item: T, maxSize: number): void {
   if (maxSize <= 0) {
-    while(buffer.shift()) {
-    // just clears the buffer
+    while (buffer.shift()) {
+      // just clears the buffer
     }
     return
   }

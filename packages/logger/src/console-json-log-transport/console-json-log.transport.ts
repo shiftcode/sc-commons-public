@@ -14,7 +14,7 @@ interface BufferedLogMessage {
 
 export class ConsoleJsonLogTransport extends LogTransport {
   private static readonly DEFAULT_BUFFER_SIZE = 50
-  private readonly bufferSize:number
+  private readonly bufferSize: number
 
   /** Ring buffer for log events below the configured level, flushed on ERROR */
   private pendingBuffer: BufferedLogMessage[] = []
@@ -56,7 +56,6 @@ export class ConsoleJsonLogTransport extends LogTransport {
   }
 
   protected logToConsole(level: LogLevel, toLog: unknown) {
-
     /* eslint-disable no-console */
     switch (level) {
       case LogLevel.DEBUG:
