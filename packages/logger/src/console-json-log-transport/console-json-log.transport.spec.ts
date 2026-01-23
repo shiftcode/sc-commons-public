@@ -1,3 +1,4 @@
+ 
 import { afterEach, beforeEach, describe, expect, test } from '@jest/globals'
 
 import { ConsoleMock, mockConsole, restoreConsole } from '../../test/console-mock.function.js'
@@ -242,7 +243,59 @@ describe('handles circular references in log data', () => {
   })
 })
 
-// New tests for buffering behavior driven by belowLevelLogBufferSize
+describe('respects logJsObject config', () => {
+  let consoleMock: ConsoleMock
+  let timestamp: Date
+
+  beforeEach(() => {
+    consoleMock = mockConsole()
+    timestamp = new Date()
+  })
+  afterEach(restoreConsole)
+
+  test('logs as JSON string when logJsObject is false (default)', () => {
+    const logger = new ConsoleJsonLogTransport({
+      logLevel: LogLevel.WARN,
+      logJsObject: false,
+      belowLevelLogBufferSize: 1,
+    })
+
+    logger.log(LogLevel.INFO, 'MyClass', '#000', timestamp, ['test message', { data: 'value' }])
+    logger.log(LogLevel.WARN, 'MyClass', '#000', timestamp, ['test warn', { data: 'value' }])
+    logger.log(LogLevel.ERROR, 'MyClass', '#000', timestamp, ['test error', { data: 'value' }])
+
+    expect(consoleMock.warn).toHaveBeenCalledTimes(1)
+
+    const warnLog = consoleMock.warn.mock.calls[0][0]
+    expect(typeof warnLog).toBe('string')
+    const parsedWarnLog = JSON.parse(warnLog as string)
+    expect(parsedWarnLog).toEqual(expect.objectContaining({ level: 'WARN', message: 'test warn', }))
+
+    expect(consoleMock.error).toHaveBeenCalledTimes(1)
+    const errorLog = consoleMock.error.mock.calls[0][0]
+    expect(typeof errorLog).toBe('string')
+    const parsedErrorLog = JSON.parse(errorLog as string)
+    expect(parsedErrorLog).toEqual(expect.objectContaining({ level: 'ERROR', message: 'test error', }))
+
+  })
+
+  test('logs as JavaScript object when logJsObject is true', () => {
+    const logger = new ConsoleJsonLogTransport({
+      logLevel: LogLevel.ERROR,
+      logJsObject: true,
+      belowLevelLogBufferSize: 1,
+    })
+
+    logger.log(LogLevel.WARN, 'MyClass', '#000', timestamp, ['test warning', { foo: 'bar' }])
+    logger.log(LogLevel.ERROR, 'MyClass', '#000', timestamp, ['test error', { foo: 'bar' }])
+
+    expect(consoleMock.warn).toHaveBeenCalledTimes(1)
+    expect(consoleMock.warn.mock.calls[0][0]).toEqual(expect.objectContaining({ level: 'WARN', message: 'test warning' }))
+
+    expect(consoleMock.error).toHaveBeenCalledTimes(1)
+    expect(consoleMock.error.mock.calls[0][0]).toEqual(expect.objectContaining({ level: 'ERROR', message: 'test error' }))
+  })
+})
 
 describe('below-level buffering and flush on ERROR', () => {
   let logger: ConsoleJsonLogTransport

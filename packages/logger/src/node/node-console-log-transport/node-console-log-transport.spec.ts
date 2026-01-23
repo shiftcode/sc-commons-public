@@ -5,25 +5,12 @@ import { LogLevel } from '../../model/log-level.enum.js'
 import { stringToColor } from '../../utils/logger-helper.js'
 import { NodeConsoleLogTransport } from './node-console-log.transport.js'
 
-/**
- * Formats a Date object to HH:mm:ss.SSS format
- * @param {Date} date - The date to format
- * @returns {string} Formatted time string in HH:mm:ss.SSS format (e.g., "14:23:45.123")
- */
-function formatTime(date: Date): string {
-  const hours = String(date.getHours()).padStart(2, '0')
-  const minutes = String(date.getMinutes()).padStart(2, '0')
-  const seconds = String(date.getSeconds()).padStart(2, '0')
-  const milliseconds = String(date.getMilliseconds()).padStart(3, '0')
-
-  return `${hours}:${minutes}:${seconds}.${milliseconds}`
-}
-
 describe('uses console statement according to levels', () => {
+  const logDate = Object.freeze(new Date('2020-07-04T12:34:56.789'))
+  const formattedDate = '12:34:56.789'
+
   let logger: NodeConsoleLogTransport
-  let logDate: Date
   let logArgs: any[]
-  let formattedDate: string
   let consoleMock: ConsoleMock
   const className = 'MyClass'
   const color = stringToColor(className)
@@ -31,9 +18,7 @@ describe('uses console statement according to levels', () => {
   beforeEach(() => {
     consoleMock = mockConsole()
     logger = new NodeConsoleLogTransport({ logLevel: LogLevel.DEBUG })
-    logDate = new Date()
     logArgs = ['foo bar']
-    formattedDate = formatTime(logDate)
   })
   afterEach(restoreConsole)
 

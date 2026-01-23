@@ -58,6 +58,9 @@ export class ConsoleJsonLogTransport extends LogTransport {
   }
 
   protected logToConsole(level: LogLevel, toLog: string) {
+    if (this.logJsObject) {
+      toLog = JSON.parse(toLog)
+    }
     /* eslint-disable no-console */
     switch (level) {
       case LogLevel.DEBUG:
