@@ -19,10 +19,12 @@ export class ConsoleJsonLogTransport extends LogTransport {
   /** Ring buffer for log events below the configured level, flushed on ERROR */
   private pendingBuffer: BufferedLogMessage[] = []
 
+  private readonly logJsObject: boolean
   private readonly jsonStringifyReplacer: (key: string, value: any) => any
 
   constructor(config: ConsoleJsonLogTransportConfig) {
     super(config.logLevel)
+    this.logJsObject = config.logJsObject ?? false
     this.bufferSize = config.belowLevelLogBufferSize ?? ConsoleJsonLogTransport.DEFAULT_BUFFER_SIZE
     this.jsonStringifyReplacer = config.jsonStringifyReplacer ?? jsonMapSetStringifyReplacer
   }
@@ -37,6 +39,7 @@ export class ConsoleJsonLogTransport extends LogTransport {
     // we stringify at this point (instead of postpone it to when logging actually happens)
     //   to cut any potential references to objects that could potentially change until the log is actually written.
     const message = JSON.stringify(logObject, getJsonStringifyReplacer(this.jsonStringifyReplacer))
+
 
     if (!this.isLevelEnabled(level)) {
       pushToRingBuffer(this.pendingBuffer, { level, message }, this.bufferSize)
@@ -55,7 +58,7 @@ export class ConsoleJsonLogTransport extends LogTransport {
     this.logToConsole(level, message)
   }
 
-  protected logToConsole(level: LogLevel, toLog: unknown) {
+  protected logToConsole(level: LogLevel, toLog: string) {
     /* eslint-disable no-console */
     switch (level) {
       case LogLevel.DEBUG:

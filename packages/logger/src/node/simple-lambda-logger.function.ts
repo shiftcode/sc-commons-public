@@ -10,5 +10,5 @@ function isAwsLambdaEnv(): boolean {
 
 export function simpleLambdaLogger(name: string, logLevel: LogLevel = LogLevel.DEBUG) {
   const isLambda = isAwsLambdaEnv()
-  return createConsoleLogger(name, logLevel, isLambda ? 'json' : 'node')
+  return createConsoleLogger(name, { json: { logLevel }, node: { logLevel } }, isLambda ? 'json' : 'node')
 }

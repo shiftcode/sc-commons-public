@@ -6,7 +6,7 @@ import { LogLevel } from '../../model/log-level.enum.js'
 import { LogTransport } from '../../model/log-transport.js'
 import { NodeConsoleLogTransportConfig } from './node-console-log-transport-config.js'
 
-export const logLevelEmoji = ['🐞', '💬', '💣', '🔥']
+export const logLevelEmoji: Record<LogLevel, string> = ['🐞', '💬', '💣', '🔥', '']
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: '2-digit',

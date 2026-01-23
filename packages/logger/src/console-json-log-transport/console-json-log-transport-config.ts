@@ -14,6 +14,8 @@ export interface ConsoleJsonLogTransportConfig {
 
   /**
    * when true, the log output will be a JS object instead of a JSON string. {@jsonStringifyReplacer} is still used.
+   * enable this option, when your lambda function is configured with `loggingFormat='JSON'`
+   * @hint when loggingFormat='JSON' is set, you should also configure `applicationLogLevelV2` with `TRACE` - otherwise you won't see all logging output.
    */
   logJsObject?: boolean
 }
