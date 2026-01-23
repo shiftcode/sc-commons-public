@@ -6,20 +6,28 @@ import { NodeConsoleLogTransport } from './node-console-log-transport/node-conso
 
 describe('createConsoleLogger', () => {
   it('should create logger with NodeConsoleLogTransport when type is "node"', () => {
-    const logger: Logger = createConsoleLogger('test-logger', LogLevel.INFO, 'node')
+    const logger: Logger = createConsoleLogger(
+      'test-logger',
+      { node: { logLevel: LogLevel.DEBUG }, json: { logLevel: LogLevel.ERROR } },
+      'node',
+    )
 
     expect(logger).toBeDefined()
     expect(logger['loggerTransports']).toHaveLength(1)
     expect(logger['loggerTransports'][0]).toBeInstanceOf(NodeConsoleLogTransport)
-    expect(logger['loggerTransports'][0]['logLevel']).toBe(LogLevel.INFO)
+    expect(logger['loggerTransports'][0]['logLevel']).toBe(LogLevel.DEBUG)
   })
 
   it('should create logger with ConsoleJsonLogTransport when type is "json"', () => {
-    const logger: Logger = createConsoleLogger('test-logger', LogLevel.DEBUG, 'json')
+    const logger: Logger = createConsoleLogger(
+      'test-logger',
+      { node: { logLevel: LogLevel.DEBUG }, json: { logLevel: LogLevel.ERROR } },
+      'json',
+    )
 
     expect(logger).toBeDefined()
     expect(logger['loggerTransports']).toHaveLength(1)
     expect(logger['loggerTransports'][0]).toBeInstanceOf(ConsoleJsonLogTransport)
-    expect(logger['loggerTransports'][0]['logLevel']).toBe(LogLevel.DEBUG)
+    expect(logger['loggerTransports'][0]['logLevel']).toBe(LogLevel.ERROR)
   })
 })
