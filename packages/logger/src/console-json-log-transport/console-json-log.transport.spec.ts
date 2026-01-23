@@ -1,4 +1,3 @@
- 
 import { afterEach, beforeEach, describe, expect, test } from '@jest/globals'
 
 import { ConsoleMock, mockConsole, restoreConsole } from '../../test/console-mock.function.js'
@@ -269,14 +268,13 @@ describe('respects logJsObject config', () => {
     const warnLog = consoleMock.warn.mock.calls[0][0]
     expect(typeof warnLog).toBe('string')
     const parsedWarnLog = JSON.parse(warnLog as string)
-    expect(parsedWarnLog).toEqual(expect.objectContaining({ level: 'WARN', message: 'test warn', }))
+    expect(parsedWarnLog).toEqual(expect.objectContaining({ level: 'WARN', message: 'test warn' }))
 
     expect(consoleMock.error).toHaveBeenCalledTimes(1)
     const errorLog = consoleMock.error.mock.calls[0][0]
     expect(typeof errorLog).toBe('string')
     const parsedErrorLog = JSON.parse(errorLog as string)
-    expect(parsedErrorLog).toEqual(expect.objectContaining({ level: 'ERROR', message: 'test error', }))
-
+    expect(parsedErrorLog).toEqual(expect.objectContaining({ level: 'ERROR', message: 'test error' }))
   })
 
   test('logs as JavaScript object when logJsObject is true', () => {
@@ -290,10 +288,14 @@ describe('respects logJsObject config', () => {
     logger.log(LogLevel.ERROR, 'MyClass', '#000', timestamp, ['test error', { foo: 'bar' }])
 
     expect(consoleMock.warn).toHaveBeenCalledTimes(1)
-    expect(consoleMock.warn.mock.calls[0][0]).toEqual(expect.objectContaining({ level: 'WARN', message: 'test warning' }))
+    expect(consoleMock.warn.mock.calls[0][0]).toEqual(
+      expect.objectContaining({ level: 'WARN', message: 'test warning' }),
+    )
 
     expect(consoleMock.error).toHaveBeenCalledTimes(1)
-    expect(consoleMock.error.mock.calls[0][0]).toEqual(expect.objectContaining({ level: 'ERROR', message: 'test error' }))
+    expect(consoleMock.error.mock.calls[0][0]).toEqual(
+      expect.objectContaining({ level: 'ERROR', message: 'test error' }),
+    )
   })
 })
 
