@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, test } from '@jest/globals'
 
 import { ConsoleMock, mockConsole, restoreConsole } from '../../test/console-mock.function.js'
 import { LogLevel } from '../model/log-level.enum.js'
-import { stringToColor } from '../utils/logger-helper.js'
+import { stringToColor } from '../utils/string-to-color.function.js'
 import { ConsoleJsonLogTransport } from './console-json-log.transport.js'
 
 describe('uses console statement according to levels', () => {
