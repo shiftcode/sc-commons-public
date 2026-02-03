@@ -5,6 +5,7 @@ export interface ConsoleJsonLogTransportConfig {
 
   /**
    * function to alter the serialization of log messages.
+   * additionally, {@link getJsonStringifyReplacer} is always applied to handle circular references, bigints and Errors.
    * @default {@link jsonMapSetStringifyReplacer}
    */
   jsonStringifyReplacer?: (key: string, value: any) => any
