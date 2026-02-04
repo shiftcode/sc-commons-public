@@ -1,6 +1,7 @@
-import { SpyLogTransport } from '../../test/spy-log.transport.js'
-import { Logger, LogLevel } from '../index.js'
-import { stringToColor } from '../utils/logger-helper.js'
+import { SpyLogTransport } from '../testing/spy-log.transport.js'
+import { stringToColor } from '../utils/string-to-color.function.js'
+import { LogLevel } from './log-level.enum.js'
+import { Logger } from './logger.js'
 
 describe('Logger behavior', () => {
   let logger: Logger
