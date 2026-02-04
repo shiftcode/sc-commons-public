@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@3.0.4...@shiftcode/logger@4.0.0) (2026-02-04)
+
+### Features
+
+- **console-json-log-transport:** expose consoleJsonLogTransport ([c575382](https://github.com/shiftcode/sc-commons-public/commit/c5753820eb7471fe5ef7fbb9e1d0ad2334c5ffe0))
+- **create-console-logger:** add simpleLambdaLogger ([d943d38](https://github.com/shiftcode/sc-commons-public/commit/d943d38849568d6539717b1fa2f879f35bb68a85))
+- **create-console-logger:** utility to simply create a console logger instance ([d0e6f2b](https://github.com/shiftcode/sc-commons-public/commit/d0e6f2b09b862050b6836cc35b3ee6a113b91eb5))
+- **create-json-log-object-data:** improved handling of logged error instances ([45d8812](https://github.com/shiftcode/sc-commons-public/commit/45d8812a3b8fb1b145db057565dee7321cd2510a))
+- **logger:** below-level buffering for console-json logger ([0db825f](https://github.com/shiftcode/sc-commons-public/commit/0db825f1d586d95e9fb9a5577d6fdfa8409cfa23))
+- **logger:** expose getJsonStringifyReplacer utility ([d2cde15](https://github.com/shiftcode/sc-commons-public/commit/d2cde151877fa2a064b3ef25713878d80360c41c))
+- **node-console-log-transport:** expose NodeConsoleLogTransport ([ac173c3](https://github.com/shiftcode/sc-commons-public/commit/ac173c3d5e811dee08c8e886e1d394e606e018ef))
+
+### BREAKING CHANGES
+
+- **node-console-log-transport:** - NodeConsoleLogTransport no longer stringifies but uses node:utils#inspect
+- **create-json-log-object-data:** - changed structure for JsonLogObjectData
+
 ## [3.0.4](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@3.0.3...@shiftcode/logger@3.0.4) (2025-11-06)
 
 **Note:** Version bump only for package @shiftcode/logger
