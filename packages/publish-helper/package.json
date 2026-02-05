@@ -13,6 +13,7 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
+    "postbuild": "chmod +x ./dist/prepare-dist.js ./dist/publish-lib.js",
     "format": "npm run format:base -- --write",
     "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
     "format:ci": "npm run format:base -- --check",
