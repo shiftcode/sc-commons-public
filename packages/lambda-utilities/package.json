@@ -29,12 +29,14 @@
     "lint:staged": "eslint --fix --cache",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "vitest --cache --run",
-    "test:ci": "vitest --no-cache --run",
+    "test:ci": "vitest --no-cache --run --passWithNoTests",
     "test:watch": "vitest --cache"
   },
   "devDependencies": {
     "@aws-sdk/client-ssm": "^3.204.0",
     "@shiftcode/inversify-logger": "1.0.0 || ^0.0.0-pr254",
+    "@shiftcode/logger": "^4.0.0",
+    "@shiftcode/utilities": "^4.0.0",
     "@types/aws-lambda": "^8.10.89"
   },
   "peerDependencies": {

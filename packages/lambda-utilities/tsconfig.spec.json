@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@shiftcode/logger": ["../logger/src/public-api.ts"],
-      "@shiftcode/utilities": ["../utilities/src/index.ts"]
+      "@shiftcode/utilities": ["../utilities/src/index.ts"],
+      "@shiftcode/inversify-logger": ["../inversify-logger/src/public-api.ts"]
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
