@@ -1,0 +1,12 @@
+{
+  "definitions": [
+    {
+      "include": ["*.json"]
+    },
+    {
+      "include": [],
+      "cacheControl": "max-age=0, s-maxage=300",
+      "contentXType": "text/html; charset=utf-8*"
+    }
+  ]
+}

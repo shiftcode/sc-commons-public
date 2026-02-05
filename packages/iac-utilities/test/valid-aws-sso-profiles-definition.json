@@ -1,0 +1,17 @@
+{
+  "$schema": "json-schemas/aws-sso-profiles-definition-schema.json",
+  "profileByStage": {
+    "prod": "fl-prod",
+    "dev": "fl-nonProd"
+  },
+  "profiles": {
+    "prod": {
+      "sso_session": "sc-sso",
+      "sso_account_id": "123456",
+      "sso_role_name": "AdministratorAccess",
+      "region": "us-central-0",
+      "output": "json"
+    },
+    "additional-property": {}
+  }
+}

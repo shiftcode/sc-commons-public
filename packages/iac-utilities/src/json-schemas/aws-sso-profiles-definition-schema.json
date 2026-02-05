@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "aws-sso-profiles-config://config-definition",
+  "title": "AWS SSO profiles config definition",
+  "type": "object",
+  "properties": {
+    "profileByStage": {
+      "type": "object",
+      "description": "Configures the mapping between the stage and the profile to use, currently we only support prod & dev.",
+      "minProperties": 1,
+      "properties": {
+        "prod": {
+          "type": "string"
+        },
+        "dev": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "profiles": {
+      "type": "object",
+      "description": "Configures all the available profiles which can be referenced by the profileByStage property.",
+      "minProperties": 1,
+      "patternProperties": {
+        "^\\w*-(prod|dev){1}$": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/directSsoProfile"
+            },
+            {
+              "$ref": "#/$defs/ssoOnlyProfile"
+            },
+            {
+              "$ref": "#/$defs/assumeRoleProfile"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "required": ["profileByStage", "profiles"],
+  "$defs": {
+    "directSsoProfile": {
+      "type": "object",
+      "required": ["sso_session", "sso_account_id", "sso_role_name", "region", "output"],
+      "properties": {
+        "sso_session": {
+          "type": "string"
+        },
+        "sso_account_id": {
+          "type": "string"
+        },
+        "sso_role_name": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "output": {
+          "enum": ["json"]
+        }
+      }
+    },
+    "ssoOnlyProfile": {
+      "type": "object",
+      "required": ["sso_session", "sso_account_id", "sso_role_name"],
+      "properties": {
+        "sso_session": {
+          "type": "string"
+        },
+        "sso_account_id": {
+          "type": "string"
+        },
+        "sso_role_name": {
+          "type": "string"
+        }
+      }
+    },
+    "assumeRoleProfile": {
+      "type": "object",
+      "required": ["source_profile", "role_arn", "region", "output"],
+      "properties": {
+        "source_profile": {
+          "type": "string"
+        },
+        "role_arn": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "output": {
+          "enum": ["json"]
+        }
+      }
+    }
+  }
+}
