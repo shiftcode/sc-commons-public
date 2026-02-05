@@ -6,8 +6,17 @@ Public helper packages with commonly used utilities / helpers.
   <img src="https://www.shiftcode.ch/assets/svg/logo_shiftcode.svg" width="216" alt="shiftcode logo" />
 </div>
 
+> [![@shiftcode/airtable-mapper](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fairtable-mapper%2Fpackage.json&label=%40shiftcode%2Fairtable-mapper)](packages/airtable-mapper) \
+> interfaces and classes for airtable mapping
+
+> [![@shiftcode/airtable-syncer](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fairtable-syncer%2Fpackage.json&label=%40shiftcode%2Fairtable-syncer)](packages/airtable-syncer) \
+> base utils and services to export airtable and upload to S3
+
 > [![@shiftcode/branch-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fbranch-utilities%2Fpackage.json&label=%40shiftcode%2Fbranch-utilities)](packages/branch-utilities) \
 > functions to read information about the current branch either locally or inside Github actions.
+
+> [![@shiftcode/cdk-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fcdk-utilities%2Fpackage.json&label=%40shiftcode%2Fcdk-utilities)](packages/cdk-utilities) \
+> Constructs for iac with aws-cdk-lib
 
 > [![@shiftcode/eslint-config-recommended](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Feslint-config-recommended%2Fpackage.json&label=%40shiftcode%2Feslint-config-recommended)](packages/eslint-config-recommended) \
 > Our recommended config for eslint. We provide two versions, one for usage in node projects and one for Angular.
@@ -20,6 +29,12 @@ Public helper packages with commonly used utilities / helpers.
 
 > [![@shiftcode/inversify-logger](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Finversify-logger%2Fpackage.json&label=%40shiftcode%2Finversify-logger)](packages/inversify-logger)\
 > Inversify LogTransport to use with the @shiftcode/logger package.
+
+> [![@shiftcode/iac-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fiac-utilities%2Fpackage.json&label=%40shiftcode%2Fiac-utilities)](packages/iac-utilities)\
+> scripts and util functions for aws iac
+
+> [![@shiftcode/lambda-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Flambda-utilities%2Fpackage.json&label=%40shiftcode%2Flambda-utilities)](packages/lambda-utilities)\
+> Utils for lambda functions
 
 > [![@shiftcode/nest-logger](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fnest-logger%2Fpackage.json&label=%40shiftcode%2Fnest-logger)](packages/nest-logger)\
 > NestJS LogTransport to use with the @shiftcode/logger package.
@@ -82,3 +97,11 @@ Polyfill can be found here: https://www.npmjs.com/package/regexp-match-indices.
 
 For modern browsers the latest fully supported version is `es2023` (see [can-i-use](https://caniuse.com/?search=es2023))
 which therefore is the target for `@shiftcode/utilities` package (see [package README](./packages/utilities/README.md)).
+
+## Utility commands:
+
+Clean up all `dist` folders:
+
+```bash
+find ./packages -type d -name "dist" -exec rm -rf {} +
+```
