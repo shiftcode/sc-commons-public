@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/inversify-logger",
-  "version": "0.0.0-pr254.2",
+  "version": "0.0.0-pr254.3",
   "description": "InversifyJS support for the logger package",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "test:watch": "vitest --cache"
   },
   "devDependencies": {
-    "@shiftcode/logger": "^4.0.0",
+    "@shiftcode/logger": "^5.0.0-pr254.0",
     "inversify": "^7.0.0",
     "reflect-metadata": "^0.2.0"
   },

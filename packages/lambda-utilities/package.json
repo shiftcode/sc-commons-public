@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/lambda-utilities",
-  "version": "0.0.0-pr254.2",
+  "version": "0.0.0-pr254.3",
   "description": "Utils for lambda functions",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "@aws-sdk/client-ssm": "^3.204.0",
-    "@shiftcode/inversify-logger": "^0.0.0-pr254.2",
-    "@shiftcode/logger": "^4.0.0",
-    "@shiftcode/utilities": "^4.0.0",
+    "@shiftcode/inversify-logger": "^0.0.0-pr254.3",
+    "@shiftcode/logger": "^5.0.0-pr254.0",
+    "@shiftcode/utilities": "^5.0.0-pr254.0",
     "@types/aws-lambda": "^8.10.89"
   },
   "peerDependencies": {
