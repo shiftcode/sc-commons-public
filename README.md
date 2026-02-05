@@ -2,6 +2,10 @@
 
 Public helper packages with commonly used utilities / helpers.
 
+<div align="center">
+  <img src="https://www.shiftcode.ch/assets/svg/logo_shiftcode.svg" width="216" alt="shiftcode logo" />
+</div>
+
 > [![@shiftcode/branch-utilities](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fbranch-utilities%2Fpackage.json&label=%40shiftcode%2Fbranch-utilities)](packages/branch-utilities) \
 > functions to read information about the current branch either locally or inside Github actions.
 
@@ -10,6 +14,15 @@ Public helper packages with commonly used utilities / helpers.
 
 > [![@shiftcode/eslint-plugin-rules](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Feslint-plugin-rules%2Fpackage.json&label=%40shiftcode%2Feslint-plugin-rules)](packages/eslint-plugin-rules) \
 > Contains some custom es lint rules. Those are used in our recommended eslint config.
+
+> [![@shiftcode/logger](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Flogger%2Fpackage.json&label=%40shiftcode%2Flogger)](packages/logger)\
+> A logging library configurable with different/multiple transports for your needs.
+
+> [![@shiftcode/inversify-logger](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Finversify-logger%2Fpackage.json&label=%40shiftcode%2Finversify-logger)](packages/inversify-logger)\
+> Inversify LogTransport to use with the @shiftcode/logger package.
+
+> [![@shiftcode/nest-logger](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fnest-logger%2Fpackage.json&label=%40shiftcode%2Fnest-logger)](packages/nest-logger)\
+> NestJS LogTransport to use with the @shiftcode/logger package.
 
 > [![@shiftcode/publish-helper](https://img.shields.io/github/package-json/v/shiftcode/sc-commons-public?filename=packages%2Fpublish-helper%2Fpackage.json&label=%40shiftcode%2Fpublish-helper)](packages/publish-helper)\
 > scripts to prepare and publish libs inside mono-repos with lerna
