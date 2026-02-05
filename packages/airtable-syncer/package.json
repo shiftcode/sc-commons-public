@@ -32,6 +32,7 @@
     "@shiftcode/airtable-mapper": "^0.0.0-pr254.2",
     "@shiftcode/inversify-logger": "^0.0.0-pr254.2",
     "@shiftcode/lambda-utilities": "^0.0.0-pr254.2",
+    "@shiftcode/logger": "^4.0.0",
     "@swc/core": "^1.15.11",
     "unplugin-swc": "^1.5.9"
   },
