@@ -21,11 +21,10 @@
     "dist"
   ],
   "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "tsc",
-    "lint": "eslint --fix --cache ./src ./test",
-    "lint:ci": "eslint ./src ./test",
-    "lint:staged": "eslint --fix --cache",
+    "build": "rm -rf ./dist && tsc",
+    "format": "prettier --write .",
+    "lint": "eslint --fix --cache .",
+    "lint:ci": "eslint .",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "vitest --cache --run",
     "test:ci": "vitest --no-cache --run",

@@ -1,8 +1,0 @@
-'{src,test}/**/*.(t|j)s':
-  - npm run lint:staged
-
-'*':
-  - npx prettier --write --ignore-unknown
-
-./package.json:
-  - sort-package-json

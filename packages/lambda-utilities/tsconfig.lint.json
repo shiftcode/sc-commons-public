@@ -9,6 +9,6 @@
       "@shiftcode/inversify-logger": ["../inversify-logger/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": []
 }

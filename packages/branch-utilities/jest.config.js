@@ -1,5 +1,6 @@
 /* eslint-env node,es2023 */
 import { pathsToModuleNameMapper } from 'ts-jest'
+
 import tsConfig from './tsconfig.jest.json' with { type: 'json' }
 
 export default {

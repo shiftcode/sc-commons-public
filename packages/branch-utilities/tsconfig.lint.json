@@ -4,6 +4,6 @@
     "baseUrl": "./",
     "types": ["jest", "node"]
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": []
 }

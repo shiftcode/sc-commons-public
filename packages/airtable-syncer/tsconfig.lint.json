@@ -11,6 +11,6 @@
       "@shiftcode/lambda-utilities/s3": ["../lambda-utilities/src/s3/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": []
 }

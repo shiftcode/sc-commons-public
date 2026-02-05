@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
+
 import * as process from 'node:process'
 
 import {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Inject, Injectable } from '@nestjs/common'
 import { Test, TestingModule } from '@nestjs/testing'
 import { Logger, LogLevel } from '@shiftcode/logger'

@@ -2,11 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "types": ["jest", "node"],
+    "types": ["node"],
     "paths": {
       "@shiftcode/eslint-plugin-rules": ["../eslint-plugin-rules/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "include": ["**/*.ts"],
   "exclude": []
 }

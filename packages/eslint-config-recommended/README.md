@@ -15,7 +15,7 @@ the module only exports a single function `defineScTsConfig` which can be used t
 it is basically a wrapper around the new eslint `defineConfig` function but already includes the setup for typescript,
 some rules with default configurations and will ensure the prettier rules (disabling formatting rules) are included at last.
 
-sample `eslint.config.mjs`:
+sample `eslint.config.js`:
 
 ```js
 import { defineScTsConfig } from '@shiftcode/eslint-config-recommended'
