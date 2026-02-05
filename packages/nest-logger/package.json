@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/nest-logger",
-  "version": "0.0.0-pr254.0",
+  "version": "0.0.0-pr254.1",
   "description": "NestJS support for the logger package",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
