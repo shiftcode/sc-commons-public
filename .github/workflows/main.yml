@@ -70,6 +70,9 @@ jobs:
         run: npm run test:ci
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs: [checkExecution, test]
     # only execute if not skipped by commit message
     if: needs.checkExecution.outputs.shouldExecute == 'true'
@@ -113,4 +116,4 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN_PUBLIC_REPO }} # necessary for publish-libs script
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # necessary for publish-libs script
