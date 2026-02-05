@@ -1,0 +1,44 @@
+{
+  "name": "@shiftcode/nest-logger",
+  "version": "2.0.0",
+  "description": "NestJS support for the logger package",
+  "repository": "https://github.com/shiftcode/sc-commons-public",
+  "license": "MIT",
+  "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./test/*.js": {
+      "types": "./dist/test/*.d.ts",
+      "default": "./dist/test/*.js"
+    }
+  },
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "tsc",
+    "lint": "eslint --fix --cache ./src ./test",
+    "lint:ci": "eslint ./src ./test",
+    "lint:staged": "eslint --fix --cache",
+    "prepublish": "prepare-dist",
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run",
+    "test:watch": "vitest --cache"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@shiftcode/logger": "^4.0.0",
+    "reflect-metadata": "^0.1.13 || ^0.2.0",
+    "rxjs": "^7.1.0"
+  },
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
