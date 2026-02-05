@@ -7,6 +7,15 @@ import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports'
 import eslintTs from 'typescript-eslint'
 
+export const DEFAULT_IGNORES: readonly string[] = [
+  'node_modules/**',
+  'dist/**',
+  'out-tsc/**',
+  '.angular/**',
+  'cdk.out/**',
+  'cypress/reports/**',
+]
+
 /**
  * define the shiftcode eslint config for typescript.
  * the function wraps given configs with some common settings and adds prettier rules at the end.
@@ -33,6 +42,10 @@ import eslintTs from 'typescript-eslint'
  */
 export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): ReturnType<typeof defineConfig> {
   return defineConfig(
+    {
+      ignores: [...DEFAULT_IGNORES],
+    },
+
     {
       files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
       extends: [eslint.configs.recommended],
