@@ -20,13 +20,8 @@
     "test:ci": "lerna run test:ci"
   },
   "dependencies": {
-    "@nestjs/common": "^11.0.0",
-    "@nestjs/core": "^11.0.0",
-    "@nestjs/testing": "^11.0.0",
-    "inversify": "^7.0.0",
-    "reflect-metadata": "^0.1.13 || ^0.2.0",
-    "rxjs": "^7.1.0",
-    "tslib": "^2.3.0"
+    "audit": "^0.0.6",
+    "fix": "^0.0.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.1",
@@ -43,6 +38,7 @@
     "prettier": "^3.3.2",
     "sort-package-json": "^2.10.0",
     "ts-jest": "^29.2.0",
+    "tslib": "^2.3.0",
     "typescript": "^5.5.3",
     "vitest": "^4.0.18"
   },
