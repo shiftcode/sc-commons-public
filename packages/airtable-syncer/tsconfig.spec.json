@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.jest.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@shiftcode/airtable-mapper": ["../airtable-mapper/src/index.ts"],
+      "@shiftcode/inversify-logger": ["../inversify-logger/src/index.ts"],
+      "@shiftcode/logger": ["../logger/src/public-api.ts"],
+      "@shiftcode/lambda-utilities/s3": ["../lambda-utilities/src/s3/index.ts"],
+      "@shiftcode/utilities": ["../utilities/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.spec.ts", "test/**/*.ts"]
+}

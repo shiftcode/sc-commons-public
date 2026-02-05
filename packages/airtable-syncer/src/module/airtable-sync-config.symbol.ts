@@ -1,0 +1,1 @@
+export const AIRTABLE_SYNC_CONFIG = Symbol.for('AIRTABLE_SYNC_CONFIG')

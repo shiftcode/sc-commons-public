@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@shiftcode/airtable-mapper": ["../airtable-mapper/src/index.ts"],
+      "@shiftcode/inversify-logger": ["../inversify-logger/src/index.ts"],
+      "@shiftcode/lambda-utilities/s3": ["../lambda-utilities/src/s3/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": []
+}
