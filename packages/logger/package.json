@@ -31,7 +31,7 @@
     "lint": "eslint --fix --cache ./src ./test",
     "lint:ci": "eslint ./src ./test",
     "lint:staged": "eslint --fix --cache",
-    "prepublish": "prepare-dist",
+    "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" npx jest --config jest.config.js",
     "test:ci": "npm run test",
     "test:watch": "npm run test -- --watch"

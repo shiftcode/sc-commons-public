@@ -23,7 +23,7 @@
     "lint": "eslint --fix --cache ./src ./test",
     "lint:ci": "eslint ./src ./test",
     "lint:staged": "eslint --fix --cache",
-    "prepublish": "prepare-dist",
+    "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "vitest --cache --run",
     "test:ci": "vitest --no-cache --run",
     "test:watch": "vitest --cache"

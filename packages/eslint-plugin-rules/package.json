@@ -24,7 +24,7 @@
     "lint": "eslint --fix --cache ./src",
     "lint:ci": "eslint ./src",
     "lint:staged": "eslint --fix --cache",
-    "prepublish": "prepare-dist",
+    "prepublish": "node ../publish-helper/dist/prepare-dist.js",
     "test": "jest",
     "test:ci": "npm run test"
   },
