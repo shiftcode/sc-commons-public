@@ -19,10 +19,6 @@
     "publish-libs": "node packages/publish-helper/dist/publish-lib",
     "test:ci": "lerna run test:ci"
   },
-  "dependencies": {
-    "audit": "^0.0.6",
-    "fix": "^0.0.6"
-  },
   "devDependencies": {
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
