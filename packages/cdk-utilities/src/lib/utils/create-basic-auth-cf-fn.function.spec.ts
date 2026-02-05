@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals'
+import { describe, expect, it } from 'vitest'
 
 import type { CloudFrontFunctionEvent } from './cloudfront-function-request.type.js'
 import { createBasicAuthCfFn } from './create-basic-auth-cf-fn.function.js'
