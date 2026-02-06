@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "declarationDir": null,
+    "noEmit": true,
+    "types": ["node"],
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "@shiftcode/airtable-mapper": ["${configDir}/../airtable-mapper/src/index.ts"],
+      "@shiftcode/eslint-plugin-rules": ["${configDir}/../eslint-plugin-rules/src/index.ts"],
+      "@shiftcode/utilities": ["${configDir}/../utilities/src/index.ts"],
+      "@shiftcode/logger": ["${configDir}/../logger/src/index.ts"],
+      "@shiftcode/inversify-logger": ["${configDir}/../inversify-logger/src/index.ts"],
+      "@shiftcode/branch-utilities": ["${configDir}/../branch-utilities/src/index.ts"],
+      "@shiftcode/lambda-utilities/s3": ["${configDir}/../lambda-utilities/src/s3/index.ts"],
+      "@shiftcode/lambda-utilities": ["${configDir}/../lambda-utilities/src/index.ts"]
+    }
+  },
+  "exclude": []
+}

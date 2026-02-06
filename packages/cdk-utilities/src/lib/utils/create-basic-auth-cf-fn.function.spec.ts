@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import type { CloudFrontFunctionEvent } from './cloudfront-function-request.type.js'
 import { createBasicAuthCfFn } from './create-basic-auth-cf-fn.function.js'
@@ -14,12 +14,12 @@ describe('createBasicAuthCfFn', () => {
     return getHandler() as (event: CloudFrontFunctionEvent) => any
   }
 
-  it('creates an executable function', () => {
+  test('creates an executable function', () => {
     const handler = setup('user1', 'p@ssw0rD')
     expect(typeof handler).toBe('function')
   })
 
-  it('allows access with correct credentials', () => {
+  test('allows access with correct credentials', () => {
     const handler = setup('user1', 'p@ssw0rD')
     const event: CloudFrontFunctionEvent = {
       version: '1.0',
@@ -40,7 +40,7 @@ describe('createBasicAuthCfFn', () => {
     expect(result).toBe(event.request)
   })
 
-  it('denies access with incorrect credentials', () => {
+  test('denies access with incorrect credentials', () => {
     const handler = setup('user1', 'p@ssw0rD')
     const event: CloudFrontFunctionEvent = {
       version: '1.0',

@@ -4,6 +4,8 @@
     "moduleResolution": "nodenext",
     "target": "es2023",
     "strict": true,
+    "outDir": "${configDir}/dist",
+    "declarationDir": "${configDir}/dist",
     "sourceMap": true,
     "declaration": true,
     "importHelpers": true

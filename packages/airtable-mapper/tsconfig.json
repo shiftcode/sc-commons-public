@@ -2,9 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./dist",
     "target": "es2021",
-    "declarationDir": "./dist",
     "strictPropertyInitialization": false
   },
   "include": ["src/**/*.ts"]

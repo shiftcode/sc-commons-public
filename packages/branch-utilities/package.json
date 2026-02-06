@@ -19,9 +19,9 @@
     "lint": "eslint --fix --cache .",
     "lint:ci": "eslint .",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js",
-    "test:ci": "npm run test",
-    "test:watch": "npm run test -- --watch"
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run",
+    "test:watch": "vitest --cache"
   },
   "peerDependencies": {
     "tslib": "^2.3.0"

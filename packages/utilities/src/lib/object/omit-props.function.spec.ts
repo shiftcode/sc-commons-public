@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { omitProps } from './omit-props.function.js'
 
 describe('omitProps', () => {

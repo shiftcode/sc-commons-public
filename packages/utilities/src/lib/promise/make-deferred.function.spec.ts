@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { makeDeferred } from './make-deferred.function.js'
 
 describe('makeDeferred', () => {

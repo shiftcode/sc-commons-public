@@ -1,11 +1,7 @@
 {
-  "extends": "../../tsconfig.jest.json",
+  "extends": "../../tsconfig.spec.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@shiftcode/logger": ["../logger/src/public-api.ts"],
-      "@shiftcode/utilities": ["../utilities/src/index.ts"]
-    },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },

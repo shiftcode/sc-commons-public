@@ -1,16 +1,7 @@
-import path from 'node:path'
-
 import swc from 'unplugin-swc'
 import { defineConfig } from 'vitest/config'
 
-import tsconfig from './tsconfig.spec.json'
-
-const alias = Object.fromEntries(
-  Object.entries(tsconfig.compilerOptions.paths).map(([key, [value]]) => [
-    key.replace('/*', ''),
-    path.resolve(import.meta.dirname, value.replace('/*', '')),
-  ]),
-)
+import CONFIG from '../../vitest.config.js'
 
 export default defineConfig({
   plugins: [
@@ -28,7 +19,7 @@ export default defineConfig({
     }),
   ],
   test: {
-    alias,
+    ...CONFIG.test,
     setupFiles: ['./test/vitest-setup.ts'],
   },
 })

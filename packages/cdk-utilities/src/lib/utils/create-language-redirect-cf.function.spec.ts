@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import type { CloudFrontFunctionEvent } from './cloudfront-function-request.type.js'
 import { createLanguageRedirectCfFn } from './create-language-redirect-cf.fn.js'
@@ -40,25 +40,25 @@ describe('createLanguageRedirectCfFn', () => {
     return getHandler() as (event: CloudFrontFunctionEvent) => any
   }
 
-  it('creates an executable function', () => {
+  test('creates an executable function', () => {
     const handler = setup(['en', 'de'], 'en')
     expect(typeof handler).toBe('function')
   })
 
-  it('does not contain a "debugger" statement', () => {
+  test('does not contain a "debugger" statement', () => {
     // cuz that's the only way to debug it, and we really don't want that in prod
     const fnCode = createLanguageRedirectCfFn(['en', 'de'], 'en')
     expect(fnCode).not.toMatch(/debugger;?/)
   })
 
-  it('returns the request when already on a language path', () => {
+  test('returns the request when already on a language path', () => {
     const handler = setup(['en', 'de', 'fr'], 'en')
     const event = createCfFunctionEvent('shiftcode.io/de/some/path')
     const result = handler(event)
     expect(result).toBe(event.request)
   })
 
-  it('does not accept language paths not in the list but behaves like it is an ordinary path part', () => {
+  test('does not accept language paths not in the list but behaves like it is an ordinary path part', () => {
     const handler = setup(['en', 'de', 'fr'], 'en')
     const event = createCfFunctionEvent('shiftcode.io/it/some/path')
     const result = handler(event)
@@ -72,7 +72,7 @@ describe('createLanguageRedirectCfFn', () => {
     })
   })
 
-  it('redirects to fallback language when no cookie or header present', () => {
+  test('redirects to fallback language when no cookie or header present', () => {
     const handler = setup(['en', 'de', 'fr'], 'en')
     const event = createCfFunctionEvent('shiftcode.io')
     const result = handler(event)
@@ -85,7 +85,7 @@ describe('createLanguageRedirectCfFn', () => {
     })
   })
 
-  it('keeps the path when redirecting to fallback language', () => {
+  test('keeps the path when redirecting to fallback language', () => {
     const handler = setup(['en', 'de', 'fr'], 'en')
     const event = createCfFunctionEvent('shiftcode.io/some/path')
     const result = handler(event)
@@ -98,7 +98,7 @@ describe('createLanguageRedirectCfFn', () => {
     })
   })
 
-  it('redirects by accept-language header', () => {
+  test('redirects by accept-language header', () => {
     const handler = setup(['en', 'de', 'fr'], 'en', 'LANGUAGE')
     const event = createCfFunctionEvent('shiftcode.io', { 'accept-language': { value: 'fr, de;q=0.8, en;q=0.6' } })
     const result = handler(event)
@@ -111,7 +111,7 @@ describe('createLanguageRedirectCfFn', () => {
     })
   })
 
-  it('redirects by custom language cookie', () => {
+  test('redirects by custom language cookie', () => {
     const handler = setup(['en', 'de', 'fr'], 'en', 'LANGUAGE')
     const event = createCfFunctionEvent('shiftcode.io', { cookie: { value: 'en=fr;LANGUAGE=de' } })
     const result = handler(event)
@@ -124,7 +124,7 @@ describe('createLanguageRedirectCfFn', () => {
     })
   })
 
-  it('prefers cookie over accept-language header', () => {
+  test('prefers cookie over accept-language header', () => {
     const handler = setup(['en', 'de', 'fr'], 'en', 'LANGUAGE')
     const event = createCfFunctionEvent('shiftcode.io', {
       cookie: { value: 'LANGUAGE=de' },

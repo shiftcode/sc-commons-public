@@ -1,14 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "types": ["node"],
-    "paths": {
-      "@shiftcode/logger": ["../logger/src/public-api.ts"],
-      "@shiftcode/utilities": ["../utilities/src/index.ts"],
-      "@shiftcode/inversify-logger": ["../inversify-logger/src/index.ts"]
-    }
-  },
-  "include": ["**/*.ts"],
-  "exclude": []
+  "extends": "../../tsconfig.lint.json",
+  "compilerOptions": { "baseUrl": "." },
+  "include": ["**/*.ts"]
 }

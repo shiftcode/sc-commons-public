@@ -16,9 +16,9 @@
     "lint": "eslint --fix --cache .",
     "lint:ci": "eslint .",
     "prepublish": "node ./dist/prepare-dist.js",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js --passWithNoTests",
-    "test:ci": "npm run test",
-    "test:watch": "npm run test -- --watch"
+    "test": "vitest --cache --run --passWithNoTests",
+    "test:ci": "vitest --no-cache --run --passWithNoTests",
+    "test:watch": "vitest --cache"
   },
   "dependencies": {
     "conventional-changelog-angular": "^8.0.0",

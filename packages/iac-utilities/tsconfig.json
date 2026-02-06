@@ -2,8 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./dist",
-    "declarationDir": "./dist",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "types": ["node"]

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { hexToRgb } from './hex-to-rgb.function.js'
 
 describe('hexToRgb', () => {

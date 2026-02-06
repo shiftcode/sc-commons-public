@@ -1,20 +1,22 @@
+import { describe, expect, test } from 'vitest'
+
 import { groupBy } from './group-by.js'
 
 describe('group by', () => {
-  it('numbers floor', () => {
+  test('numbers floor', () => {
     expect(groupBy([3.5, 3.2, 5.1, 5.0, 6], Math.floor)).toEqual({
       3: [3.5, 3.2],
       5: [5.1, 5.0],
       6: [6],
     })
   })
-  it('string length', () => {
+  test('string length', () => {
     expect(groupBy(['a', 'cc', 'dd', 'b'], 'length')).toEqual({
       1: ['a', 'b'],
       2: ['cc', 'dd'],
     })
   })
-  it('objects prop', () => {
+  test('objects prop', () => {
     const o1 = { a: true, b: 'ok' }
     const o2 = { a: false, b: 'nok' }
     expect(groupBy([o1, o2], 'a')).toEqual({

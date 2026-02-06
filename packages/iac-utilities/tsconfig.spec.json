@@ -1,12 +1,7 @@
 {
-  "extends": "../../tsconfig.jest.json",
+  "extends": "../../tsconfig.spec.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "types": ["node"],
-    "paths": {
-      "@shiftcode/branch-utilities": ["../branch-utilities/src/index.ts"],
-      "@shiftcode/lambda-utilities": ["../lambda-utilities/src/index.ts"]
-    }
+    "baseUrl": "."
   },
   "include": ["src/**/*.spec.ts", "test/**/*.ts"]
 }

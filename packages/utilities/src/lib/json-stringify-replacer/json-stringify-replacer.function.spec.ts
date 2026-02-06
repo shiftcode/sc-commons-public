@@ -1,13 +1,15 @@
+import { describe, expect, test } from 'vitest'
+
 import { jsonMapSetStringifyReplacer } from './json-stringify-replacer.function.js'
 
 describe('jsonMapSetStringifyReplacer', () => {
   describe('replaces sets', () => {
-    it('basically works', () => {
+    test('basically works', () => {
       const val = new Set(['a', 'b'])
       expect(jsonMapSetStringifyReplacer('', val)).toEqual({ type: 'scStringifiedSet', values: ['a', 'b'] })
     })
 
-    it('works with JSON.stringify', () => {
+    test('works with JSON.stringify', () => {
       const val = {
         propA: ['a', 'b'],
         propB: new Set(['a', 'b']),
@@ -18,12 +20,12 @@ describe('jsonMapSetStringifyReplacer', () => {
     })
   })
   describe('replaces maps', () => {
-    it('basically works', () => {
+    test('basically works', () => {
       const val = new Map().set(5, '5')
       expect(jsonMapSetStringifyReplacer('', val)).toEqual({ type: 'scStringifiedMap', entries: [[5, '5']] })
     })
 
-    it('works with JSON.stringify', () => {
+    test('works with JSON.stringify', () => {
       const val = {
         propA: ['5'],
         propB: new Map().set(5, '5'),

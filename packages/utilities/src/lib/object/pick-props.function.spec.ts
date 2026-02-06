@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { pickProps } from './pick-props.function.js'
 
 describe('pickProps', () => {

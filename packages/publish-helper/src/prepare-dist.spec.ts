@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { fixPackageJsonPaths } from './helpers.js'
 
 describe('prepare-dist', () => {

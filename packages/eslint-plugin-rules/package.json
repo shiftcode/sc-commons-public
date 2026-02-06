@@ -19,8 +19,9 @@
     "lint": "eslint --fix --cache .",
     "lint:ci": "eslint .",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
-    "test": "jest",
-    "test:ci": "npm run test"
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run",
+    "test:watch": "vitest --cache"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^8.46.0"

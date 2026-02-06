@@ -9,8 +9,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/public-api.d.ts",
-      "default": "./dist/public-api.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./node": {
       "types": "./dist/node/public-api.d.ts",
@@ -27,9 +27,9 @@
     "lint": "eslint --fix --cache .",
     "lint:ci": "eslint .",
     "prepublish": "node ../publish-helper/dist/prepare-dist.js",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" npx jest --config jest.config.js",
-    "test:ci": "npm run test",
-    "test:watch": "npm run test -- --watch"
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run",
+    "test:watch": "vitest --cache"
   },
   "devDependencies": {
     "@shiftcode/utilities": "^5.0.0-pr254.1"

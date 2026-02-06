@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { jest } from '@jest/globals'
+import { vi } from 'vitest'
 
 import { LogLevel } from '../model/log-level.enum.js'
 import { LogTransport } from '../model/log-transport.js'
 
 export class SpyLogTransport extends LogTransport {
-  private logMock = jest.fn()
+  private logMock = vi.fn()
 
   constructor(logLevel = LogLevel.INFO) {
     super(logLevel)

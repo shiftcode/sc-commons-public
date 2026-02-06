@@ -1,9 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./"
-  },
-  "types": ["jest", "node"],
-  "include": ["**/*.ts"],
-  "exclude": []
+  "extends": "../../tsconfig.lint.json",
+  "compilerOptions": { "baseUrl": "." },
+  "include": ["**/*.ts"]
 }
