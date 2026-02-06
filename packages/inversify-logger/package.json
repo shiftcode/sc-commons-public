@@ -36,7 +36,7 @@
     "reflect-metadata": "^0.2.0"
   },
   "peerDependencies": {
-    "@shiftcode/logger": "^4.0.0",
+    "@shiftcode/logger": "^5.0.0 || ^5.0.0-pr254",
     "inversify": "^7.0.0",
     "reflect-metadata": "^0.1.13 || ^0.2.0"
   },
