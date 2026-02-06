@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/logger",
-  "version": "5.0.0-pr254.3",
+  "version": "5.0.0-pr254.4",
   "description": "logger for local and aws lambda execution",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "test:watch": "vitest --cache"
   },
   "devDependencies": {
-    "@shiftcode/utilities": "^5.0.0-pr254.3"
+    "@shiftcode/utilities": "^5.0.0-pr254.4"
   },
   "peerDependencies": {
     "@shiftcode/utilities": "^4.0.0"
