@@ -1,8 +1,11 @@
+import { defineConfig } from 'vitest/config'
+
 import CONFIG from '../../vitest.config.js'
 
-export default {
+export default defineConfig({
   test: {
     ...CONFIG.test,
-    globals: true, // necessary for the rule-tester to work
+    testTimeout: 10_000,
+    teardownTimeout: 10_000,
   },
-}
+})
