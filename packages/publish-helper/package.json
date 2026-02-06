@@ -16,8 +16,8 @@
     "lint": "eslint --fix --cache .",
     "lint:ci": "eslint .",
     "prepublish": "node ./dist/prepare-dist.js",
-    "test": "vitest --cache --run --passWithNoTests",
-    "test:ci": "vitest --no-cache --run --passWithNoTests",
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run && tsc -p ./tsconfig.spec.json",
     "test:watch": "vitest --cache"
   },
   "dependencies": {
