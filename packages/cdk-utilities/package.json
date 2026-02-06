@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/cdk-utilities",
-  "version": "0.0.0-pr254.4",
+  "version": "0.0.0-pr254.5",
   "description": "Constructs for iac with aws-cdk-lib",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
