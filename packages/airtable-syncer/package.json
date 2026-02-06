@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/airtable-syncer",
-  "version": "1.0.0-pr254.2",
+  "version": "1.0.0-pr254.3",
   "description": "base utils and services to export airtable and upload to S3",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -28,10 +28,10 @@
     "p-queue": "^9.0.1"
   },
   "devDependencies": {
-    "@shiftcode/airtable-mapper": "^1.0.0-pr254.2",
-    "@shiftcode/inversify-logger": "^1.0.0-pr254.2",
-    "@shiftcode/lambda-utilities": "^1.0.0-pr254.2",
-    "@shiftcode/logger": "^5.0.0-pr254.5",
+    "@shiftcode/airtable-mapper": "^1.0.0-pr254.3",
+    "@shiftcode/inversify-logger": "^1.0.0-pr254.3",
+    "@shiftcode/lambda-utilities": "^1.0.0-pr254.3",
+    "@shiftcode/logger": "^5.0.0-pr254.6",
     "@swc/core": "^1.15.11",
     "unplugin-swc": "^1.5.9"
   },
