@@ -16,9 +16,9 @@
       "types": "./dist/s3/index.d.ts",
       "default": "./dist/s3/index.js"
     },
-    "./static": {
-      "types": "./dist/static/index.d.ts",
-      "default": "./dist/static/index.js"
+    "./ssm": {
+      "types": "./dist/ssm/index.d.ts",
+      "default": "./dist/ssm/index.js"
     }
   },
   "scripts": {
@@ -32,23 +32,31 @@
     "test:watch": "vitest --cache"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.204.0",
     "@aws-sdk/client-ssm": "^3.204.0",
     "@shiftcode/inversify-logger": "^0.0.0-pr254.5",
     "@shiftcode/logger": "^5.0.0-pr254.2",
     "@shiftcode/utilities": "^5.0.0-pr254.2",
-    "@types/aws-lambda": "^8.10.89"
+    "@types/aws-lambda": "^8.10.89",
+    "inversify": "^7.0.0",
+    "reflect-metadata": "^0.1.13 || ^0.2.0"
   },
   "peerDependencies": {
     "@aws-sdk/client-s3": "^3.204.0",
+    "@aws-sdk/client-ssm": "^3.204.0",
     "@shiftcode/inversify-logger": "^1.0.0 || 0.0.0-pr254",
     "@shiftcode/logger": "^4.0.0",
     "@shiftcode/utilities": "^4.0.0",
+    "@types/aws-lambda": "^8.10.89",
     "inversify": "^7.0.0",
     "reflect-metadata": "^0.1.13 || ^0.2.0",
     "tslib": "^2.3.0"
   },
   "peerDependenciesMeta": {
     "@aws-sdk/client-s3": {
+      "optional": true
+    },
+    "@aws-sdk/client-ssm": {
       "optional": true
     },
     "@shiftcode/inversify-logger": {

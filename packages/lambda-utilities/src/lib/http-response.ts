@@ -1,5 +1,5 @@
 import { CommonHttpHeader, ContentType, CorsHeader, HttpMethod, HttpStatusCode } from '@shiftcode/utilities'
-import { APIGatewayProxyResult } from 'aws-lambda'
+import type { APIGatewayProxyResult } from 'aws-lambda'
 
 export class HttpResponse implements APIGatewayProxyResult {
   static readonly EMPTY_204 = new HttpResponse('', HttpStatusCode.NO_CONTENT)

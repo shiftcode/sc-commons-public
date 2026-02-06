@@ -1,2 +1,2 @@
-export * from './s3/index.js'
-export * from './static/index.js'
+export * from './lib/http-response.js'
+export * from './lib/is-aws-lambda-env.function.js'
