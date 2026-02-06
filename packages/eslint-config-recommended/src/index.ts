@@ -249,10 +249,14 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
     },
 
     // relax the rules for files which are not part of the src/ folder and for test files
+    // only change file/ignore globs with care!
     {
       files: [
-        '!src/**/*.{ts,js,mjs,cjs}', // include everything unless in src folder
-        'src/**/*.{spec,test}.ts', // include test files
+        '**/*.{ts,mts,cts,js,mjs,cjs}', // include all ts/js files
+      ],
+      ignores: [
+        'src/**/*', // ignore all files inside src/
+        '!src/**/*.{spec,test}.ts', // un-ignore test files
       ],
       rules: {
         // it is ok to use dev deps and deps that are listed inside the root package.json
