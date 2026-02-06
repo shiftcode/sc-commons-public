@@ -7,7 +7,7 @@ const args = yargs(process.argv)
   .option('config', {
     alias: 'c',
     type: 'string',
-    description: `path to the config file (default .${DEFAULT_PATH_TO_AWS_SSO_CONFIG}) from which the profiles will be copied to ~.aws/config. The content must match the schema defined in @shiftcode/iac-helper/aws-sso-config-schema.json`,
+    description: `path to the config file (default .${DEFAULT_PATH_TO_AWS_SSO_CONFIG}) from which the profiles will be copied to ~.aws/config. The content must match the schema defined in @shiftcode/iac-utilities/aws-sso-config-schema.json`,
     demandOption: true,
   })
   .option('verbose', {

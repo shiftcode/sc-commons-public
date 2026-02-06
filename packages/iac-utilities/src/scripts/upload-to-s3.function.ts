@@ -11,7 +11,7 @@ import mime from 'mime'
 import s3DefinitionSchema from '../json-schemas/s3-upload-definition-schema.json' with { type: 'json' }
 import { colorize, readFromStackOutput } from './script-utils.js'
 
-export const S3_UPLOAD_DEFINITION_SCHEMA_NAME = '@shiftcode/iac-helper/s3-upload-definition-schema.json'
+export const S3_UPLOAD_DEFINITION_SCHEMA_NAME = '@shiftcode/iac-utilities/s3-upload-definition-schema.json'
 
 type S3UploadDefSchemaName = `${string}${typeof S3_UPLOAD_DEFINITION_SCHEMA_NAME}`
 

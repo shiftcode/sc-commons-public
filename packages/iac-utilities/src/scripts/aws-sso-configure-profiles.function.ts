@@ -9,7 +9,7 @@ import awsSsoProfileConfigSchema from '../json-schemas/aws-sso-profiles-definiti
 
 export const DEFAULT_PATH_TO_AWS_SSO_CONFIG = '/aws/sso.config.json'
 
-export const AWS_SSO_CONFIG_SCHEMA_NAME = '@shiftcode/iac-helper/aws-sso-profile-config-schema.json'
+export const AWS_SSO_CONFIG_SCHEMA_NAME = '@shiftcode/iac-utilities/aws-sso-profile-config-schema.json'
 
 type AwsSsoConfigDefSchemaName = `${string}${typeof AWS_SSO_CONFIG_SCHEMA_NAME}`
 
