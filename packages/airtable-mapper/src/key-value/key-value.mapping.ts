@@ -13,7 +13,6 @@ export const MAPPING_MARKER__KEY_VALUE = Symbol.for('SC_AIRTABLE_MAPPING__MAPPIN
 export const MAPPING_MARKER = Symbol.for('SC_AIRTABLE_MAPPING__MAPPING_MARKER')
 
 /**
- * TODO: desc
  * fetches the fields specified in {@link AirtableSyncConfig#supportedLanguages} from airtable
  */
 const kvMapping = new AirtableMapping<KeyValueString>('KeyValue')
@@ -26,7 +25,4 @@ kvMapping[MAPPING_MARKER] = MAPPING_MARKER__KEY_VALUE
 
 export const keyValueMapping: AirtableModelMapping<KeyValueString> = kvMapping
 
-/**
- * TODO: desc
- */
 export type KeyValueString = string

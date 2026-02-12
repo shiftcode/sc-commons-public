@@ -21,8 +21,6 @@ export interface TableCache {
   items: Map<string, AirtableIdRecord>
 }
 
-// TODO: 26.05.19 - change logic to handle new airtable updated timestamp
-
 @injectable()
 export class AirtableFetcher {
   private static readonly FIELDS_TO_REMOVE_PREFIX = '_'
@@ -129,8 +127,6 @@ export class AirtableFetcher {
       this.logger.info(`fetchInternal() fetched ${records.length} records -> adding to cache`)
       this.cache.set(map.tableName, { lastUpdated: new Date(), items: recordsMap })
     } else {
-      // FIXME: implement working cache or remove it (see FL project too)
-
       const cache = this.cache.get(map.tableName)! // eslint-disable-line @typescript-eslint/no-non-null-assertion
       const diff = differenceInSeconds(new Date(), cache.lastUpdated)
 
@@ -149,11 +145,12 @@ export class AirtableFetcher {
           return { ...cachedRecordsMap.get(id)! }
         } else {
           // it's possible that the cache is stalled, we don't try to refresh it
-          // TODO: Maybe we have to handle it, but it should only happen if a record gets deleted (not only changed or added) while we're importing (rare case)
-          // TODO: It's not possible to add a ref to a none existing record (inside airtable)
-          // TODO can also happen if there are filters accidentaly applied to the default «scView»
-          // todo: if table was fetched with a formula, not all (later requested) records might be in the cache.
-          //  --> fix: store how the records were fetched, if with formula, fetch single record from airtable
+          // Maybe we have to handle it, but it should only happen if a record gets deleted (not only changed or added) while we're importing (rare case)
+          //   It's not possible to add a ref to a none existing record (inside airtable)
+          //   can also happen if there are filters accidentaly applied to the default «scView»
+
+          // if table was fetched with a formula, not all (later requested) records might be in the cache.
+          //   --> store how the records were fetched, if with formula, fetch single record from airtable
           this.logger.error(
             `fetchInternal() ERROR -> A Record with ID: ${id} for TABLE:${map.tableName} is missing in cache`,
           )
@@ -201,14 +198,11 @@ export class AirtableFetcher {
             /** add info to fulfill the {@link ImageAttachment} type */
             // @ts-ignore
             possibleAtt.ratio = (possibleAtt.thumbnails.large.height / possibleAtt.thumbnails.large.width) * 100
-            // fixme
             // @ts-ignore
             delete possibleAtt.thumbnails
           }
-          // fixme
           // @ts-ignore
           delete possibleAtt.filename
-          // fixme
           // @ts-ignore
           delete possibleAtt.size
 
