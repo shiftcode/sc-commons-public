@@ -2,6 +2,7 @@ import { ConfigObject, Plugin, RuleDefinition } from '@eslint/core'
 
 import { denyParentIndexFileImportRule } from './rules/deny-parent-index-file-import.js'
 import { importDenyListRule } from './rules/import-denylist.js'
+import { noSpreadArrayMathRule } from './rules/no-spread-array-math.js'
 import { prefixBuiltinModuleImportRule } from './rules/prefix-builtin-module-import.js'
 
 const DEFAULT_RULE_NS = `@shiftcode`
@@ -10,6 +11,7 @@ const meta = { name: '@shiftcode/eslint-plugin-rules' } satisfies Plugin['meta']
 
 const rules: Record<string, RuleDefinition> = {
   'deny-parent-index-file-import': denyParentIndexFileImportRule,
+  'no-spread-array-math': noSpreadArrayMathRule,
   'prefix-builtin-module-import': prefixBuiltinModuleImportRule,
   'import-denylist': importDenyListRule,
 } as Record<string, any>
