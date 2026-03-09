@@ -17,9 +17,6 @@
       "default": "./dist/test/*.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "format": "prettier --write .",
