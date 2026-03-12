@@ -4,9 +4,13 @@ import { exec, execReturn } from './helpers.js'
  * Will update remote settings to fetch repo and then switch to given branch.
  * @return Returns the current commit SHA
  */
-export function gitSwitchBranch(githubToken: string, repository: string, branchName: string): string {
+export function gitSwitchBranch(githubToken: string | null, repository: string, branchName: string): string {
   git('config', 'remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"')
-  git('remote', `set-url origin https://${githubToken}@github.com/${repository}.git`)
+
+  const remoteUrl = githubToken
+    ? `https://${githubToken}@github.com/${repository}.git`
+    : `https://github.com/${repository}.git`
+  git('remote', `set-url origin ${remoteUrl}`)
   git('fetch')
   git('checkout', `-b "${branchName}" "origin/${branchName}" --`)
   // return current commit sha
