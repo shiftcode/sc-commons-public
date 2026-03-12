@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getValueAssertDefined } from './get-value-assert-defined.function.js'
 
 describe('getValueAssertDefined', () => {

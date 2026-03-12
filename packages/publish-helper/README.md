@@ -1,6 +1,6 @@
 # publish-helper
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 Contains js scripts for publishing libraries
 
@@ -14,7 +14,7 @@ and makes a commit with the updated versions.
 make sure to provide the following env vars in the GitHub workflow:
 
 - `GITHUB_CONTEXT: ${{ toJson(github) }}`
-- `GH_TOKEN: ${{ secrets.GH_TOKEN_3 }}`
+- `GH_TOKEN: ${{ secrets.GH_TOKEN }}` (optional)
 
 options:
 

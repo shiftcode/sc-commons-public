@@ -1,16 +1,16 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { getJsonStringifyReplacer } from './get-json-stringify-replacer.function.js'
 
 describe('getJsonStringifyReplacer', () => {
-  it('should handle BigInt values', () => {
+  test('should handle BigInt values', () => {
     const replacer = getJsonStringifyReplacer()
     const result = replacer('key', 123456789123456789n)
 
     expect(result).toBe('123456789123456789')
   })
 
-  it('should format Error instances', () => {
+  test('should format Error instances', () => {
     const error = new Error('Test error')
     const replacer = getJsonStringifyReplacer()
     const result = replacer('key', error)
@@ -24,7 +24,7 @@ describe('getJsonStringifyReplacer', () => {
     })
   })
 
-  it('should handle circular references', () => {
+  test('should handle circular references', () => {
     const obj: any = { name: 'test' }
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     obj.self = obj
@@ -40,14 +40,14 @@ describe('getJsonStringifyReplacer', () => {
     expect(secondResult).toBe('<circular reference>')
   })
 
-  it('should not alter null values', () => {
+  test('should not alter null values', () => {
     const replacer = getJsonStringifyReplacer()
     const result = replacer('key', null)
 
     expect(result).toBe(null)
   })
 
-  it('should not alter primitive values', () => {
+  test('should not alter primitive values', () => {
     const replacer = getJsonStringifyReplacer()
 
     expect(replacer('key', 'string')).toBe('string')
@@ -56,14 +56,14 @@ describe('getJsonStringifyReplacer', () => {
     expect(replacer('key', undefined)).toBe(undefined)
   })
 
-  it('should not alter simple arrays', () => {
+  test('should not alter simple arrays', () => {
     const arr = [1, 2, 3]
     const replacer = getJsonStringifyReplacer()
     const result = replacer('arr', arr)
     expect(result).toBe(arr)
   })
 
-  it('should apply custom replacer', () => {
+  test('should apply custom replacer', () => {
     const customReplacer = (key: string, value: unknown) => {
       if (key === 'secret') {
         return '***'
@@ -76,7 +76,7 @@ describe('getJsonStringifyReplacer', () => {
     expect(replacer('secret', 'password123')).toBe('***')
   })
 
-  it('should use custom replacer prior handling BigInt values', () => {
+  test('should use custom replacer prior handling BigInt values', () => {
     const doubleBigInts = (key: string, value: unknown) => {
       if (typeof value === 'bigint') {
         return value * 2n
@@ -89,7 +89,7 @@ describe('getJsonStringifyReplacer', () => {
     expect(result).toBe('100')
   })
 
-  it('should use custom replacer prior handling Error instances', () => {
+  test('should use custom replacer prior handling Error instances', () => {
     const wrapErrors = (key: string, value: unknown) => {
       if (value instanceof Error) {
         return new Error('Failed', { cause: value })
@@ -104,7 +104,7 @@ describe('getJsonStringifyReplacer', () => {
     expect(result).toHaveProperty('cause', expect.objectContaining({ message: 'Original error' }))
   })
 
-  it('should work with JSON.stringify', () => {
+  test('should work with JSON.stringify', () => {
     const obj: any = {
       name: 'test',
       symbol: Symbol('test'),

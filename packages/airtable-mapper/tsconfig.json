@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strictPropertyInitialization": false
+  },
+  "include": ["src/**/*.ts"]
+}

@@ -40,13 +40,24 @@ export function getGithubBranchName(env: GithubActionEnv): string {
 }
 
 /**
- * returns token from env var GH_TOKEN or throws when not available
+ * returns token from env var GH_TOKEN or null
  */
-export function getGhToken(env: unknown): string {
+export function tryGetGhToken(env: unknown): string | null {
   if (typeof env === 'object' && env !== null && hasGhToken(env)) {
     return env.GH_TOKEN
   }
-  throw new Error('no GH_TOKEN found in env')
+  return null
+}
+
+/**
+ * returns token from env var GH_TOKEN or throws when not available
+ */
+export function getGhTokenOrThrow(env: unknown): string {
+  const ghToken = tryGetGhToken(env)
+  if (ghToken === null) {
+    throw new Error('no GH_TOKEN found in env')
+  }
+  return ghToken
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention

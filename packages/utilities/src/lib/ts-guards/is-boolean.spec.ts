@@ -1,12 +1,14 @@
+import { describe, expect, test } from 'vitest'
+
 import { isBoolean } from './is-boolean.js'
 
 describe('isBoolean', () => {
-  it('should return true for boolean values', () => {
+  test('should return true for boolean values', () => {
     expect(isBoolean(true)).toBe(true)
     expect(isBoolean(false)).toBe(true)
   })
 
-  it('should return false for non-boolean values', () => {
+  test('should return false for non-boolean values', () => {
     expect(isBoolean(1)).toBe(false)
     expect(isBoolean(0)).toBe(false)
     expect(isBoolean('true')).toBe(false)

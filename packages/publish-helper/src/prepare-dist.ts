@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
+
 import fs from 'node:fs'
 import { dirname, normalize as normalizePath } from 'node:path'
 import process from 'node:process'

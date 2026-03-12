@@ -2,8 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist",
-    "declarationDir": "./dist",
     "types": ["node"]
   },
   "include": ["src/**/*.ts"]

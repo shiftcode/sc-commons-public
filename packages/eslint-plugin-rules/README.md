@@ -1,6 +1,6 @@
 # @shiftcode/eslint-plugin-rules
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 This module holds some custom eslint plugins written in typescript. See [doc](https://typescript-eslint.io/custom-rules)
 for instructions on how to create custom plugins using `typescript-eslint`.

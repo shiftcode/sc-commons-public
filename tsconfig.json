@@ -2,8 +2,10 @@
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "target": "es2023",
+    "target": "ES2024",
     "strict": true,
+    "outDir": "${configDir}/dist",
+    "declarationDir": "${configDir}/dist",
     "sourceMap": true,
     "declaration": true,
     "importHelpers": true

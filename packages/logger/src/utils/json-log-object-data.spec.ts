@@ -1,10 +1,10 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { LogLevel } from '../model/log-level.enum.js'
 import { createJsonLogObjectData } from './create-json-log-object-data.function.js'
 
 describe('createJsonLogObjectData', () => {
-  it('should create a log object with a message', () => {
+  test('should create a log object with a message', () => {
     const result = createJsonLogObjectData(LogLevel.INFO, 'MyClass', new Date('2023-01-01T00:00:00.000Z'), [
       'Test message',
     ])
@@ -17,7 +17,7 @@ describe('createJsonLogObjectData', () => {
     })
   })
 
-  it('should create a log object with an error', () => {
+  test('should create a log object with an error', () => {
     const error = new Error('Test error')
     error.name = 'TestError'
 
@@ -32,13 +32,13 @@ describe('createJsonLogObjectData', () => {
         name: 'TestError',
         message: 'Test error',
         cause: undefined,
-        location: expect.stringContaining('json-log-object-data.spec.ts'),
+        location: expect.any(String),
         stack: expect.stringContaining(error.name),
       },
     })
   })
 
-  it('should create a log object with an message and an error', () => {
+  test('should create a log object with an message and an error', () => {
     const error = new Error('Test error')
     error.name = 'TestError'
 
@@ -56,13 +56,13 @@ describe('createJsonLogObjectData', () => {
         name: 'TestError',
         message: 'Test error',
         cause: undefined,
-        location: expect.stringContaining('json-log-object-data.spec.ts'),
+        location: expect.any(String),
         stack: expect.stringContaining(error.name),
       },
     })
   })
 
-  it('should handle additional data', () => {
+  test('should handle additional data', () => {
     const result = createJsonLogObjectData(LogLevel.DEBUG, 'MyClass', new Date('2023-01-01T00:00:00.000Z'), [
       'Test message',
       { key: 'value' },

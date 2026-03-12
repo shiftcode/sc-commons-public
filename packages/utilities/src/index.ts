@@ -1,3 +1,4 @@
+export * from './lib/array/unique-with.function.js'
 export * from './lib/color-utils/colorize-for-console.function.js'
 export * from './lib/color-utils/hex-to-rgb.function.js'
 export * from './lib/compare-with/compare-with.js'

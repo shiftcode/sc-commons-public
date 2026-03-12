@@ -1,0 +1,97 @@
+{
+  "name": "@shiftcode/iac-utilities",
+  "version": "1.0.0-pr254.14",
+  "description": "scripts and util functions for aws iac",
+  "repository": "https://github.com/shiftcode/sc-commons-public",
+  "license": "MIT",
+  "author": "shiftcode GmbH <team@shiftcode.ch>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./scripts": {
+      "types": "./dist/scripts/index.d.ts",
+      "default": "./dist/scripts/index.js"
+    }
+  },
+  "bin": {
+    "aws-env-vars": "./dist/aws-env-vars.js",
+    "aws-sso-configure-profiles": "./dist/aws-sso-configure-profiles.js",
+    "credentials-helper": "./dist/credentials-helper.js",
+    "export-base-runtime-config": "./dist/export-base-runtime-config.js",
+    "export-stack-outputs": "./dist/export-stack-outputs.js",
+    "export-stage-info": "./dist/export-stage-info.js",
+    "fetch-client-config": "./dist/fetch-client-config.js",
+    "invalidate-cf-cache": "./dist/invalidate-cf-cache.js",
+    "publish-client-to-s3": "./dist/upload-to-s3.js",
+    "stage-info": "./dist/stage-info.js",
+    "stage-override-to-pr-base": "./dist/stage-override-to-pr-base.js",
+    "upload-to-s3": "./dist/upload-to-s3.js"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "format": "prettier --write .",
+    "lint": "eslint --fix --cache .",
+    "lint:ci": "eslint .",
+    "prepublish": "node ../publish-helper/dist/prepare-dist.js",
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run && tsc -p ./tsconfig.spec.json",
+    "test:watch": "vitest --cache"
+  },
+  "dependencies": {
+    "ajv": "^8.16.0",
+    "fast-glob": "^3.2.10",
+    "just-snake-case": "^3.2.0",
+    "mime": "^4.0.4",
+    "yargs": "^17.2.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cloudformation": "^3.204.0",
+    "@aws-sdk/client-cloudfront": "^3.204.0",
+    "@aws-sdk/client-s3": "^3.204.0",
+    "@aws-sdk/credential-providers": "^3.204.0",
+    "@aws-sdk/types": "^3.201.0",
+    "@shiftcode/branch-utilities": "^6.0.0-pr254.17",
+    "@shiftcode/lambda-utilities": "^1.0.0-pr254.14",
+    "@types/yargs": "^17.0.5"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-cloudformation": "^3.204.0",
+    "@aws-sdk/client-cloudfront": "^3.204.0",
+    "@aws-sdk/client-s3": "^3.204.0",
+    "@aws-sdk/credential-providers": "^3.204.0",
+    "@aws-sdk/types": "^3.201.0",
+    "@shiftcode/branch-utilities": "^6.0.0 || ^6.0.0-pr254",
+    "@shiftcode/lambda-utilities": "^1.0.0 || ^1.0.0-pr254",
+    "tslib": "^2.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@aws-sdk/client-cloudformation": {
+      "optional": true
+    },
+    "@aws-sdk/client-cloudfront": {
+      "optional": true
+    },
+    "@aws-sdk/client-s3": {
+      "optional": true
+    },
+    "@aws-sdk/credential-providers": {
+      "optional": true
+    },
+    "@aws-sdk/types": {
+      "optional": true
+    },
+    "@shiftcode/branch-utilities": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=24.10.2"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

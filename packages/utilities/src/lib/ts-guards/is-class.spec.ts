@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { isClass } from './is-class.js'
 
 class TestClass {
@@ -7,11 +9,11 @@ class TestClass {
 }
 
 describe('isClass', () => {
-  it('should return true for classes', () => {
+  test('should return true for classes', () => {
     expect(isClass(TestClass)).toBe(true)
   })
 
-  it('should return false for non-class values', () => {
+  test('should return false for non-class values', () => {
     expect(isClass('string')).toBe(false)
     expect(isClass(123)).toBe(false)
     expect(isClass(true)).toBe(false)

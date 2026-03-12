@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "upload-to-s3://s3-upload-definition",
+  "title": "S3 Upload Definitions",
+  "type": "object",
+  "required": ["definitions"],
+  "properties": {
+    "definitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["include", "cacheControl"],
+        "properties": {
+          "include": {
+            "type": "array",
+            "description": "Glob patterns of files to upload",
+            "items": {
+              "type": "string",
+              "description": "glob pattern",
+              "examples": ["*.css", "*.js"]
+            },
+            "minItems": 1
+          },
+          "cacheControl": {
+            "type": "string",
+            "description": "cache control to set when uploading",
+            "examples": ["max-age=0, s-maxage=300", "max-age=604800"]
+          },
+          "contentType": {
+            "type": "string",
+            "description": "content type to set when uploading",
+            "examples": ["text/html; charset=utf-8*"]
+          }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

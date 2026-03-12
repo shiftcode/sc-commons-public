@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/publish-helper",
-  "version": "5.0.0",
+  "version": "6.0.0-pr254.17",
   "description": "scripts for conventional (pre)releases",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -11,35 +11,30 @@
     "publish-lib": "./dist/publish-lib.js"
   },
   "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "tsc",
-    "format": "npm run format:base -- --write",
-    "format:base": "prettier --config ../../.prettierrc.yml '{src,e2e,test}/**/*.ts'",
-    "format:ci": "npm run format:base -- --check",
-    "format:staged": "prettier --write --config ../../.prettierrc.yml",
-    "lint": "eslint --fix --cache ./src",
-    "lint:ci": "eslint ./src",
-    "lint:staged": "eslint --fix --cache",
+    "build": "rm -rf ./dist && tsc",
+    "format": "prettier --write .",
+    "lint": "eslint --fix --cache .",
+    "lint:ci": "eslint .",
     "prepublish": "node ./dist/prepare-dist.js",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --trace-warnings\" npx jest --config jest.config.js --passWithNoTests",
-    "test:ci": "npm run test",
-    "test:watch": "npm run test -- --watch"
+    "test": "vitest --cache --run",
+    "test:ci": "vitest --no-cache --run && tsc -p ./tsconfig.spec.json",
+    "test:watch": "vitest --cache"
   },
   "dependencies": {
     "conventional-changelog-angular": "^8.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@shiftcode/branch-utilities": "^5.1.1",
+    "@shiftcode/branch-utilities": "^6.0.0-pr254.17",
     "@types/yargs": "^17.0.32"
   },
   "peerDependencies": {
-    "@shiftcode/branch-utilities": "^5.1.1",
+    "@shiftcode/branch-utilities": "^6.0.0 || ^6.0.0-pr254",
     "lerna": "^9.0.3",
     "tslib": "^2.3.0"
   },
   "engines": {
-    "node": "^20.0.0 || ^22.0.0"
+    "node": ">=24.10.2"
   },
   "publishConfig": {
     "directory": "dist"

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { SpyLogTransport } from '../testing/spy-log.transport.js'
 import { stringToColor } from '../utils/string-to-color.function.js'
 import { LogLevel } from './log-level.enum.js'
@@ -10,7 +12,7 @@ describe('Logger behavior', () => {
   const className = 'TestLogger'
   const color = stringToColor(className)
 
-  it('should send logs to all transports', () => {
+  test('should send logs to all transports', () => {
     spyTransport1 = new SpyLogTransport(LogLevel.DEBUG)
     spyTransport2 = new SpyLogTransport(LogLevel.INFO)
     logger = new Logger(className, color, [spyTransport1, spyTransport2])
@@ -19,7 +21,7 @@ describe('Logger behavior', () => {
     expect(spyTransport2.calls.length).toBe(1)
   })
 
-  it('should respect log level', () => {
+  test('should respect log level', () => {
     spyTransport1 = new SpyLogTransport(LogLevel.DEBUG)
     spyTransport2 = new SpyLogTransport(LogLevel.INFO)
     logger = new Logger(className, color, [spyTransport1, spyTransport2])

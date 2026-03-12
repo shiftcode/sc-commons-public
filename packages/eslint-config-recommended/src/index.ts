@@ -7,6 +7,15 @@ import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports'
 import eslintTs from 'typescript-eslint'
 
+export const DEFAULT_IGNORES: readonly string[] = [
+  'node_modules/**',
+  'dist/**',
+  'out-tsc/**',
+  '.angular/**',
+  'cdk.out/**',
+  'cypress/reports/**',
+]
+
 /**
  * define the shiftcode eslint config for typescript.
  * the function wraps given configs with some common settings and adds prettier rules at the end.
@@ -33,6 +42,10 @@ import eslintTs from 'typescript-eslint'
  */
 export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): ReturnType<typeof defineConfig> {
   return defineConfig(
+    {
+      ignores: [...DEFAULT_IGNORES],
+    },
+
     {
       files: ['**/*.{ts,mts,cts,js,mjs,cjs}'],
       extends: [eslint.configs.recommended],
@@ -235,25 +248,25 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
       },
     },
 
-    /*
-     * allow some commonly used patterns for testing to pass eslint
-     */
+    // relax the rules for files which are not part of the src/ folder and for test files
+    // only change file/ignore globs with care!
     {
-      files: ['**/test/**/*.ts', '**/*.spec.ts', '**/*.test.ts'],
+      files: [
+        '**/*.{ts,mts,cts,js,mjs,cjs}', // include all ts/js files
+      ],
+      ignores: [
+        'src/**/*', // ignore all files inside src/
+        '!src/**/*.{spec,test}.ts', // un-ignore test files
+      ],
       rules: {
-        'no-console': 'off',
-        'max-classes-per-file': 'off',
+        // it is ok to use dev deps and deps that are listed inside the root package.json
+        'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-      },
-    },
-
-    // for files which are not part of the src/ folder and for test files
-    // it is ok to use dependencies that are listed inside the root package.json (e.g. @shiftcode/eslint-config-recommended)
-    {
-      files: ['!**/src/**', '**/*.spec.ts', '**/*.test.ts'],
-      rules: {
-        'import/no-extraneous-dependencies': ['error', { packageDir: ['.', '../..'] }],
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'max-classes-per-file': 'off',
+        'no-console': 'off',
       },
     },
 

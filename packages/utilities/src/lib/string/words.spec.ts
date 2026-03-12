@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { words } from './words.js'
 
 const emojiVar = '\ufe0f',
