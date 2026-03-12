@@ -14,7 +14,7 @@ and makes a commit with the updated versions.
 make sure to provide the following env vars in the GitHub workflow:
 
 - `GITHUB_CONTEXT: ${{ toJson(github) }}`
-- `GH_TOKEN: ${{ secrets.GH_TOKEN_3 }}`
+- `GH_TOKEN: ${{ secrets.GH_TOKEN }}` (optional)
 
 options:
 

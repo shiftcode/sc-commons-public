@@ -5,11 +5,11 @@ import * as process from 'node:process'
 import {
   BranchInfo,
   getBranchInfo,
-  getGhToken,
   GitHubContext,
   gitSwitchBranch,
   hasGithubContext,
   isGithubWorkflow,
+  tryGetGhToken,
 } from '@shiftcode/branch-utilities'
 import yargs from 'yargs'
 // eslint-disable-next-line import/no-internal-modules
@@ -66,9 +66,7 @@ function publish(opts: Options, env: unknown) {
     if (opts.canary) {
       publishCanary(opts, branchInfo)
     } else if (hasGithubContext(env)) {
-      // don't use token from github context but use e custom PAT provided through GH_TOKEN env var
-      // otherwise no new github workflow is triggered (when using wrong token)
-      publishPreRelease(opts, branchInfo, JSON.parse(env.GITHUB_CONTEXT) as GitHubContext, getGhToken(env))
+      publishPreRelease(opts, branchInfo, JSON.parse(env.GITHUB_CONTEXT) as GitHubContext, tryGetGhToken(env))
     } else {
       throw new Error('GITHUB_CONTEXT not defined as env var. Use `GITHUB_CONTEXT: ${{ toJson(github) }}` for action ')
     }
@@ -91,7 +89,7 @@ function publishPreRelease(
   opts: Options,
   branchInfo: BranchInfo,
   { event, repository }: GitHubContext,
-  ghToken: string,
+  ghToken: string | null,
 ) {
   log('PUBLISH PreRelease')
   const preId = branchInfo.stage
