@@ -41,24 +41,18 @@ jobs:
     if: needs.checkExecution.outputs.shouldExecute == 'true'
     strategy:
       matrix:
-        # Test with Node.js 22, 24 and v25
+        # Test with Node.js 24 and v25
         node:
-          - 22
           - 24
           - 25
     name: Node.js v${{ matrix.node }}
     steps:
       # checkout branch
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          # 0 indicates all history, because publish requires tag information
-          fetch-depth: 0
-          # we need privileged access to publish to protected branch
-          token: ${{ secrets.GH_TOKEN_PUBLIC_REPO }}
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd #v5.0.1
       # setup node and dependency cache
       - name: Setup Node and NPM Cache
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -71,7 +65,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     needs: [checkExecution, test]
     # only execute if not skipped by commit message
@@ -79,15 +73,13 @@ jobs:
     steps:
       # checkout branch
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd #v5.0.1
         with:
           # 0 indicates all history, because publish requires tag information
           fetch-depth: 0
-          # we need privileged access to publish to protected branch
-          token: ${{ secrets.GH_TOKEN_PUBLIC_REPO }}
       # setup node and dependency cache
       - name: Setup Node and NPM Cache
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -109,11 +101,9 @@ jobs:
       # publish
       - name: Publish
         run: |
-          npm config set //npm.pkg.github.com/:_authToken=$REGISTRY_TOKEN
+          npm config set //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
           npm run publish-libs
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
