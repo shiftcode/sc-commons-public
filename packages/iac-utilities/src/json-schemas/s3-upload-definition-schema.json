@@ -13,7 +13,7 @@
         "properties": {
           "include": {
             "type": "array",
-            "description": "Localization files to use for i18n",
+            "description": "Glob patterns of files to upload",
             "items": {
               "type": "string",
               "description": "glob pattern",
