@@ -14,8 +14,8 @@ export class TestAttachmentUrlResolverService extends AttachmentUrlResolver {
     super()
   }
 
-  createUrl(filename: string, id: string): string {
-    return `${this.prefix}${id}`
+  createUrl(id: string, filename: string): string {
+    return `${this.prefix}${filename}`
   }
 
   getId(url: string): string {
