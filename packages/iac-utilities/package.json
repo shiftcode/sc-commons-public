@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/iac-utilities",
-  "version": "1.0.0-pr254.13",
+  "version": "1.0.0-pr254.14",
   "description": "scripts and util functions for aws iac",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
@@ -54,8 +54,8 @@
     "@aws-sdk/client-s3": "^3.204.0",
     "@aws-sdk/credential-providers": "^3.204.0",
     "@aws-sdk/types": "^3.201.0",
-    "@shiftcode/branch-utilities": "^6.0.0-pr254.16",
-    "@shiftcode/lambda-utilities": "^1.0.0-pr254.13",
+    "@shiftcode/branch-utilities": "^6.0.0-pr254.17",
+    "@shiftcode/lambda-utilities": "^1.0.0-pr254.14",
     "@types/yargs": "^17.0.5"
   },
   "peerDependencies": {
