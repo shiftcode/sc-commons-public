@@ -31,6 +31,13 @@ export async function fetchSsmStringParamValue(parameterArn: string, withDecrypt
       },
     })
 
+    if (!response.ok) {
+      const responseBody = await response.text()
+      throw new Error(
+        `HTTP ${response.status} ${response.statusText} fetching ssm parameter ${parameterArn} from lambda layer. Body: ${responseBody}`,
+      )
+    }
+
     const result: GetParameterResult = await response.json()
     if (!result?.Parameter?.Value) {
       throw new Error(
