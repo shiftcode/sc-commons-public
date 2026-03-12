@@ -1,4 +1,3 @@
-import { execSync } from 'node:child_process'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
@@ -15,9 +14,13 @@ export async function fetchClientConfig(options: FetchClientConfigOptions | Prom
   const opts = await options
   const clientConfigUrl = await readFromStackOutput(opts.outputs, opts.key)
 
-  const raw = execSync(`curl ${clientConfigUrl}`, { encoding: 'utf8' }).trim()
+  const response = await fetch(clientConfigUrl)
 
-  const parsed = JSON.parse(raw)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch client config from ${clientConfigUrl}: ${response.status} ${response.statusText}`)
+  }
+
+  const parsed = await response.json()
   const pretty = JSON.stringify(parsed, undefined, 2)
 
   if (!opts.noWrite) {
