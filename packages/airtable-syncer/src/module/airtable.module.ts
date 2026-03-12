@@ -14,7 +14,7 @@ export const airtableModule = new ContainerModule(({ bind, isBound }) => {
   bind(AirtableSync).toSelf().inSingletonScope()
   bind(AirtableApi).toSelf().inSingletonScope()
 
-  if (!isBound(S3Helper)) {
+  if (!isBound(SnsPublisher)) {
     bind(SnsPublisher).toSelf().inSingletonScope()
   }
 
