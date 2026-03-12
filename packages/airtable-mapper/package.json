@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/airtable-mapper",
-  "version": "1.0.0-pr254.10",
+  "version": "1.0.0-pr254.11",
   "description": "interfaces and classes for airtable mapping",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
