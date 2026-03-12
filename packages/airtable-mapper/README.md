@@ -1,6 +1,6 @@
 # airtable-mapper
 
-> 🎯 Target runtime: es2023 ([Browser](https://caniuse.com/?search=es2023) & ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 Module to create the airtable models and their mapping
 

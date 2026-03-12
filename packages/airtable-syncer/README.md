@@ -1,6 +1,6 @@
 # airtable-syncer
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 Module to sync airtable data to S3 and publish SNS events for all attachments found and not yet synced to S3. Usually
 those events are consumed by a lambda function creating different sizes of the images and storing them in S3.

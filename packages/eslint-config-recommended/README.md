@@ -1,6 +1,6 @@
 # @shiftcode/eslint-config-recommended
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 This module provides an eslint default rule-set configuration for shiftcode projects.
 

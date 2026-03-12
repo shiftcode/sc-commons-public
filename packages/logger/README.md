@@ -1,6 +1,12 @@
 # logger
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯\
+> Target runtime: [Node >=24](https://node.green/#ES2023)) and ([modern Browser](https://caniuse.com/?search=es2023) + Firefox ESR\
+> Target lib: es2022 + ES2023.Array
+
+> 🎯\
+> Target runtime: Node 24 and modern browsers + Firefox ESR\
+> Target lib: es2022 + ES2023.Array
 
 A simple logger to use with @shiftcode-only dependencies.
 The LoggerService is standalone and can be configured to log messages to various transports.

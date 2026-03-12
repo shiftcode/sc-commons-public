@@ -1,6 +1,6 @@
 # nest-logger
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 This package provides [@shiftcode/logger](https://github.com/shiftcode/sc-commons/pkgs/npm/logger) support for NestJS, allowing you to inject loggers with context-aware naming and configure log transports using the NestJS DI system.
 

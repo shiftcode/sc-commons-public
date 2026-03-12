@@ -1,6 +1,6 @@
 # lambda-utilities
 
-> 🎯 Target runtime: es2023 ([Node >= 22](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 This package contains utilities for AWS Lambda functions.
 

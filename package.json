@@ -22,7 +22,7 @@
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
     "@commitlint/prompt-cli": "^20.4.1",
-    "@types/node": "^22.15.0",
+    "@types/node": "^24.12.0",
     "eslint": "^9.36.0",
     "husky": "^9.0.11",
     "lerna": "^9.0.3",
@@ -34,6 +34,7 @@
     "vitest": "^4.0.18"
   },
   "engines": {
-    "node": "^22.15.0"
+    "node": ">=24.10.2",
+    "npm": ">=11.9.0"
   }
 }

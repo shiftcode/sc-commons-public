@@ -1,6 +1,6 @@
 # inversify-logger
 
-> 🎯 Target runtime: es2023 ([Node >= 22](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 This package provides [@shiftcode/logger](https://github.com/shiftcode/sc-commons/pkgs/npm/logger) support for InversifyJS,
 allowing you to inject loggers with context-aware naming, and configure log transports using Inversify DI.
@@ -18,7 +18,7 @@ allowing you to inject loggers with context-aware naming, and configure log tran
 ```typescript
 import { Container } from 'inversify'
 import { loggerModule, bindLogTransport } from '@shiftcode/inversify-logger'
-import { NodeConsoleLogTransport, NodeConsoleLogTransportConfig } from '@shiftcode/log-transpports'
+import { NodeConsoleLogTransport, NodeConsoleLogTransportConfig } from '@shiftcode/logger/node'
 import { LogLevel, LogTransport } from '@shiftcode/logger'
 
 const container = new Container()

@@ -38,7 +38,7 @@
     "@shiftcode/utilities": "^5.0.0 || ^5.0.0-pr254"
   },
   "engines": {
-    "node": ">=22.10.2"
+    "node": ">=24.10.2"
   },
   "publishConfig": {
     "directory": "dist"

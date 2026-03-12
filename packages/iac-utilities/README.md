@@ -1,6 +1,6 @@
 # iac-utilities
 
-> 🎯 Target runtime: es2023 ([Node >= 20](https://node.green/#ES2023))
+> 🎯 Target runtime: es2024 ([Node >= 24](https://node.green/#ES2024))
 
 Utilities for build and runtime to work with the [AWS-CDK](https://aws.amazon.com/de/cdk/).
 

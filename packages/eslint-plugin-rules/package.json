@@ -34,7 +34,7 @@
     "eslint": "^9.37.0"
   },
   "engines": {
-    "node": ">=22.10.2"
+    "node": ">=24.10.2"
   },
   "publishConfig": {
     "directory": "dist"
