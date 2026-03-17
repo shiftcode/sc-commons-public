@@ -16,8 +16,29 @@ on:
     tags-ignore:
       - '**'
 jobs:
+  checkExecution:
+    runs-on: ubuntu-latest
+    outputs:
+      shouldExecute: ${{ steps.stepCheckExecution.outputs.shouldExecute }}
+    steps:
+      - name: Dump GitHub context
+        run: |
+          echo "::group::github context"
+          echo "$GITHUB_CONTEXT"
+          echo "::endgroup::"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - id: stepCheckExecution
+        name: Check for execution
+        uses: shiftcode/github-action-skip@v4.0.0
+        with:
+          skipOnCommitMsg: '[skip_build]'
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
   test:
     runs-on: ubuntu-latest
+    needs: checkExecution
+    # only execute if not skipped by commit message
+    if: needs.checkExecution.outputs.shouldExecute == 'true'
     strategy:
       matrix:
         # Test with Node.js 24 and v25
@@ -46,7 +67,9 @@ jobs:
     permissions:
       contents: write
       packages: write
-    needs: test
+    needs: [checkExecution, test]
+    # only execute if not skipped by commit message
+    if: needs.checkExecution.outputs.shouldExecute == 'true'
     steps:
       # checkout branch
       - name: Checkout
@@ -84,3 +107,6 @@ jobs:
           npm run publish-libs
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          # necessary to commit on protected branch after merging
+          # and to run actions after version-bump commit (otherwise we can't create rules for merging as no workflows run after GITHUB_TOKEN commits)
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
