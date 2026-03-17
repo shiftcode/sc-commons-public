@@ -21,16 +21,9 @@ jobs:
     outputs:
       shouldExecute: ${{ steps.stepCheckExecution.outputs.shouldExecute }}
     steps:
-      - name: Dump GitHub context
-        run: |
-          echo "::group::github context"
-          echo "$GITHUB_CONTEXT"
-          echo "::endgroup::"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
       - id: stepCheckExecution
         name: Check for execution
-        uses: shiftcode/github-action-skip@v4.0.0
+        uses: shiftcode/github-action-skip@9d4a90c80567f59dfaacf18fe703a324583c742e #@v4.0.0
         with:
           skipOnCommitMsg: '[skip_build]'
           githubToken: ${{ secrets.GITHUB_TOKEN }}
