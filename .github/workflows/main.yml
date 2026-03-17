@@ -23,7 +23,7 @@ jobs:
     steps:
       - id: stepCheckExecution
         name: Check for execution
-        uses: shiftcode/github-action-skip@9d4a90c80567f59dfaacf18fe703a324583c742e #@v4.0.0
+        uses: shiftcode/github-action-skip@9d4a90c80567f59dfaacf18fe703a324583c742e #v5.0.0
         with:
           skipOnCommitMsg: '[skip_build]'
           githubToken: ${{ secrets.GITHUB_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd #v5.0.1
       # setup node and dependency cache
       - name: Setup Node and NPM Cache
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 #v5.0.0
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -72,7 +72,7 @@ jobs:
           fetch-depth: 0
       # setup node and dependency cache
       - name: Setup Node and NPM Cache
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 #v5.0.0
         with:
           node-version-file: .nvmrc
           cache: 'npm'
