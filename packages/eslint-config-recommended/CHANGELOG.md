@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@6.1.0...@shiftcode/eslint-config-recommended@7.0.0) (2026-03-18)
+
+### Bug Fixes
+
+- allow [@ts](https://github.com/ts)- comments for spec/test files ([8acdbd8](https://github.com/shiftcode/sc-commons-public/commit/8acdbd88283023f5776e274456731ada1479af5f))
+- correct rule for all non-src files ([f449f25](https://github.com/shiftcode/sc-commons-public/commit/f449f2544056f6c964f1f74f77a16f4fc998f576))
+
+### Build System
+
+- update supported node version ([85d5fc1](https://github.com/shiftcode/sc-commons-public/commit/85d5fc19d7822abc0e44e07a45258baa95e31482))
+
+### chore
+
+- update Node.js engine requirement to >=24.10.2 and adjust target runtime in documentation ([df497bd](https://github.com/shiftcode/sc-commons-public/commit/df497bd1f776c2ed87feed357838ce1842f5fbba))
+
+### Features
+
+- add global default ignores ([f9f8c85](https://github.com/shiftcode/sc-commons-public/commit/f9f8c85780976a7a9cbc3fa4148e4501b972a4bf))
+- relax rules for non-src and test/spec files ([5ecbbe5](https://github.com/shiftcode/sc-commons-public/commit/5ecbbe585e074917d94a3a664ee670ecdeb723f0))
+
+### BREAKING CHANGES
+
+- - node@v24 runtime requires
+- require node >= 22.10.2
+
 # [6.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@6.0.1...@shiftcode/eslint-config-recommended@6.1.0) (2025-12-06)
 
 ### Features

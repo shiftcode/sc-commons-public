@@ -1,6 +1,6 @@
 {
   "name": "@shiftcode/utilities",
-  "version": "5.0.0-pr77.2",
+  "version": "5.0.0",
   "description": "Contains some utilities",
   "repository": "https://github.com/shiftcode/sc-commons-public",
   "license": "MIT",
