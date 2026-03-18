@@ -70,6 +70,8 @@ jobs:
         with:
           # 0 indicates all history, because publish requires tag information
           fetch-depth: 0
+          # do not persist credentials to avoid issues with protected branches (e.g. when pushing version-bump commit after merging PR)
+          persist-credentials: false
       # setup node and dependency cache
       - name: Setup Node and NPM Cache
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 #v5.0.0
@@ -97,6 +99,7 @@ jobs:
           npm config set //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/shiftcode/sc-commons-public.git
           npm run publish-libs
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
