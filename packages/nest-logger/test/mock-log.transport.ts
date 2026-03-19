@@ -5,8 +5,16 @@ export interface MockLogTransportConfig {
   mockAttribute: string
 }
 
+export interface MockLogArgs {
+  level: LogLevel
+  clazzName: string
+  hexColor: string
+  timestamp: Date
+  args: unknown[]
+}
+
 export class MockLogTransport extends LogTransport {
-  logArgs: any
+  logArgs: MockLogArgs | undefined
 
   constructor(config: MockLogTransportConfig) {
     super(config.logLevel)
