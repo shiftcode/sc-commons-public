@@ -9,22 +9,22 @@ export class NestLogger implements LoggerService {
   constructor(private readonly logger: Logger) {}
 
   error(message: any, ...optionalParams: any[]) {
-    this.logger.error(message, optionalParams)
+    this.logger.error(message, ...optionalParams)
   }
 
   warn(message: any, ...optionalParams: any[]) {
-    this.logger.warn(message, optionalParams)
+    this.logger.warn(message, ...optionalParams)
   }
 
   debug(message: any, ...optionalParams: any[]) {
-    this.logger.debug(message, optionalParams)
+    this.logger.debug(message, ...optionalParams)
   }
 
   verbose(message: any, ...optionalParams: any[]) {
-    this.debug(message, optionalParams)
+    this.debug(message, ...optionalParams)
   }
 
   log(message: any, ...optionalParams: any[]) {
-    this.logger.info(message, optionalParams)
+    this.logger.info(message, ...optionalParams)
   }
 }
