@@ -8,23 +8,23 @@ import { Logger } from '@shiftcode/logger'
 export class NestLogger implements LoggerService {
   constructor(private readonly logger: Logger) {}
 
-  error(message: any, trace?: string) {
-    this.logger.error([message, trace])
+  error(message: any, ...optionalParams: any[]) {
+    this.logger.error(message, ...optionalParams)
   }
 
-  warn(message: any) {
-    this.logger.warn([message])
+  warn(message: any, ...optionalParams: any[]) {
+    this.logger.warn(message, ...optionalParams)
   }
 
-  debug(message: any) {
-    this.logger.debug([message])
+  debug(message: any, ...optionalParams: any[]) {
+    this.logger.debug(message, ...optionalParams)
   }
 
-  verbose(message: any) {
-    this.debug(message)
+  verbose(message: any, ...optionalParams: any[]) {
+    this.debug(message, ...optionalParams)
   }
 
-  log(message: any) {
-    this.logger.info([message])
+  log(message: any, ...optionalParams: any[]) {
+    this.logger.info(message, ...optionalParams)
   }
 }
