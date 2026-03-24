@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/iac-utilities@1.0.0...@shiftcode/iac-utilities@1.0.1) (2026-03-24)
+
+**Note:** Version bump only for package @shiftcode/iac-utilities
+
 # 1.0.0 (2026-03-18)
 
 ### Bug Fixes

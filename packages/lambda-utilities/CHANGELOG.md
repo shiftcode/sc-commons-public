@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/lambda-utilities@1.0.0...@shiftcode/lambda-utilities@1.0.1) (2026-03-24)
+
+### Bug Fixes
+
+- **lambda-utilities:** add necessary tsconfig config for decorators ([b46cd82](https://github.com/shiftcode/sc-commons-public/commit/b46cd829d86eea30611b8fe3fb5316bcb17994d1))
+
 # 1.0.0 (2026-03-18)
 
 ### Bug Fixes
