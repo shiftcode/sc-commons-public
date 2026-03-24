@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/nest-logger@1.0.0...@shiftcode/nest-logger@1.0.1) (2026-03-24)
+
+### Bug Fixes
+
+- **nest-logger:** add unit tests for NestLogger methods to verify argument forwarding ([12be563](https://github.com/shiftcode/sc-commons-public/commit/12be563502b0a754ea7f59837a6e6cdb5e6eae76))
+- **nest-logger:** remove faulty array wrapping for logging ([2e6afaa](https://github.com/shiftcode/sc-commons-public/commit/2e6afaa84fbf606d156f272c09ea70d478bfc866))
+- **nest-logger:** spread optional parameters in logging methods ([bf0b406](https://github.com/shiftcode/sc-commons-public/commit/bf0b4069b47c0ec899d575175efb05ebca8eeea4))
+
 # 1.0.0 (2026-03-18)
 
 ### Bug Fixes
