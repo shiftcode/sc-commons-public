@@ -140,11 +140,11 @@ async function publishPreRelease(
     opts.verbose,
   )
   execLerna('publish', [`from-package`, `--dist-tag ${preId}`], opts.verbose, null)
+  const newPackageTags = getNewPackageTags(tagsBefore)
   exec('git tag -d $(git describe --abbrev=0)')
   exec('git push')
 
   if (ghToken) {
-    const newPackageTags = getNewPackageTags(tagsBefore)
     log(`New package tags: ${newPackageTags.join(', ') || 'none'}`)
     await publishConsolidatedRelease(repository, ghToken, newPackageTags, true, preId, event.pull_request.head.sha)
   } else {

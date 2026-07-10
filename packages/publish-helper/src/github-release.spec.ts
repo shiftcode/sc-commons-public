@@ -32,6 +32,13 @@ describe('buildReleaseBody', () => {
     expect(body).toBe('## Package Version Set\n')
   })
 
+  test('uses custom ref in changelog links when provided', () => {
+    const tags = ['@shiftcode/logger@3.0.0-pr84.0']
+    const sha = 'abc1234def5678'
+    const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public', sha)
+    expect(body).toContain(`https://github.com/shiftcode/sc-commons-public/blob/${sha}/packages/logger/CHANGELOG.md`)
+  })
+
   test('skips tags with unexpected format', () => {
     const tags = ['@shiftcode/logger@3.0.0', 'invalid-tag']
     const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public')

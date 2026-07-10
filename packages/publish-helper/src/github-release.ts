@@ -1,5 +1,14 @@
 import * as https from 'node:https'
 
+class ApiError extends Error {
+  constructor(
+    readonly status: number,
+    message: string,
+  ) {
+    super(message)
+  }
+}
+
 /* eslint-disable @typescript-eslint/naming-convention */
 interface GithubRelease {
   id: number
@@ -45,6 +54,7 @@ function githubApiRequest<T>(
         },
       },
       (res) => {
+        res.setEncoding('utf8')
         let body = ''
         res.on('data', (chunk: string) => (body += chunk))
         res.on('end', () => {
@@ -62,7 +72,12 @@ function githubApiRequest<T>(
           if (res.statusCode !== undefined && res.statusCode >= 200 && res.statusCode < 300) {
             resolve(parsed)
           } else {
-            reject(new Error(`GitHub API ${method} ${repoPath} failed with ${res.statusCode}: ${body}`))
+            reject(
+              new ApiError(
+                res.statusCode ?? 0,
+                `GitHub API ${method} ${repoPath} failed with ${res.statusCode}: ${body}`,
+              ),
+            )
           }
         })
       },
@@ -85,8 +100,11 @@ export async function getExistingRelease(
 ): Promise<GithubRelease | null> {
   try {
     return await githubApiRequest<GithubRelease>('GET', `/repos/${repository}/releases/tags/${tagName}`, token)
-  } catch {
-    return null
+  } catch (err) {
+    if (err instanceof ApiError && err.status === 404) {
+      return null
+    }
+    throw err
   }
 }
 
@@ -128,14 +146,14 @@ export function buildReleaseTag(isPrerelease: boolean, stage: string): string {
 /**
  * Builds the release body listing all published packages with Changelog Links.
  */
-export function buildReleaseBody(packageTags: string[], repository: string): string {
+export function buildReleaseBody(packageTags: string[], repository: string, ref: string = 'main'): string {
   const lines: string[] = ['## Package Version Set', '']
   for (const tag of packageTags) {
     const match = tag.match(/^(@shiftcode\/[^@]+)@(.+)$/)
     if (!match) continue
     const [, packageName, version] = match
     const packageDir = packageName.replace('@shiftcode/', '')
-    const changelogUrl = `https://github.com/${repository}/blob/main/packages/${packageDir}/CHANGELOG.md`
+    const changelogUrl = `https://github.com/${repository}/blob/${ref}/packages/${packageDir}/CHANGELOG.md`
     lines.push(`- **${packageName}** \`${version}\` — [Changelog](${changelogUrl})`)
   }
   return lines.join('\n')
@@ -163,7 +181,7 @@ export async function publishConsolidatedRelease(
   const releaseName = isPrerelease
     ? `Pre-release ${stage}`
     : `Release ${releaseTag.replace('releases/', '').slice(0, 10)}`
-  const body = buildReleaseBody(packageTags, repository)
+  const body = buildReleaseBody(packageTags, repository, targetCommitish)
 
   // For PR pre-releases, remove any existing release+tag so the new one points to the latest commit.
   if (isPrerelease) {
