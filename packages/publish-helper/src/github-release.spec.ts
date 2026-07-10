@@ -17,7 +17,7 @@ describe('buildReleaseTag', () => {
 describe('buildReleaseBody', () => {
   test('lists all published packages with changelog links', () => {
     const tags = ['@shiftcode/branch-utilities@6.1.0', '@shiftcode/logger@3.0.0']
-    const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public')
+    const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public', 'main')
     expect(body).toContain('## Package Version Set')
     expect(body).toContain('**@shiftcode/branch-utilities** `6.1.0`')
     expect(body).toContain(
@@ -28,7 +28,7 @@ describe('buildReleaseBody', () => {
   })
 
   test('returns empty section when no package tags provided', () => {
-    const body = buildReleaseBody([], 'shiftcode/sc-commons-public')
+    const body = buildReleaseBody([], 'shiftcode/sc-commons-public', 'main')
     expect(body).toBe('## Package Version Set\n')
   })
 
@@ -41,7 +41,7 @@ describe('buildReleaseBody', () => {
 
   test('skips tags with unexpected format', () => {
     const tags = ['@shiftcode/logger@3.0.0', 'invalid-tag']
-    const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public')
+    const body = buildReleaseBody(tags, 'shiftcode/sc-commons-public', 'main')
     expect(body).toContain('**@shiftcode/logger**')
     expect(body).not.toContain('invalid-tag')
   })

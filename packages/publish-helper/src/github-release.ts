@@ -1,6 +1,6 @@
 import * as https from 'node:https'
 
-class ApiError extends Error {
+export class ApiError extends Error {
   constructor(
     readonly status: number,
     message: string,
@@ -146,7 +146,7 @@ export function buildReleaseTag(isPrerelease: boolean, stage: string): string {
 /**
  * Builds the release body listing all published packages with Changelog Links.
  */
-export function buildReleaseBody(packageTags: string[], repository: string, ref: string = 'main'): string {
+export function buildReleaseBody(packageTags: string[], repository: string, ref: string): string {
   const lines: string[] = ['## Package Version Set', '']
   for (const tag of packageTags) {
     const match = tag.match(/^(@shiftcode\/[^@]+)@(.+)$/)
