@@ -159,7 +159,10 @@ export async function publishConsolidatedRelease(
   }
 
   const releaseTag = buildReleaseTag(isPrerelease, stage)
-  const releaseName = isPrerelease ? `Pre-release ${stage}` : `Release ${new Date().toISOString().slice(0, 10)}`
+  // Derive date for stable release name from the computed tag to avoid a second Date() call.
+  const releaseName = isPrerelease
+    ? `Pre-release ${stage}`
+    : `Release ${releaseTag.replace('releases/', '').slice(0, 10)}`
   const body = buildReleaseBody(packageTags, repository)
 
   // For PR pre-releases, remove any existing release+tag so the new one points to the latest commit.

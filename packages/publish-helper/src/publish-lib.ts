@@ -83,6 +83,11 @@ function getTagsSet(): Set<string> {
   return new Set(execReturn('git tag -l').split('\n').filter(Boolean))
 }
 
+/** Returns package tags that are new since `tagsBefore` was captured. */
+function getNewPackageTags(tagsBefore: Set<string>): string[] {
+  return [...getTagsSet()].filter((t) => !tagsBefore.has(t) && /^@shiftcode\/[^@]+@\d/.test(t))
+}
+
 async function publishMaster(opts: Options, repository?: string, ghToken?: string | null): Promise<void> {
   log('PUBLISH MASTER')
   const tagsBefore = getTagsSet()
@@ -94,7 +99,7 @@ async function publishMaster(opts: Options, repository?: string, ghToken?: strin
   execLerna('publish', ['from-package'], opts.verbose, null)
 
   if (repository && ghToken) {
-    const newPackageTags = [...getTagsSet()].filter((t) => !tagsBefore.has(t) && /^@shiftcode\/[^@]+@\d/.test(t))
+    const newPackageTags = getNewPackageTags(tagsBefore)
     log(`New package tags: ${newPackageTags.join(', ') || 'none'}`)
     const targetCommitish = execReturn('git rev-parse HEAD')
     await publishConsolidatedRelease(repository, ghToken, newPackageTags, false, 'main', targetCommitish)
@@ -139,7 +144,7 @@ async function publishPreRelease(
   exec('git push')
 
   if (ghToken) {
-    const newPackageTags = [...getTagsSet()].filter((t) => !tagsBefore.has(t) && /^@shiftcode\/[^@]+@\d/.test(t))
+    const newPackageTags = getNewPackageTags(tagsBefore)
     log(`New package tags: ${newPackageTags.join(', ') || 'none'}`)
     await publishConsolidatedRelease(repository, ghToken, newPackageTags, true, preId, event.pull_request.head.sha)
   } else {
