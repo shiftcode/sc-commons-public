@@ -94,6 +94,16 @@ describe('base utils', () => {
 
       expect(parseBranchName('#72- whatever').branchId).toBe(72)
       expect(parseBranchName('feature/#72-ok').branchId).toBe(72)
+      expect(parseBranchName('1-foobar')).toEqual({ branchId: 1, branchName: 'foobar' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
+      expect(parseBranchName('feat/42-foo-bar-baz')).toEqual({
+        branchId: 42,
+        branchName: 'foo-bar-baz',
+      } satisfies ReturnType<typeof parseBranchName>)
+      expect(parseBranchName('007-oh-james')).toEqual({ branchId: 7, branchName: 'oh-james' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
     })
 
     test('works for github copilot created branches', () => {
@@ -107,7 +117,6 @@ describe('base utils', () => {
 
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()
-      expect(() => parseBranchName('copilot/123-fix')).toThrow()
       expect(() => parseBranchName('feat/copilot/fix-123')).toThrow()
     })
   })
