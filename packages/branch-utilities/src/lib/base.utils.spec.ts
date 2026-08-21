@@ -118,6 +118,9 @@ describe('base utils', () => {
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()
       expect(() => parseBranchName('feat/copilot/fix-123')).toThrow()
+      expect(() => parseBranchName('/42-foo')).toThrow()
+      expect(() => parseBranchName('fix-7-issues')).toThrow()
+      expect(() => parseBranchName('fix7-issues')).toThrow()
     })
   })
 
