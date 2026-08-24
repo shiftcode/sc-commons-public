@@ -13,7 +13,7 @@ export const REGEX_MAIN = /^main$/
  * @example #123-my-feature ->  { id:  '123',  name: 'my-feature' }
  * @example feature/#456-yanr -> { id:  '456',  name: 'yanr' }
  */
-const REGEX_BRANCH_NAME_DEFAULT = /^[a-z]*\/?#(?<id>\d+)-(?<name>.*)$/
+const REGEX_BRANCH_NAME_DEFAULT = /^(?:[a-z]+\/)?#?(?<id>\d+)-(?<name>.*)$/
 /**
  * regex to match the branch convention github copilot uses with the following named capture groups: id, name
  * @example copilot/fix-789 -> { id:  '789',  name: 'fix' }
@@ -153,7 +153,7 @@ export function parseBranchName(branchName: string): { branchId: number; branchN
     }
   } else {
     throw new Error(
-      `given branch name ${branchName} does not match our convention #<one or more digit>-<branch-name-with-kebap-case>`,
+      `given branch name ${branchName} does not match our convention #<one or more digit>-<branch-name-with-kebap-case> (# is optional, feat/123-foo-bar is also valid)`,
     )
   }
 }

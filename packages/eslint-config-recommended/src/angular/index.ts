@@ -36,7 +36,6 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
   return defineScTsConfig(
     {
       files: ['**/*.ts'],
-      // @ts-expect-error angular fck it up
       extends: [eslintAngular.configs.tsRecommended],
       processor: eslintAngular.processInlineTemplates,
       rules: {
@@ -45,9 +44,11 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
         '@angular-eslint/sort-lifecycle-methods': 'error',
         '@angular-eslint/no-lifecycle-call': 'error',
         '@angular-eslint/prefer-output-readonly': 'error',
+        '@angular-eslint/prefer-output-emitter-ref': 'error',
         '@angular-eslint/no-host-metadata-property': 'off',
         '@angular-eslint/prefer-host-metadata-property': 'error',
         '@angular-eslint/no-queries-metadata-property': 'error',
+        '@angular-eslint/computed-must-return': 'error',
 
         '@angular-eslint/use-lifecycle-interface': 'error',
         '@angular-eslint/use-pipe-transform-interface': 'error',
@@ -93,6 +94,8 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
         '@angular-eslint/template/no-negated-async': 'error',
         '@angular-eslint/template/no-empty-control-flow': 'error',
         '@angular-eslint/template/prefer-at-empty': 'error',
+        '@angular-eslint/template/prefer-class-binding': 'error',
+        '@angular-eslint/template/no-non-null-assertion': 'error',
 
         // some very basic a11y rules
         '@angular-eslint/template/elements-content': 'error',
