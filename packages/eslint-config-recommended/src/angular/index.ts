@@ -44,6 +44,7 @@ export function defineScAngularConfig(...configs: Parameters<typeof defineConfig
         '@angular-eslint/sort-lifecycle-methods': 'error',
         '@angular-eslint/no-lifecycle-call': 'error',
         '@angular-eslint/prefer-output-readonly': 'error',
+        '@angular-eslint/prefer-output-emitter-ref': 'error',
         '@angular-eslint/no-host-metadata-property': 'off',
         '@angular-eslint/prefer-host-metadata-property': 'error',
         '@angular-eslint/no-queries-metadata-property': 'error',
