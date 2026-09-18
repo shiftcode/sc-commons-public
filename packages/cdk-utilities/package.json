@@ -24,12 +24,12 @@
     "test:watch": "vitest --cache"
   },
   "dependencies": {
-    "@shiftcode/branch-utilities": "^6.0.0",
-    "@shiftcode/iac-utilities": "^1.0.1",
     "just-pascal-case": "^3.2.0"
   },
   "devDependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.204.0",
+    "@shiftcode/branch-utilities": "^6.0.0",
+    "@shiftcode/iac-utilities": "^1.0.1",
     "@shiftcode/lambda-utilities": "^1.0.0",
     "@shiftcode/logger": "^5.0.0",
     "@shiftcode/utilities": "^5.0.0",
@@ -42,6 +42,8 @@
     "jsurl": "^0.1.5"
   },
   "peerDependencies": {
+    "@shiftcode/branch-utilities": "^6.0.0 || ^6.0.0-pr254",
+    "@shiftcode/iac-utilities": "^1.0.1 || ^1.0.1-pr254",
     "aws-cdk-lib": "^2.3.0",
     "constructs": "^10.0.0",
     "tslib": "^2.3.0"
