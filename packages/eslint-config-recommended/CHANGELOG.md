@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@7.0.0...@shiftcode/eslint-config-recommended@8.0.0) (2026-09-21)
+
+- feat(angular-eslint)!: new angular-eslint rules ([a367350](https://github.com/shiftcode/sc-commons-public/commit/a367350ffac9ac99a36bdf06744320325f520876))
+
+### Features
+
+- **angular-eslint:** add prefer-output-emitter-ref rule ([989ec3f](https://github.com/shiftcode/sc-commons-public/commit/989ec3f659ed3c3e9cfa06e8ccfb2194558aa892))
+- **eslint:** add object-shorthand rule ([093482f](https://github.com/shiftcode/sc-commons-public/commit/093482f4b92571fce929ec0d54dd66f204cc082b))
+
+### BREAKING CHANGES
+
+- - now requires angular-eslint@^21.3
+
+* new rules enabled:
+  - @angular-eslint/computed-must-return
+  - @angular-eslint/template/prefer-class-binding
+  - @angular-eslint/template/no-non-null-assertion
+
 # [7.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@6.1.0...@shiftcode/eslint-config-recommended@7.0.0) (2026-03-18)
 
 ### Bug Fixes

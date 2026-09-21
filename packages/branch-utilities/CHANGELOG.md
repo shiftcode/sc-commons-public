@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@6.0.0...@shiftcode/branch-utilities@6.1.0) (2026-09-21)
+
+### Bug Fixes
+
+- **parseBranchName:** regex to not throw as expected ([c294f07](https://github.com/shiftcode/sc-commons-public/commit/c294f07d72fa4104995c048d6d4e2f19d28a7873))
+
+### Features
+
+- **parseBranchName:** allow to omit the `#` sign in branch names ([cd60a9d](https://github.com/shiftcode/sc-commons-public/commit/cd60a9d67260e87130bf720ab0ebd57a8549022f))
+
 # [6.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@5.1.1...@shiftcode/branch-utilities@6.0.0) (2026-03-18)
 
 ### Build System
