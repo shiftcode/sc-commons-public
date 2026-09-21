@@ -36,11 +36,17 @@ export interface AddMetricAlarmProps {
   /** construct id, also used to derive the alarm name if `alarmName` is not given */
   id: string
   metric: IMetric
+  /** @default `${stackName}-${id}` */
   alarmName?: string
+  /** @default `Alarm for ${alarmName}` */
   description?: string
+  /** @default 1 */
   threshold?: number
+  /** @default ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD */
   comparisonOperator?: ComparisonOperator
+  /** @default 1 */
   evaluationPeriods?: number
+  /** @default TreatMissingData.NOT_BREACHING */
   treatMissingData?: TreatMissingData
   /** set if the alarmed resource has an associated log group, for correlation in notifications */
   logGroupName?: string
