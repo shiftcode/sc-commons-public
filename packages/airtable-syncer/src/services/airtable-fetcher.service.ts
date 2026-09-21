@@ -134,7 +134,7 @@ export class AirtableFetcher {
     }
 
     /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-    const cachedRecordsMap: Map<string, AirtableIdRecord> = <any>this.cache.get(map.tableName)!.items
+    const cachedRecordsMap: Map<string, AirtableIdRecord> = this.cache.get(map.tableName)!.items
 
     if (ids && Array.isArray(ids) && ids.length) {
       // filter only required ids

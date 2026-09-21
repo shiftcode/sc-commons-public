@@ -17,7 +17,7 @@ export const prefixBuiltinModuleImportRule = createScRule({
     const testAndReportModulePathOnNode = (node: TSESTree.Node, path: string) => {
       if (builtinModules.includes(path)) {
         context.report({
-          node: node,
+          node,
           messageId: PrefixNodeModuleImportMessageIds.USE_NODE_PREFIX_FOR_BUILTIN_MODULE,
           data: { path },
           fix: (fixer) => fixer.replaceText(node, `'node:${path}'`),

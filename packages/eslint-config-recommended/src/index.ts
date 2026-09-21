@@ -57,6 +57,7 @@ export function defineScTsConfig(...configs: Parameters<typeof defineConfig>): R
         'simple-import-sort/exports': 'error',
         'no-console': 'error',
         'max-classes-per-file': 'error',
+        'object-shorthand': 'error',
         curly: 'error',
         eqeqeq: 'error',
       },
