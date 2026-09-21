@@ -153,7 +153,7 @@ export function parseBranchName(branchName: string): { branchId: number; branchN
     }
   } else {
     throw new Error(
-      `given branch name ${branchName} does not match our convention #<one or more digit>-<branch-name-with-kebap-case> (# is optional, feat/123-foo-bar is also valid)`,
+      `given branch name ${branchName} does not match our conventions: [<lowercase-prefix>/][#]<digits>-<name> or copilot/<name>-<digits>`,
     )
   }
 }
