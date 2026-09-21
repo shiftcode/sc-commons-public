@@ -16,6 +16,7 @@
       "@shiftcode/logger/node": ["${configDir}/../logger/src/node/public-api.ts"],
       "@shiftcode/inversify-logger": ["${configDir}/../inversify-logger/src/index.ts"],
       "@shiftcode/branch-utilities": ["${configDir}/../branch-utilities/src/index.ts"],
+      "@shiftcode/iac-utilities": ["${configDir}/../iac-utilities/src/index.ts"],
       "@shiftcode/lambda-utilities/s3": ["${configDir}/../lambda-utilities/src/s3/index.ts"],
       "@shiftcode/lambda-utilities/ssm": ["${configDir}/../lambda-utilities/src/ssm/index.ts"],
       "@shiftcode/lambda-utilities": ["${configDir}/../lambda-utilities/src/index.ts"]
