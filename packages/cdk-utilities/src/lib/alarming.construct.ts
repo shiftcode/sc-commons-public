@@ -7,7 +7,15 @@ import { Alarm, ComparisonOperator, IMetric, TreatMissingData } from 'aws-cdk-li
 import { SnsAction } from 'aws-cdk-lib/aws-cloudwatch-actions'
 import { Secret } from 'aws-cdk-lib/aws-ecs'
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam'
-import { Code, Function as LambdaFunction, IFunction, Runtime } from 'aws-cdk-lib/aws-lambda'
+import {
+  Code,
+  Function as LambdaFunction,
+  IFunction,
+  ParamsAndSecretsLayerVersion,
+  ParamsAndSecretsLogLevel,
+  ParamsAndSecretsVersions,
+  Runtime,
+} from 'aws-cdk-lib/aws-lambda'
 import { ILogGroup } from 'aws-cdk-lib/aws-logs'
 import { LambdaDestination } from 'aws-cdk-lib/aws-logs-destinations'
 import { Topic } from 'aws-cdk-lib/aws-sns'
@@ -248,6 +256,11 @@ export class AlarmingConstruct extends Construct {
       handler: `${opts.bundleInfo.baseFilename}.${opts.bundleInfo.handlerName}`,
       functionName,
       runtime: Runtime.NODEJS_24_X,
+      // the bundled lambda code uses the params-and-secrets layer to fetch the Slack webhook URL from SSM
+      paramsAndSecrets: ParamsAndSecretsLayerVersion.fromVersion(ParamsAndSecretsVersions.V1_0_103, {
+        logLevel: ParamsAndSecretsLogLevel.INFO,
+        cacheSize: 500,
+      }),
       environment: {
         SLACK_WEBHOOK_ENDPOINT_SSM_PARAM_ARN: opts.slackWebhookApiSecret.arn,
       },
