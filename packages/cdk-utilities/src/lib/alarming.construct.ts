@@ -6,7 +6,7 @@ import { Duration, Stack } from 'aws-cdk-lib'
 import { Alarm, ComparisonOperator, IMetric, TreatMissingData } from 'aws-cdk-lib/aws-cloudwatch'
 import { SnsAction } from 'aws-cdk-lib/aws-cloudwatch-actions'
 import { Secret } from 'aws-cdk-lib/aws-ecs'
-import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam'
+import { Effect, PolicyStatement, ServicePrincipal } from 'aws-cdk-lib/aws-iam'
 import {
   Code,
   Function as LambdaFunction,
@@ -67,6 +67,17 @@ export interface AddLogErrorSubscriptionProps {
   filterPattern?: string
   /** optional explicit CloudWatch Logs subscription filter name */
   filterName?: string
+  /**
+   * Whether to add a dedicated resource-policy statement (scoped to this specific log group) on
+   * `publishErrorLogsToSlackFunction`, granting CloudWatch Logs permission to invoke it.
+   *
+   * Lambda resource policies are capped at 20 KB, so a dedicated statement per log group doesn't
+   * scale if many log groups (e.g. across concurrent PR/review-app stacks) subscribe to the same
+   * shared lambda - see `AlarmingConstructProps.grantCloudWatchLogsInvokeBroadly`, which, if
+   * enabled, already grants this broadly and makes per-log-group statements unnecessary.
+   *
+   * @default `!grantCloudWatchLogsInvokeBroadly` (i.e. only add a statement if no broad grant exists)
+   */
   addPermissions?: boolean
 }
 
@@ -84,6 +95,20 @@ export interface AlarmingConstructProps {
   fallbackAlarmEmail: string
   /** @default `${stackName}-AlarmTopic` */
   alarmTopicName?: string
+  /**
+   * If `true`, grants CloudWatch Logs permission to invoke `publishErrorLogsToSlackFunction` once,
+   * broadly (scoped to this account via a `sourceAccount` condition, not to any specific log
+   * group), instead of relying on `addLogErrorSubscription` to add a dedicated resource-policy
+   * statement per log group (CDK's default `LambdaDestination` behavior).
+   *
+   * A dedicated per-log-group statement doesn't scale: Lambda resource policies are capped at
+   * 20 KB, which is easily exceeded once many log groups - e.g. across several concurrently
+   * running PR/review-app stacks that all subscribe to the same shared lambda - each add their
+   * own statement. Enabling this collapses all of them into a single statement.
+   *
+   * @default true
+   */
+  grantCloudWatchLogsInvokeBroadly?: boolean
 }
 
 /**
@@ -107,11 +132,13 @@ export class AlarmingConstruct extends Construct {
   readonly publishErrorLogsToSlackFunction: LambdaFunction
 
   private readonly fallbackAlarmEmail: string
+  private readonly grantCloudWatchLogsInvokeBroadly: boolean
 
   constructor(scope: Construct, id: string, props: AlarmingConstructProps) {
     super(scope, id)
 
     this.fallbackAlarmEmail = props.fallbackAlarmEmail
+    this.grantCloudWatchLogsInvokeBroadly = props.grantCloudWatchLogsInvokeBroadly ?? true
 
     this.alarmTopic = new Topic(this, 'AlarmTopic', {
       displayName: 'Alarm Topic',
@@ -126,6 +153,15 @@ export class AlarmingConstruct extends Construct {
 
     this.publishAlarmToSlackFunction = this.createPublishAlarmToSlackLambda(slackWebhookApiSecret)
     this.publishErrorLogsToSlackFunction = this.createPublishErrorLogsToSlackLambda(slackWebhookApiSecret)
+
+    if (this.grantCloudWatchLogsInvokeBroadly) {
+      // single, broadly-scoped grant covering every log group in this account, instead of a
+      // dedicated resource-policy statement per log group (see `addLogErrorSubscription`)
+      this.publishErrorLogsToSlackFunction.addPermission('AllowCloudWatchLogsInvoke', {
+        principal: new ServicePrincipal('logs.amazonaws.com'),
+        sourceAccount: Stack.of(this).account,
+      })
+    }
   }
 
   /**
@@ -178,7 +214,7 @@ export class AlarmingConstruct extends Construct {
 
     props.logGroup.addSubscriptionFilter(props.id, {
       destination: new LambdaDestination(destination, {
-        addPermissions: props.addPermissions ?? true,
+        addPermissions: props.addPermissions ?? !this.grantCloudWatchLogsInvokeBroadly,
       }),
       filterPattern: {
         logPatternString: props.filterPattern ?? '{ $.level = "ERROR" }',
