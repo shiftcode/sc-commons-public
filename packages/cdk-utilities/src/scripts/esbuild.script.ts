@@ -11,6 +11,7 @@ function createConfig(handler: LambdaFunctionName): BuildOptions {
     platform: 'node',
     target: 'es2022',
     format: 'esm',
+    mainFields: ['module', 'main'],
     // inline all dependencies
     bundle: true,
     entryPoints: [bundleInfo.entryPoint],
