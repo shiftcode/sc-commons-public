@@ -1,3 +1,4 @@
+export * from './lib/alarming.construct.js'
 export * from './lib/basic-auth-cf-function.construct.js'
 export * from './lib/cloud-watch-api.construct.js'
 export * from './lib/cloud-watch-log-transport.construct.js'
