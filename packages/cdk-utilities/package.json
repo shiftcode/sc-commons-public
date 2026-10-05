@@ -36,7 +36,7 @@
     "@slack/types": "^2.11.0",
     "@types/aws-lambda": "^8.10.89",
     "@types/jsurl": "^0.1.2",
-    "aws-cdk-lib": "^2.3.0",
+    "aws-cdk-lib": "^2.260.0",
     "constructs": "^10.0.0",
     "esbuild": "^0.27.2",
     "jsurl": "^0.1.5"
@@ -44,7 +44,7 @@
   "peerDependencies": {
     "@shiftcode/branch-utilities": "^6.0.0 || ^6.0.0-pr254",
     "@shiftcode/iac-utilities": "^1.0.1 || ^1.0.1-pr254",
-    "aws-cdk-lib": "^2.3.0",
+    "aws-cdk-lib": "^2.260.0",
     "constructs": "^10.0.0",
     "tslib": "^2.3.0"
   },

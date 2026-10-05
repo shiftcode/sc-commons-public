@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -255,8 +256,24 @@ export class AlarmingConstruct extends Construct {
     }
   }
 
+  private buildLambdaFunctionName(suffix: string): string {
+    const stackName = Stack.of(this).stackName
+    const candidate = `${stackName}-${suffix}`
+
+    if (candidate.length <= 64) {
+      return candidate
+    }
+
+    const hash = createHash('sha256').update(stackName).digest('hex').slice(0, 8)
+    const reservedLength = suffix.length + hash.length + 2 // two `-` separators
+    const maxStackPrefixLength = Math.max(1, 64 - reservedLength)
+    const stackPrefix = stackName.slice(0, maxStackPrefixLength)
+
+    return `${stackPrefix}-${hash}-${suffix}`
+  }
+
   private createPublishAlarmToSlackLambda(slackWebhookApiSecret: Secret): LambdaFunction {
-    const functionName = `${Stack.of(this).stackName}-publish-alarm-to-slack-fn`
+    const functionName = this.buildLambdaFunctionName('publish-alarm-to-slack-fn')
     const lambdaFunction = this.createNotificationLambda('PublishAlarmToSlackLambda', functionName, {
       bundleInfo: handlerToBundleInfo(LambdaFunctionName.PUBLISH_ALARM_TO_SLACK, __dirname, esbuildOutDir),
       slackWebhookApiSecret,
@@ -271,7 +288,7 @@ export class AlarmingConstruct extends Construct {
   }
 
   private createPublishErrorLogsToSlackLambda(slackWebhookApiSecret: Secret): LambdaFunction {
-    const functionName = `${Stack.of(this).stackName}-publish-error-logs-to-slack-fn`
+    const functionName = this.buildLambdaFunctionName('publish-error-logs-to-slack-fn')
     const lambdaFunction = this.createNotificationLambda('PublishErrorLogsToSlackLambda', functionName, {
       bundleInfo: handlerToBundleInfo(LambdaFunctionName.PUBLISH_ERROR_LOGS_TO_SLACK, __dirname, esbuildOutDir),
       slackWebhookApiSecret,
