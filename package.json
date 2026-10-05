@@ -35,6 +35,11 @@
   },
   "engines": {
     "node": ">=24.10.2",
-    "npm": ">=11.9.0"
+    "npm": ">=11.16.0"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true,
+    "nx@23.2.1": true,
+    "@swc/core@1.15.11": true
   }
 }
