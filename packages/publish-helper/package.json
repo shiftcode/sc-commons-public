@@ -30,7 +30,7 @@
   },
   "peerDependencies": {
     "@shiftcode/branch-utilities": "^6.0.0 || ^6.0.0-pr254",
-    "lerna": "^9.0.3",
+    "lerna": "^10.0.1",
     "tslib": "^2.3.0"
   },
   "engines": {
