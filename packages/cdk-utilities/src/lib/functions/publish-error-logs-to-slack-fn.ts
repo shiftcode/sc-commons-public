@@ -53,16 +53,27 @@ async function postSlackMessage(blocks: KnownBlock[], attachments: MessageAttach
     },
   }
 
+  let response: Response
+  let responseText: string
+
   try {
-    const response = await fetch(slackWebhookEndpoint, options)
-    const responseText = await response.text()
-    logger.info(`successfully posted to slack with response code ${response.status} and responseText`, {
-      responseText,
-    })
+    response = await fetch(slackWebhookEndpoint, options)
+    responseText = await response.text()
   } catch (err) {
     logger.error('there was an error with the call to slack webhook', err)
     throw err
   }
+
+  if (!response.ok) {
+    logger.error('slack webhook returned a non-2xx response', {
+      status: response.status,
+      responseText,
+    })
+    throw new Error(`Slack webhook returned HTTP ${response.status}: ${responseText}`)
+  }
+  logger.info(`successfully posted to slack with response code ${response.status} and responseText`, {
+    responseText,
+  })
 }
 
 const gunzipPromiseWrapper = (data: Buffer) =>

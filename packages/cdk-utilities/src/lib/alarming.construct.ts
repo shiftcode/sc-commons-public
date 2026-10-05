@@ -158,7 +158,7 @@ export class AlarmingConstruct extends Construct {
       // single, broadly-scoped grant covering every log group in this account, instead of a
       // dedicated resource-policy statement per log group (see `addLogErrorSubscription`)
       this.publishErrorLogsToSlackFunction.addPermission('AllowCloudWatchLogsInvoke', {
-        principal: new ServicePrincipal('logs.amazonaws.com'),
+        principal: new ServicePrincipal(`logs.${Stack.of(this).region}.${Stack.of(this).urlSuffix}`),
         sourceAccount: Stack.of(this).account,
       })
     }

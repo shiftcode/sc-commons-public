@@ -13,6 +13,7 @@ import {
   logEventErrorConfiguration,
   logEventExcludePattern,
 } from '../utils/cloudwatch.utils.js'
+import { escapeForSlack } from '../utils/slack-messages.utils.js'
 
 const logger = simpleLogger('PublishAlarmToSlackFn')
 
@@ -67,7 +68,7 @@ export const handler: SNSHandler = async (event: SNSEvent, _: Context) => {
     attachment.author_name = errorLogs.errorType
     attachment.title = ':bookmark_tabs: CloudWatch Log events:'
     attachment.mrkdwn_in = ['text']
-    attachment.text = errorLogs.text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    attachment.text = escapeForSlack(errorLogs.text)
     attachment.actions = [
       {
         type: 'button',
