@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": "src",
     "declaration": false,
     "declarationDir": null,
     "types": ["node"]

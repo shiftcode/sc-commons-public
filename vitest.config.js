@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitest/config'
 import path from 'node:path'
-import tsconfig from './tsconfig.spec.json'
+import tsconfig from './tsconfig.spec.json' with { type: 'json' }
 
 // hacky but works.. --> the `${configDir}` variable is a TypeScript-config feature.
-// but i didnt find a way to get the tsconfig parsed with the variable resolved...
+// but i didn't find a way to get the tsconfig parsed with the variable resolved...
 
 const alias = Object.fromEntries(
   Object.entries(tsconfig.compilerOptions.paths ?? {})
