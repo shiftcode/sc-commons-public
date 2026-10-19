@@ -91,7 +91,11 @@ export const handler: SNSHandler = async (event: SNSEvent, _: Context) => {
   }
 
   try {
-    await fetch(slackWebhookEndpoint, options)
+    const response = await fetch(slackWebhookEndpoint, options)
+    if (!response.ok) {
+      const responseText = await response.text()
+      throw new Error(`Slack webhook returned HTTP ${response.status}: ${responseText}`)
+    }
     logger.info('successfully posted to slack')
   } catch (err) {
     logger.error('there was an error with the call to slack webhook', err)
