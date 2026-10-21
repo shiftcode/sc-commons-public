@@ -139,8 +139,8 @@ export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent,
       const editorString = [
         'fields @timestamp, level, message, data, logger',
         `| filter @requestId = '${parsedLambdaLog?.requestId}'`,
-        'sort @timestamp desc',
-        'limit 100',
+        '| sort @timestamp desc',
+        '| limit 100',
       ].join('\n')
 
       const logInsightsQueryDetails: LogInsightsQueryDetails = {
