@@ -200,4 +200,17 @@ describe('publish-error-logs-to-slack-fn handler', () => {
       expect(url).not.toContain('undefined')
     })
   })
+  test('truncates very long messages below the slack section limit', async () => {
+    await handler(
+      cloudWatchLogsEvent('/aws/lambda/my-fn', 'stream', [
+        { message: JSON.stringify({ level: 'ERROR', message: '<&>'.repeat(2000) }) },
+      ]),
+      {} as Context,
+      () => undefined,
+    )
+
+    const text = blocksFromFetchCall(0).find((b) => b.type === 'section')?.text?.text as string
+    expect(text.length).toBeLessThan(3000)
+    expect(text).toContain('(truncated)')
+  })
 })

@@ -22,7 +22,10 @@ import {
   LogInsightsQueryDetails,
   parsePlaintextLambdaLogMessage,
 } from '../utils/cloudwatch.utils.js'
-import { escapeForSlack, replaceTabs } from '../utils/slack-messages.utils.js'
+import { escapeForSlack, escapeForSlackTruncated, replaceTabs } from '../utils/slack-messages.utils.js'
+
+// slack limits section text to 3000 chars, leaving room for the heading; full message is reachable via the log links
+const MAX_MESSAGE_LENGTH = 2900
 
 const logger = simpleLogger('PublishErrorLogToSlackFn')
 
@@ -185,7 +188,7 @@ export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent,
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `*Message*\n${escapeForSlack(messageToString(parsedMessage.message))}`,
+            text: `*Message*\n${escapeForSlackTruncated(messageToString(parsedMessage.message), MAX_MESSAGE_LENGTH)}`,
           },
         } satisfies SectionBlock,
         {
