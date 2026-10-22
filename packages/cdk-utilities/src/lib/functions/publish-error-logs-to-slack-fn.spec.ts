@@ -82,6 +82,19 @@ describe('publish-error-logs-to-slack-fn handler', () => {
     expect(actionsBlock?.elements?.[1].url).toContain('group=/aws/lambda/my-fn;stream=2024/01/01/[$LATEST]abc')
   })
 
+  test('renders structured object messages as JSON text', async () => {
+    await handler(
+      cloudWatchLogsEvent('/aws/lambda/my-fn', 'stream', [
+        { message: JSON.stringify({ level: 'ERROR', message: { orderId: 42, reason: 'timeout' } }) },
+      ]),
+      {} as Context,
+      () => undefined,
+    )
+
+    const messageSection = blocksFromFetchCall(0).find((b) => b.type === 'section')
+    expect(messageSection?.text?.text).toContain('"orderId": 42')
+  })
+
   test('escapes slack markup characters in the message', async () => {
     await handler(
       cloudWatchLogsEvent('/aws/lambda/my-fn', 'stream', [

@@ -92,9 +92,17 @@ const gunzipPromiseWrapper = (data: Buffer) =>
  * `message` from `JSON.parse` failing being handled by the caller).
  */
 interface ParsedLogMessage {
-  message?: string
+  message?: unknown
   logger?: string
   error?: { message?: string; stack?: string }
+}
+
+/** Lambda JSON logging (and `logJsObject`) may nest a structured object under `message`. */
+function messageToString(message: unknown): string {
+  if (message === undefined || message === null) {
+    return ''
+  }
+  return typeof message === 'string' ? message : JSON.stringify(message, null, 2)
 }
 
 export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent, _: Context) => {
@@ -176,7 +184,7 @@ export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent,
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `*Message*\n${escapeForSlack(parsedMessage.message ?? '')}`,
+            text: `*Message*\n${escapeForSlack(messageToString(parsedMessage.message))}`,
           },
         } satisfies SectionBlock,
         {
