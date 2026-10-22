@@ -61,6 +61,8 @@ export interface AddMetricAlarmProps {
   logGroupName?: string
 }
 
+const BROAD_INVOKE_PERMISSION_ID = 'AllowCloudWatchLogsInvoke'
+
 export interface AddLogErrorSubscriptionProps {
   id: string
   logGroup: ILogGroup
@@ -158,7 +160,7 @@ export class AlarmingConstruct extends Construct {
     if (this.grantCloudWatchLogsInvokeBroadly) {
       // single, broadly-scoped grant covering every log group in this account, instead of a
       // dedicated resource-policy statement per log group (see `addLogErrorSubscription`)
-      this.publishErrorLogsToSlackFunction.addPermission('AllowCloudWatchLogsInvoke', {
+      this.publishErrorLogsToSlackFunction.addPermission(BROAD_INVOKE_PERMISSION_ID, {
         principal: new ServicePrincipal(`logs.${Stack.of(this).region}.${Stack.of(this).urlSuffix}`),
         sourceAccount: Stack.of(this).account,
       })
@@ -213,15 +215,22 @@ export class AlarmingConstruct extends Construct {
       sameEnvironment: true,
     })
 
-    props.logGroup.addSubscriptionFilter(props.id, {
-      destination: new LambdaDestination(destination, {
-        addPermissions: props.addPermissions ?? !this.grantCloudWatchLogsInvokeBroadly,
-      }),
+    const addPermissions = props.addPermissions ?? !this.grantCloudWatchLogsInvokeBroadly
+    const subscriptionFilter = props.logGroup.addSubscriptionFilter(props.id, {
+      destination: new LambdaDestination(destination, { addPermissions }),
       filterPattern: {
         logPatternString: props.filterPattern ?? '{ $.level = "ERROR" }',
       },
       filterName: props.filterName ?? `Error log subscription filter for ${props.logGroup.logGroupName}`,
     })
+
+    if (!addPermissions && this.grantCloudWatchLogsInvokeBroadly) {
+      // LambdaDestination only adds this dependency for its own permission: without it CloudFormation may create
+      // the subscription before the broad invoke permission, which CloudWatch Logs rejects
+      subscriptionFilter.node.addDependency(
+        this.publishErrorLogsToSlackFunction.permissionsNode.findChild(BROAD_INVOKE_PERMISSION_ID),
+      )
+    }
   }
 
   /**
