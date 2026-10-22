@@ -182,4 +182,22 @@ describe('publish-error-logs-to-slack-fn handler', () => {
     const loggerElement = contextBlocks.flatMap((b) => b.elements ?? []).find((e) => e.text === 'MyService')
     expect(loggerElement).toBeDefined()
   })
+  describe('log insights link', () => {
+    const insightsUrl = async (message: string) => {
+      await handler(cloudWatchLogsEvent('/aws/lambda/my-fn', 'stream', [{ message }]), {} as Context, () => undefined)
+      return blocksFromFetchCall(0).find((b) => b.type === 'actions')?.elements?.[0].url as string
+    }
+    const structured = JSON.stringify({ level: 'ERROR', message: 'something failed' })
+
+    test('filters by request id for plaintext lambda logs', async () => {
+      const url = await insightsUrl(`2024-01-01T00:00:00.000Z\treq-id-123\tERROR\t${structured}`)
+      expect(url).toContain('req-id-123')
+    })
+
+    test('omits the request id filter if no request id is available', async () => {
+      const url = await insightsUrl(structured)
+      expect(url).not.toContain('requestId')
+      expect(url).not.toContain('undefined')
+    })
+  })
 })
