@@ -111,6 +111,7 @@ describe('publish-alarm-to-slack-fn handler', () => {
     expect(cloudWatchLogsSendMock).toHaveBeenCalled()
     const attachment = attachmentFromFetchCall(0)
     expect(attachment.text).toContain('Task timed out after 3.00 seconds')
+    expect(attachment.text).toContain('2023-11-14T22:13:20.001Z')
     expect(attachment.author_name).toBe(':alarm_clock: Timeout error')
     expect(attachment.actions?.[0].url).toContain(
       'group=/aws/lambda/my-fn;stream=stream;reftime=1700000000001;refid=evt-2',

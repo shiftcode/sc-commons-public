@@ -164,7 +164,7 @@ async function fetchCloudWatchErrors(message: CustomCloudWatchAlarmMessage) {
       : ''
     const text = errorLogs
       .map((fle) => {
-        const eventTime = `${new Date().setTime(fle.timestamp || 0)}`
+        const eventTime = new Date(fle.timestamp ?? 0).toISOString()
         const eventMessage = fle.message
           ? `${fle.message.replace(logEventExcludePattern, '').trim()}`
           : `${fle.message}`
