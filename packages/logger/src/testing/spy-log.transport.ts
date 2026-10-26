@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { vi } from 'vitest'
+import { Mock, vi } from 'vitest'
 
 import { LogLevel } from '../model/log-level.enum.js'
 import { LogTransport } from '../model/log-transport.js'
 
 export class SpyLogTransport extends LogTransport {
-  private logMock = vi.fn()
+  private logMock: Mock<LogTransport['log']> = vi.fn()
 
   constructor(logLevel = LogLevel.INFO) {
     super(logLevel)
@@ -17,7 +17,7 @@ export class SpyLogTransport extends LogTransport {
     }
   }
 
-  get mock() {
+  get mock(): Mock<LogTransport['log']> {
     return this.logMock
   }
 

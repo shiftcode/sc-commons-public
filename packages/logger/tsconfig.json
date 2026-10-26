@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": "src",
     "target": "ES2022",
-    "lib": ["ES2022", "ES2023.Array"]
+    "lib": ["ES2022", "ES2023.Array"],
+    "types": ["node"]
   },
   "include": ["src/**/*.ts"]
 }

@@ -1,10 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "declaration": false,
     "declarationDir": null,
     "noEmit": true,
+    "rootDir": "${configDir}/../..",
     "types": ["node"],
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,

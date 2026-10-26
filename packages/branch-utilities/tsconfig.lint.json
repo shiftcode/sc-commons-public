@@ -1,5 +1,4 @@
 {
   "extends": "../../tsconfig.lint.json",
-  "compilerOptions": { "baseUrl": "." },
   "include": ["**/*.ts"]
 }
