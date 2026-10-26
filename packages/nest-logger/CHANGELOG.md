@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Fnest-logger%401.0.1...%40shiftcode%2Fnest-logger%401.0.2) (2026-10-26)
+
+**Note:** Version bump only for package @shiftcode/nest-logger
+
 ## [1.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/nest-logger@1.0.0...@shiftcode/nest-logger@1.0.1) (2026-03-24)
 
 ### Bug Fixes

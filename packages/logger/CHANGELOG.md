@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Flogger%405.0.0...%40shiftcode%2Flogger%405.1.0) (2026-10-26)
+
+### Features
+
+- **testing:** properly type mock of SpyLogTransport ([ee99d55](https://github.com/shiftcode/sc-commons-public/commit/ee99d55a214d659de874f761e841e0903d048b60))
+
 # [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/logger@4.0.0...@shiftcode/logger@5.0.0) (2026-03-18)
 
 ### Build System

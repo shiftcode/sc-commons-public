@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.1](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Fbranch-utilities%406.1.0...%40shiftcode%2Fbranch-utilities%406.1.1) (2026-10-26)
+
+**Note:** Version bump only for package @shiftcode/branch-utilities
+
 # [6.1.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/branch-utilities@6.0.0...@shiftcode/branch-utilities@6.1.0) (2026-09-21)
 
 ### Bug Fixes

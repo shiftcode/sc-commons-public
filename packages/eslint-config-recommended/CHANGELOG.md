@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Feslint-config-recommended%408.0.0...%40shiftcode%2Feslint-config-recommended%408.0.1) (2026-10-26)
+
+**Note:** Version bump only for package @shiftcode/eslint-config-recommended
+
 # [8.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/eslint-config-recommended@7.0.0...@shiftcode/eslint-config-recommended@8.0.0) (2026-09-21)
 
 - feat(angular-eslint)!: new angular-eslint rules ([a367350](https://github.com/shiftcode/sc-commons-public/commit/a367350ffac9ac99a36bdf06744320325f520876))

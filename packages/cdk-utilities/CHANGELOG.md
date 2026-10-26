@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Fcdk-utilities%401.0.0...%40shiftcode%2Fcdk-utilities%401.0.1) (2026-10-26)
+
+**Note:** Version bump only for package @shiftcode/cdk-utilities
+
 # 1.0.0 (2026-03-18)
 
 ### Build System
