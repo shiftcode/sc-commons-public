@@ -19,22 +19,29 @@
     "test:ci": "lerna run test:ci"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.1",
-    "@commitlint/config-conventional": "^20.4.1",
-    "@commitlint/prompt-cli": "^20.4.1",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@commitlint/prompt-cli": "^21.2.3",
+    "@swc/core": "^1.15.11",
     "@types/node": "^24.12.0",
     "eslint": "^9.36.0",
     "husky": "^9.0.11",
-    "lerna": "^9.0.3",
-    "lint-staged": "^15.2.7",
+    "lerna": "^10.0.1",
+    "lint-staged": "^17.6.0",
     "prettier": "^3.3.2",
-    "sort-package-json": "^2.10.0",
+    "sort-package-json": "^4.0.0",
     "tslib": "^2.3.0",
-    "typescript": "^5.5.3",
-    "vitest": "^4.0.18"
+    "typescript": "^6.0.0",
+    "unplugin-swc": "^1.5.9",
+    "vitest": "^5.0.3"
   },
   "engines": {
     "node": ">=24.10.2",
-    "npm": ">=11.9.0"
+    "npm": ">=11.16.0"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true,
+    "nx@23.2.1": true,
+    "@swc/core@1.15.11": true
   }
 }

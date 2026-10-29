@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Fpublish-helper%406.0.1...%40shiftcode%2Fpublish-helper%407.0.0) (2026-10-26)
+
+- build(dependencies)!: require lerna@10 ([a89bd37](https://github.com/shiftcode/sc-commons-public/commit/a89bd374bce0e0b7ef6153b4dc6f8f190b73abdb))
+
+### BREAKING CHANGES
+
+- - require lerna@^10.0.1
+
+## [6.0.1](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@6.0.0...@shiftcode/publish-helper@6.0.1) (2026-09-21)
+
+**Note:** Version bump only for package @shiftcode/publish-helper
+
 # [6.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/publish-helper@5.0.0...@shiftcode/publish-helper@6.0.0) (2026-03-18)
 
 ### Bug Fixes

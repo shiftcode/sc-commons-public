@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.lint.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },

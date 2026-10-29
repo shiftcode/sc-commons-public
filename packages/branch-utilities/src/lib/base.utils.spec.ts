@@ -15,13 +15,13 @@ describe('base utils', () => {
         SC_OVERRIDE_BRANCH_NAME: undefined,
         SC_OVERRIDE_IS_PR: undefined,
       }
-      expect(getBranchInfo(env, 'master')).toEqual(<BranchInfo>{
+      expect(getBranchInfo(env, 'master')).toEqual({
         stage: 'master',
         isPr: false,
         isProd: true,
         name: 'master',
         branchName: 'master',
-      })
+      } satisfies BranchInfo)
     })
 
     test('works locally when not master', () => {
@@ -53,9 +53,9 @@ describe('base utils', () => {
       const env: Partial<GithubActionEnv & CustomGitHubContext> = {
         GITHUB_ACTIONS: 'true',
         GITHUB_EVENT_NAME: 'push',
-        GITHUB_CONTEXT: JSON.stringify(<Partial<GitHubContext>>{
+        GITHUB_CONTEXT: JSON.stringify({
           ref: 'refs/heads/master',
-        }),
+        } satisfies Partial<GitHubContext>),
       }
       expect(getBranchInfo(env)).toEqual({
         branchName: 'master',
@@ -72,13 +72,13 @@ describe('base utils', () => {
         SC_OVERRIDE_BRANCH_NAME: '#1313-on-branch-to-override-them-all',
         SC_OVERRIDE_IS_PR: 'true',
       }
-      expect(getBranchInfo(env, 'master')).toEqual(<BranchInfo>{
+      expect(getBranchInfo(env, 'master')).toEqual({
         stage: 'pr1313',
         isPr: true,
         isProd: false,
         name: 'on-branch-to-override-them-all',
         branchName: '#1313-on-branch-to-override-them-all',
-      })
+      } satisfies BranchInfo)
     })
   })
 
@@ -94,6 +94,16 @@ describe('base utils', () => {
 
       expect(parseBranchName('#72- whatever').branchId).toBe(72)
       expect(parseBranchName('feature/#72-ok').branchId).toBe(72)
+      expect(parseBranchName('1-foobar')).toEqual({ branchId: 1, branchName: 'foobar' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
+      expect(parseBranchName('feat/42-foo-bar-baz')).toEqual({
+        branchId: 42,
+        branchName: 'foo-bar-baz',
+      } satisfies ReturnType<typeof parseBranchName>)
+      expect(parseBranchName('007-oh-james')).toEqual({ branchId: 7, branchName: 'oh-james' } satisfies ReturnType<
+        typeof parseBranchName
+      >)
     })
 
     test('works for github copilot created branches', () => {
@@ -107,8 +117,10 @@ describe('base utils', () => {
 
     test('throws when invalid pattern', () => {
       expect(() => parseBranchName('whrjwe')).toThrow()
-      expect(() => parseBranchName('copilot/123-fix')).toThrow()
       expect(() => parseBranchName('feat/copilot/fix-123')).toThrow()
+      expect(() => parseBranchName('/42-foo')).toThrow()
+      expect(() => parseBranchName('fix-7-issues')).toThrow()
+      expect(() => parseBranchName('fix7-issues')).toThrow()
     })
   })
 

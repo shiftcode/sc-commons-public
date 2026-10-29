@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/shiftcode/sc-commons-public/compare/%40shiftcode%2Futilities%405.0.0...%40shiftcode%2Futilities%405.0.1) (2026-10-26)
+
+**Note:** Version bump only for package @shiftcode/utilities
+
 # [5.0.0](https://github.com/shiftcode/sc-commons-public/compare/@shiftcode/utilities@4.3.1...@shiftcode/utilities@5.0.0) (2026-03-18)
 
 ### Build System

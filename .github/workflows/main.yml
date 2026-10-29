@@ -34,10 +34,10 @@ jobs:
     if: needs.checkExecution.outputs.shouldExecute == 'true'
     strategy:
       matrix:
-        # Test with Node.js 24 and v25
+        # Test with Node.js 24 and v26
         node:
           - 24
-          - 25
+          - 26
     name: Node.js v${{ matrix.node }}
     steps:
       # checkout branch
