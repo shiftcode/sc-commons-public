@@ -187,7 +187,7 @@ describe('publish-error-logs-to-slack-fn handler', () => {
       await handler(cloudWatchLogsEvent('/aws/lambda/my-fn', 'stream', [{ message }]), {} as Context, () => undefined)
       return blocksFromFetchCall(0).find((b) => b.type === 'actions')?.elements?.[0].url as string
     }
-    const structured = JSON.stringify({ level: 'ERROR', message: 'something failed' })
+    const structured = JSON.stringify({ level: 'ERROR', message: 'something failed', logger: 'MyLogger' })
 
     test('filters by request id for plaintext lambda logs', async () => {
       const url = await insightsUrl(`2024-01-01T00:00:00.000Z\treq-id-123\tERROR\t${structured}`)
