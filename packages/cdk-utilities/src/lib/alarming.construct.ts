@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { BundleInfo, handlerToBundleInfo } from '@shiftcode/iac-utilities'
-import { Duration, Stack } from 'aws-cdk-lib'
+import { ArnFormat, Duration, Stack } from 'aws-cdk-lib'
 import { Alarm, ComparisonOperator, IMetric, TreatMissingData } from 'aws-cdk-lib/aws-cloudwatch'
 import { SnsAction } from 'aws-cdk-lib/aws-cloudwatch-actions'
 import { Secret } from 'aws-cdk-lib/aws-ecs'
@@ -136,6 +136,8 @@ export class AlarmingConstruct extends Construct {
 
   private readonly fallbackAlarmEmail: string
   private readonly grantCloudWatchLogsInvokeBroadly: boolean
+  private readonly alarmTopicArn: string
+  private readonly publishErrorLogsToSlackFunctionArn: string
 
   constructor(scope: Construct, id: string, props: AlarmingConstructProps) {
     super(scope, id)
@@ -143,10 +145,12 @@ export class AlarmingConstruct extends Construct {
     this.fallbackAlarmEmail = props.fallbackAlarmEmail
     this.grantCloudWatchLogsInvokeBroadly = props.grantCloudWatchLogsInvokeBroadly ?? true
 
+    const alarmTopicName = props.alarmTopicName ?? `${Stack.of(this).stackName}-AlarmTopic`
     this.alarmTopic = new Topic(this, 'AlarmTopic', {
       displayName: 'Alarm Topic',
-      topicName: props.alarmTopicName ?? `${Stack.of(this).stackName}-AlarmTopic`,
+      topicName: alarmTopicName,
     })
+    this.alarmTopicArn = Stack.of(this).formatArn({ service: 'sns', resource: alarmTopicName })
 
     const slackWebhookApiSecret = Secret.fromSsmParameter(
       StringParameter.fromSecureStringParameterAttributes(this, 'SlackWebhookEndpoint', {
@@ -155,7 +159,17 @@ export class AlarmingConstruct extends Construct {
     )
 
     this.publishAlarmToSlackFunction = this.createPublishAlarmToSlackLambda(slackWebhookApiSecret)
-    this.publishErrorLogsToSlackFunction = this.createPublishErrorLogsToSlackLambda(slackWebhookApiSecret)
+    const publishErrorLogsToSlackFunctionName = this.buildLambdaFunctionName('publish-error-logs-to-slack-fn')
+    this.publishErrorLogsToSlackFunction = this.createPublishErrorLogsToSlackLambda(
+      slackWebhookApiSecret,
+      publishErrorLogsToSlackFunctionName,
+    )
+    this.publishErrorLogsToSlackFunctionArn = Stack.of(this).formatArn({
+      service: 'lambda',
+      resource: 'function',
+      resourceName: publishErrorLogsToSlackFunctionName,
+      arnFormat: ArnFormat.COLON_RESOURCE_NAME,
+    })
 
     if (this.grantCloudWatchLogsInvokeBroadly) {
       // single, broadly-scoped grant covering every log group in this account, instead of a
@@ -191,12 +205,8 @@ export class AlarmingConstruct extends Construct {
       treatMissingData: props.treatMissingData ?? TreatMissingData.NOT_BREACHING,
     })
 
-    // import the topic by ARN (rather than referencing `this.alarmTopic` directly) to avoid
-    // CloudFormation cross-stack export/import coupling when `scope` lives in a different stack
-    // than this construct. see https://github.com/aws/aws-cdk/issues/28936
-    const topic = Topic.fromTopicAttributes(scope, `${props.id}Topic`, {
-      topicArn: this.alarmTopic.topicArn,
-    })
+    // reference the topic by ARN string to avoid a cross-stack export when `scope` is in a different stack
+    const topic = Topic.fromTopicArn(scope, `${props.id}Topic`, this.alarmTopicArn)
     alarm.addAlarmAction(new SnsAction(topic))
 
     return alarm
@@ -208,10 +218,10 @@ export class AlarmingConstruct extends Construct {
    * writing to a CloudWatch log group (Lambda, ECS/Fargate via the awslogs driver, etc.).
    */
   addLogErrorSubscription(scope: Construct, props: AddLogErrorSubscriptionProps): void {
-    // using function attributes rather than the direct reference to avoid cross-stack CFN
-    // export/import churn, see https://github.com/aws/aws-cdk/issues/28936
+    // reference the function by ARN string to avoid a cross-stack CFN export; sameEnvironment skips the
+    // cross-environment permission check
     const destination = LambdaFunction.fromFunctionAttributes(scope, `${props.id}Destination`, {
-      functionArn: this.publishErrorLogsToSlackFunction.functionArn,
+      functionArn: this.publishErrorLogsToSlackFunctionArn,
       sameEnvironment: true,
     })
 
@@ -296,8 +306,7 @@ export class AlarmingConstruct extends Construct {
     return lambdaFunction
   }
 
-  private createPublishErrorLogsToSlackLambda(slackWebhookApiSecret: Secret): LambdaFunction {
-    const functionName = this.buildLambdaFunctionName('publish-error-logs-to-slack-fn')
+  private createPublishErrorLogsToSlackLambda(slackWebhookApiSecret: Secret, functionName: string): LambdaFunction {
     const lambdaFunction = this.createNotificationLambda('PublishErrorLogsToSlackLambda', functionName, {
       bundleInfo: handlerToBundleInfo(LambdaFunctionName.PUBLISH_ERROR_LOGS_TO_SLACK, __dirname, esbuildOutDir),
       slackWebhookApiSecret,
