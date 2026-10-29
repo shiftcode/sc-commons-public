@@ -143,14 +143,18 @@ export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent,
         parsedLambdaLog ? JSON.parse(parsedLambdaLog.message) : JSON.parse(logEvent.message)
       ) as ParsedLogMessage
 
-      const logEventDate = new Date(logEvent.timestamp)
       const startDate = new Date(logEvent.timestamp - 15 * 60 * 1000)
+      // add 5 seconds to capture some of the following logs events (like lambda END / REPORT for example) as well
+      const endDate = new Date(logEvent.timestamp + 5 * 1000)
 
       // query to show all logs of the given lambda run (requestId filter)
       // the request ID is only available for plaintext Lambda logs (not for JSON format or ECS/Fargate)
       const editorString = [
-        'fields @timestamp, level, message, data, logger',
+        'fields @timestamp, coalesce(level, @type), coalesce(message, @message), logger',
         ...(parsedLambdaLog ? [`| filter @requestId = '${parsedLambdaLog.requestId}'`] : []),
+        // alternative filters than can be uncommented if needed
+        `#| filter level = 'ERROR'`,
+        `#| filter logger = '${parsedMessage.logger}'`,
         '| sort @timestamp desc',
         '| limit 100',
       ].join('\n')
@@ -159,7 +163,7 @@ export const handler: CloudWatchLogsHandler = async (event: CloudWatchLogsEvent,
         editorString,
         timeType: 'ABSOLUTE',
         start: startDate.toISOString(),
-        end: logEventDate.toISOString(),
+        end: endDate.toISOString(),
         source: [eventData.logGroup],
         tz: 'LOCAL',
         lang: 'CWLI',
