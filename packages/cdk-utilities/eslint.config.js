@@ -10,4 +10,10 @@ export default defineScTsConfig(
       'import/no-internal-modules': ['error', { allow: ['aws-cdk-lib/*'] }],
     },
   },
+  {
+    files: ['src/scripts/**/*.ts'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
 )
