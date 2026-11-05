@@ -19,7 +19,7 @@ export const logEventErrorConfiguration: Record<
     slackErrorTypeMessage: ':thermometer: Out of memory error',
   },
   missingModule: {
-    isTypeRegex: /\b(missing on module)\b/i,
+    isTypeRegex: /\b(missing on module)\b|\bCannot find (?:module|package)\b/i,
     slackErrorTypeMessage: ':hammer_and_wrench: Configuration error',
   },
   general: {
