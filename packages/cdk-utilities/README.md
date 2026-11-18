@@ -23,11 +23,13 @@ alarming.setupAlarmForLambda(this, myLambda)
 
 ### Slack app (one-time, shared by all projects)
 
-All projects post through **one** shared Slack app, `shiftcode operations`, defined in [`slack-app-manifest.yaml`](./slack-app-manifest.yaml).
-It only requests the `incoming-webhook` scope. Only create it if it does not exist yet in the `shiftcoders` workspace:
+All projects post through **one** shared Slack app, `shiftcode operations`, defined in [`slack-app-manifest.json`](./slack-app-manifest.json).
+It only requests the `incoming-webhook` scope: the bundled lambdas only POST JSON payloads (`attachments` / Block Kit
+`blocks`) to a webhook URL, so no events, slash commands, interactivity or socket mode are needed. The manifest is not
+part of the npm package (only `dist/` is published). Only create the app if it does not exist yet in the `shiftcoders` workspace:
 
 1. Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** → **From an app manifest**.
-2. Select the workspace `shiftcoders`, paste the content of `slack-app-manifest.yaml` and create the app.
+2. Select the workspace `shiftcoders`, switch to the **JSON** tab, paste the content of `slack-app-manifest.json` and create the app.
 3. Changes to the manifest are applied via the app's **App Manifest** page (edit and save).
 
 ### Per project: one webhook per operations channel
