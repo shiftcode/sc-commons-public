@@ -1,4 +1,4 @@
-# Slack app manifest for the shared shiftcode alarming Slack app used by `AlarmingConstruct`.
+# Slack app manifest for the shared `shiftcode operations` Slack app used by `AlarmingConstruct`.
 #
 # The bundled notification lambdas (`publish-alarm-to-slack-fn`, `publish-error-logs-to-slack-fn`) only POST JSON
 # payloads (`attachments` / Block Kit `blocks`) to a Slack incoming-webhook URL, so the app needs nothing but the
@@ -13,12 +13,12 @@ _metadata:
   major_version: 2
   minor_version: 1
 display_information:
-  name: shiftcode Alarms
+  name: shiftcode operations
   description: CloudWatch alarms and error logs of shiftcode projects, posted by the AlarmingConstruct of @shiftcode/cdk-utilities.
   background_color: '#1d1c1d'
 features:
   bot_user:
-    display_name: shiftcode Alarms
+    display_name: shiftcode operations
     always_online: false
 oauth_config:
   scopes:

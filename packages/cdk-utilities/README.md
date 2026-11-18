@@ -23,7 +23,7 @@ alarming.setupAlarmForLambda(this, myLambda)
 
 ### Slack app (one-time, shared by all projects)
 
-All projects post through **one** shared Slack app, defined in [`slack-app-manifest.yaml`](./slack-app-manifest.yaml).
+All projects post through **one** shared Slack app, `shiftcode operations`, defined in [`slack-app-manifest.yaml`](./slack-app-manifest.yaml).
 It only requests the `incoming-webhook` scope. Only create it if it does not exist yet in the `shiftcoders` workspace:
 
 1. Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** → **From an app manifest**.
