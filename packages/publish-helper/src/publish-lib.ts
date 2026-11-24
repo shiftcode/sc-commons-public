@@ -19,6 +19,7 @@ import { exec } from './helpers.js'
 
 interface Options {
   canary: boolean
+  createRelease: boolean
   verbose: boolean
 }
 
@@ -27,6 +28,12 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     default: false,
     description: 'use lerna canary mode instead of conventional-prerelease for PR releases',
+  })
+  .option('create-release', {
+    type: 'boolean',
+    default: false,
+    description:
+      'create a GitHub release for every published package version (main/master only, requires GH_TOKEN env var)',
   })
   .option('verbose', {
     alias: 'v',
@@ -77,11 +84,15 @@ function publish(opts: Options, env: unknown) {
 
 function publishMaster(opts: Options) {
   log('PUBLISH MASTER')
-  execLerna(
-    'version',
-    ['--conventional-commits', '--conventional-graduate', '--changelog-preset conventional-changelog-angular'],
-    opts.verbose,
-  )
+  const versionArgs = [
+    '--conventional-commits',
+    '--conventional-graduate',
+    '--changelog-preset conventional-changelog-angular',
+  ]
+  if (opts.createRelease) {
+    versionArgs.push('--create-release github')
+  }
+  execLerna('version', versionArgs, opts.verbose)
   execLerna('publish', ['from-package'], opts.verbose, null)
 }
 

@@ -15,7 +15,7 @@
     "format:ci": "prettier --check .",
     "lint:ci": "lerna run lint:ci",
     "prepare": "husky",
-    "publish-libs": "node packages/publish-helper/dist/publish-lib",
+    "publish-libs": "node packages/publish-helper/dist/publish-lib --create-release",
     "test:ci": "lerna run test:ci"
   },
   "devDependencies": {
