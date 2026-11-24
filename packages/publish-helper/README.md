@@ -14,12 +14,14 @@ and makes a commit with the updated versions.
 make sure to provide the following env vars in the GitHub workflow:
 
 - `GITHUB_CONTEXT: ${{ toJson(github) }}`
-- `GH_TOKEN: ${{ secrets.GH_TOKEN }}` (optional)
+- `GH_TOKEN: ${{ secrets.GH_TOKEN }}` (optional, required with `--create-release`)
 
 options:
 
 - `--verbose` use lerna in verbose mode
 - `--canary` use lerna canary mode instead of conventional-prerelease for PR releases
+- `--create-release` create a GitHub release for every published package version, with the generated changelog as release notes.
+  Only applies to main/master releases (not to PR prereleases). Requires `GH_TOKEN` with permission to create releases.
 
 ## Prepare Dist
 
